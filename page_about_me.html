@@ -130,6 +130,11 @@
               <a href="mailto:saulsforjustice@gmail.com">saulsforjustice at gmail.com</a>
             </p>
           </div>
+          <div class="mr-auto text-center paid_for">
+            <p>
+              <a href="page_about_me.html">Paid for by Sauls for Justice</a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -220,9 +225,9 @@ p2 {
     margin: 50px auto 0;
     height: 250px;
     width: 250px;
-    background-image: url(img/portfolio/fullsize/sharron_bio_pic.jpg);
-    background-position: -70px 0px;
-    background-size: 350px 250px;
+    background-image: url(img/portfolio/fullsize/sauls_ct_room.png);
+    background-position: -95px 0px;
+    background-size: 360px 250px;
     border-radius: 50%;
     border: 2px solid #FFF;
 }
@@ -365,87 +370,87 @@ body {
 }
 
 @keyframes op_frame1 {
-	0% {
-		opacity: 0;
-	}
-	
-	14.29% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+    
+    14.29% {
+        opacity: 1;
+    }
 
-	28.57%{
-		opacity: 0;
-	}
+    28.57%{
+        opacity: 0;
+    }
 }
 
 @keyframes op_frame2 {
-	14.29%{
-		opacity: 0;
-	}
+    14.29%{
+        opacity: 0;
+    }
 
-	28.57%{
-		opacity: 1;
-	}
+    28.57%{
+        opacity: 1;
+    }
 
-	42.86%{
-		opacity: 0;
-	}
+    42.86%{
+        opacity: 0;
+    }
 }
 
 @keyframes op_frame3 {
-	28.57%{
-		opacity: 0;
-	}
+    28.57%{
+        opacity: 0;
+    }
 
-	42.86%{
-		opacity: 1;
-	}
+    42.86%{
+        opacity: 1;
+    }
 
-	57.14%{
-		opacity: 0;
-	}
+    57.14%{
+        opacity: 0;
+    }
 }
 
 @keyframes op_frame4 {
-	42.86%{
-		opacity: 0;
-	}
-	
-	57.14%{
-		opacity: 1;
-	}
+    42.86%{
+        opacity: 0;
+    }
+    
+    57.14%{
+        opacity: 1;
+    }
 
-	71.43%{
-		opacity: 0;
-	}
+    71.43%{
+        opacity: 0;
+    }
 }
 
 @keyframes op_frame5 {
-	57.14%{
-		opacity: 0;
-	}
+    57.14%{
+        opacity: 0;
+    }
 
-	71.43%{
-		opacity: 1;
-	}
+    71.43%{
+        opacity: 1;
+    }
 
-	85.71%{
-		opacity: 0;
-	}
+    85.71%{
+        opacity: 0;
+    }
 }
 
 @keyframes op_frame6 {
-	71.43%{
-		opacity: 0;
-	}
+    71.43%{
+        opacity: 0;
+    }
 
-	85.71%{
-		opacity: 1;
-	}
+    85.71%{
+        opacity: 1;
+    }
 
-	100%{
-		opacity: 0;
-	}
+    100%{
+        opacity: 0;
+    }
 }
 
 #mainNav {
@@ -634,6 +639,865 @@ header.masthead .header-content .header-content-inner {
 .service-box p {
     margin-bottom: 0;
 }
+
+.paid_for {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 250px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0365a3;
+}
+
+.portfolio-box2 {
+    position: relative;
+    display: block;
+    max-width: 650px;
+    margin: 0 auto;
+}
+.portfolio-box2 .portfolio-box-caption {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    background: rgba(93, 128, 186, 0.9); /*rgba(240, 95, 64, .9);*/
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category,
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    padding: 0 15px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    font-size: 18px;
+}
+.portfolio-box2:hover .portfolio-box-caption {
+    opacity: 1;
+}
+
+.portfolio-box2:focus {
+    outline: 0;
+}
+@media (min-width: 768px) {
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
+        font-size: 16px;
+    }
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+        font-size: 22px;
+    }
+}
+.call-to-action {
+    padding: 50px 0;
+}
+.call-to-action h2 {
+    margin: 0 auto 20px;
+}
+.text-primary {
+    color: #0365a3 /*#0f2e60; /*#f05f40*/!important
+}
+
+.no-gutter>[class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+.btn-default {
+    color: #222;
+    border-color: #fff;
+    background-color: #fff;
+}
+.btn-default.focus,
+.btn-default:focus {
+    color: #222;
+    border-color: #bfbfbf;
+    background-color: #e6e6e6;
+}
+.btn-default:hover {
+    color: #222;
+    border-color: #e0e0e0;
+    background-color: #e6e6e6;
+}
+.btn-default.active,
+.btn-default:active,
+.open>.btn-default.dropdown-toggle {
+    color: #222;
+    border-color: #e0e0e0;
+    background-color: #e6e6e6;
+}
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:active:hover,
+.open>.btn-default.dropdown-toggle.focus,
+.open>.btn-default.dropdown-toggle:focus,
+.open>.btn-default.dropdown-toggle:hover {
+    color: #222;
+    border-color: #bfbfbf;
+    background-color: #d4d4d4;
+}
+.btn-default.active,
+.btn-default:active,
+.open>.btn-default.dropdown-toggle {
+    background-image: none;
+}
+.btn-default.disabled.focus,
+.btn-default.disabled:focus,
+.btn-default.disabled:hover,
+.btn-default[disabled].focus,
+.btn-default[disabled]:focus,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default.focus,
+fieldset[disabled] .btn-default:focus,
+fieldset[disabled] .btn-default:hover {
+    border-color: #fff;
+    background-color: #fff;
+}
+.btn-default .badge {
+    color: #fff;
+    background-color: #222;
+}
+.btn-primary {
+    color: #fff;
+    border-color: #0365a3; /*#0f2e60; /*#f05f40*/
+    background-color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+.btn-primary.focus,
+.btn-primary:focus {
+    color: #fff;
+    border-color: #0f2e60; /*#a4270d*/
+    background-color: #0f2e60; /*#eb3812*/
+}
+.btn-primary:hover {
+    color: #fff;
+    border-color: #0f2e60; /*#e13612;*/
+    background-color: #0f2e60; /*#eb3812*/
+}
+.btn-primary.active,
+.btn-primary:active,
+.open>.btn-primary.dropdown-toggle {
+    color: #fff;
+    border-color: #0f2e60; /*#e13612*/
+    background-color: #11336b; /*#eb3812*/
+}
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.btn-primary.dropdown-toggle.focus,
+.open>.btn-primary.dropdown-toggle:focus,
+.open>.btn-primary.dropdown-toggle:hover {
+    color: #fff;
+    border-color: #0f2e60; /*#a4270d;*/
+    background-color: #11336b;/*#c93110*/
+}
+.btn-primary.active,
+.btn-primary:active,
+.open>.btn-primary.dropdown-toggle {
+    background-image: none;
+}
+  .btn-primary.disabled.focus,
+  .btn-primary.disabled:focus,
+  .btn-primary.disabled:hover,
+  .btn-primary[disabled].focus,
+  .btn-primary[disabled]:focus,
+  .btn-primary[disabled]:hover,
+  fieldset[disabled] .btn-primary.focus,
+  fieldset[disabled] .btn-primary:focus,
+  fieldset[disabled] .btn-primary:hover {
+  border-color: #0365a3; /*#0f2e60; /*#f05f40*/
+  background-color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+.btn-primary .badge {
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+    background-color: #fff;
+}
+.btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 300px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.btn-xl {
+    padding: 15px 30px;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sauls for Justice of the Peace</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href= 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href= 'https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="page_donate.html">Donate</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="issues.html">On The Issues</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="experience.html">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="contact.html">Contact Me</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <header class="masthead">
+        
+    <div class="header-content">
+    <div class="header-content-inner">
+        
+    <h3 id="homeHeading">A Little About Me</h3>
+    <hr>
+   
+    <p class="bio_text">Sharron L. Sauls graduated with a Bachelor of Science Degree in Sociology from the University of
+    Wisconsin at La Crosse while competing on the Universities Women’s Track and Field Team. Sharron also
+    earned a Masters of Legal Studies from the Sandra Day O'Connor Law School at Arizona State University while raising her two young children
+    and is a certified Mediator with credentials from the Arizona State Attorney General’s Office.<br><br>
+    
+    Sharron has over 20 years of Social Service and Government experience ranging from several states such
+    as; Milwaukee Wisconsin, Tarrant County Texas, Arlington Texas, Maricopa County, the City of Chandler
+    Housing and Human Services Commission, and the City of Phoenix. Most recently, she was the Administrative
+    Assistant II for the City of Phoenix Housing Department; where she served as Landlord Liaison, Staff
+    Training Coordinator and Assistant to the Housing Manager.<br><br>
+    
+    Sharron was an experienced Landlord and Tenant Counselor for 13 years at the City of Phoenix, where
+    she served as Lead Counselor for over 5 years. Sharron was the go to for media coverage and was
+    personally requested by Media Experts such as Dave Cherry and Joe Ducey. Sharron has also provided
+    guidance to the State Legislature on Senate Bills, the City of Phoenix City Council, and Mayors Office.<br><br>
+    
+    In her spare time, she has volunteered for Girl Scouts of America, the Kyrene School Districts Parent
+    Teacher Organization, Phoenix Rescue Mission, City of Phoenix Domestic Violence Committee, Cultural
+    Diversity Committee Chair, City of Chandler Housing and Human Service Commission Board Member
+    and Cornerstone Christian Churches Men and Women Ministries.
+    </p>
+    <div class="glass_div">
+    </div>
+    
+    </div>
+    </div>
+
+    </header>
+    
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">Dedicated to Service and Securing Justice for All</h2>
+            <hr class="light">
+            <p class="text-faded">Raised in Wisconsin, Sharron Sauls relocated to Arizona nearly a decade ago and has been a resident of the Ahwatukee community along with her two children. A divorced mother of two, Sharron has achieved distinction in her professional and academic career. 
+            Sharron holds a Master’s Degree in Legal Studies from the Sandra Day O’Connor School of Law at Arizona State University and a Bachelor’s of Science Degree in Sociology from The University of Wisconsin at Lacrosse. </p>
+            
+            <div class="circle">
+            </div>
+            <br>
+            <a class="btn btn-default btn-xl js-scroll-trigger" href="issues.html">On The Issues</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
+            <hr class="primary">
+            <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fa fa-phone fa-3x sr-contact"></i>
+            <p>(480) 442-8519</p>
+          </div>
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+            <p>
+              <a href="mailto:saulsforjustice@gmail.com">saulsforjustice at gmail.com</a>
+            </p>
+          </div>
+          <div class="mr-auto text-center paid_for">
+            <p>
+              <a href="page_about_me.html">Paid for by Sauls for Justice</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+  </body>
+
+</html>
+
+
+<style>
+/*Use inline for testing, external in creative.min.css*/
+
+.vote_sauls_head {
+  margin-bottom: 20px;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif
+}
+hr {
+    max-width: 50px;
+    border-width: 3px;
+    border-color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+hr.light {
+    border-color: #fff;
+}
+
+a {
+    color: #0f2e60; /*#f05f40;*/
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s
+}
+
+a:focus,
+a:hover {
+    color: #0f2e60; /*#f05f40;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+p {
+  font-size: 16px;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  /*line-height: 1.5;*/
+  margin-bottom: 20px;
+}
+
+p2 {
+  text-indent: 5px;
+}
+
+.bg-primary {
+    background-color: #0365a3 /*#0f2e60; /*#f05f40*/ !important
+}
+.bg-dark {
+    color: #fff;
+    background-color: #222!important;
+}
+
+.circle {
+    margin: 50px auto 0;
+    height: 250px;
+    width: 250px;
+    background-image: url(img/portfolio/fullsize/sauls_ct_room.png);
+    background-position: -95px 0px;
+    background-size: 360px 250px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+}
+
+@media (min-width: 992px) {
+    .circle {
+        margin: 20px auto 0;
+    }
+}
+
+.text-faded {
+    color: rgba(255, 255, 255, .7);
+}
+section {
+    padding: 100px 0;
+}
+.section-heading {
+    margin-top: 0;
+}
+::-moz-selection {
+    color: #fff;
+    background: #222;
+    text-shadow: none;
+}
+::selection {
+    color: #fff;
+    background: #222;
+    text-shadow: none;
+}
+
+.glass_div {
+    /*display: block;
+    /*padding-right: 0px;*/
+    box-shadow: 0px 0px 0px 0.5px #000000;
+    position: absolute;
+    text-align: center;
+    font-weight: normal;
+    /*display: table-cell /to fix height w tbl */
+    height: 105%; /* height & width needed */
+    width: 110%;
+    right: -5%;
+    /*background-color: rgba(203, 206, 211, 0.70);*/
+    /*background-color: rgba(255, 255, 211, 0.70);*/
+    background-color: rgba(0, 0, 0, 0.78);
+    /*background: transparent;*/
+    /*background-color: rgba(255, 255, 255, 0.30);*/
+    /* color: rgba(223, 108, 73, 0.3); #df6c49*/
+    /*filter: alpha(opacity=65);*/
+    /*progid:DXImageTransform.Microsoft.gradient(startColorstr=#9ADF6C49,endColorstr=#9ADF6C49); */
+    filter: progid: DXImageTransform.Microsoft.Alpha(opacity=78);
+    -moz-opacity: 0.78;
+    opacity: 0.78;
+    zoom: 1;
+    z-index: 2;
+    top: -15px;
+    margin: 0px 0px 0px 9.2%; /* t b r l */
+    border-radius: 2px;
+}
+/*
+.glass_td {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: -200px;
+}
+*/
+.glass_text_tbl {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    word-wrap: break-word;
+}
+
+.glass_text_td {
+    position: relative;    
+}
+
+.glass_div p {
+    position: relative;
+    left: 0px;
+    z-index: 3;
+}
+
+/* Responsive template 
+@media (max-width: 480px) {
+    #div {
+        top: 50%; /* IMPORTANT 
+        left: 50%; /* IMPORTANT
+        display: block;
+        position: absolute;
+        background: url(images/background.png) no-repeat center center;
+        width: 750px;
+        height: 417px;
+    }
+}
+*/
+
+.img-fluid {
+  width: 600px;
+  height: 360px;
+  display: block;
+}
+
+img::selection {
+    color: #fff;
+    background: 0 0;
+}
+img::-moz-selection {
+    color: #fff;
+    background: 0 0;
+}
+body {
+    -webkit-tap-highlight-color: #222;
+}
+
+.caption1 {
+  animation: op_frame1 30s ease-in-out 0s infinite;
+  -webkit-animation-name: op_frame1;
+  animation-name: op_frame1;
+}
+
+.caption2 {
+  animation: op_frame2 30s ease-in-out 0s infinite;
+}
+
+.caption3 {
+  animation: op_frame3 30s ease-in-out 0s infinite;
+}
+
+.caption4 {
+  animation: op_frame4 30s ease-in-out 0s infinite;
+}
+
+.caption5 {
+  animation: op_frame5 30s ease-in-out 0s infinite;
+}
+
+.caption6 {
+  animation: op_frame6 30s ease-in-out 0s infinite;
+}
+
+@keyframes op_frame1 {
+    0% {
+        opacity: 0;
+    }
+    
+    14.29% {
+        opacity: 1;
+    }
+
+    28.57%{
+        opacity: 0;
+    }
+}
+
+@keyframes op_frame2 {
+    14.29%{
+        opacity: 0;
+    }
+
+    28.57%{
+        opacity: 1;
+    }
+
+    42.86%{
+        opacity: 0;
+    }
+}
+
+@keyframes op_frame3 {
+    28.57%{
+        opacity: 0;
+    }
+
+    42.86%{
+        opacity: 1;
+    }
+
+    57.14%{
+        opacity: 0;
+    }
+}
+
+@keyframes op_frame4 {
+    42.86%{
+        opacity: 0;
+    }
+    
+    57.14%{
+        opacity: 1;
+    }
+
+    71.43%{
+        opacity: 0;
+    }
+}
+
+@keyframes op_frame5 {
+    57.14%{
+        opacity: 0;
+    }
+
+    71.43%{
+        opacity: 1;
+    }
+
+    85.71%{
+        opacity: 0;
+    }
+}
+
+@keyframes op_frame6 {
+    71.43%{
+        opacity: 0;
+    }
+
+    85.71%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+#mainNav {
+    border-color: rgba(34, 34, 34, .05);
+    background-color: #fff;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+#mainNav .navbar-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+#mainNav .navbar-brand:focus,
+#mainNav .navbar-brand:hover {
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+#mainNav .navbar-toggle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222;
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222;
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link.active,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active {
+    color: #0365a3 /*#0f2e60; /*#f05f40*/ !important;
+    background-color: transparent;
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active:hover {
+    background-color: transparent;
+}
+
+@media (min-width: 992px) {
+    #mainNav {
+        border-color: rgba(255, 255, 255, .3);
+        background-color: transparent;
+    }
+    #mainNav .navbar-brand {
+        color: rgba(255, 255, 255, .7);
+    }
+    #mainNav .navbar-brand:focus,
+    #mainNav .navbar-brand:hover {
+        color: #fff;
+    }
+    #mainNav .navbar-nav>li.nav-item>a.nav-link,
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
+        color: rgba(255, 255, 255, .7);
+    }
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
+        color: #fff;
+    }
+    #mainNav.navbar-shrink {
+        border-color: rgba(34, 34, 34, .05);
+        background-color: #fff;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+        font-size: 16px;
+        color: #0365a3; /*#0f2e60; /*#f05f40*/
+    }
+    #mainNav.navbar-shrink .navbar-brand:focus,
+    #mainNav.navbar-shrink .navbar-brand:hover {
+        color: #0365a3; /*#0f2e60; /*#f05f40*/
+    }
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link,
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus {
+        color: #222;
+    }
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus:hover,
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:hover {
+        color: #0365a3; /*#0f2e60; /*#f05f40*/
+    }
+}
+
+header.masthead {
+    position: relative;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-image: url(img/portfolio/thumbnails/ahwatuk_sunset_3000x1686.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+header.masthead .header-content {
+    position: relative;
+    width: 100%;
+    padding: 150px 10px 100px;
+    text-align: center;
+}
+header.masthead .header-content .header-content-inner h1 {
+    position: relative;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    z-index: 3;
+}
+header.masthead .header-content .header-content-inner hr {
+    position: relative;
+    margin: 30px auto;
+    z-index: 3;
+}
+header.masthead .header-content .header-content-inner {
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+    max-width: 90%;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    color: rgba(255, 255, 255, 1);
+    z-index: 3;
+}
+
+@media (min-width: 50px /*will disapear if width < Ypx*/) {
+    
+    #homeHeading {
+        position: relative;
+        z-index: 3;
+    }
+    .bio_text {
+        position: relative;
+        font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+        z-index: 3;
+        height: 65vh; /*VIEWPORT UNITS VERY IMPORTANT*/
+        width: auto;
+        overflow-y: auto;
+        margin-bottom: -25px;
+        text-shadow: -0.5px -0.5px 0px rgba(255,255,255,0.3), 
+            0.5px 0.5px 0px rgba(0,0,0,0.3);
+    }
+    header.masthead {
+        height: 100%;
+        min-height: 600px;
+    }
+    header.masthead .header-content {
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        padding: 0 50px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    header.masthead .header-content .header-content-inner {
+        max-width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    header.masthead .header-content .header-content-inner h1 {
+        font-size: 50px;
+    }
+}
+
+
+.service-box {
+    max-width: 400px;
+    margin: 50px auto 0;
+}
+@media (min-width: 992px) {
+    .service-box {
+        margin: 20px auto 0;
+    }
+}
+.service-box p {
+    margin-bottom: 0;
+}
+
+.paid_for {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 250px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0365a3;
+}
+
 .portfolio-box2 {
     position: relative;
     display: block;
