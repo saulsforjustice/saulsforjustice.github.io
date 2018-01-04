@@ -31,7 +31,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.html">Home</a>
+        <a class="navbar-brand js-scroll-trigger" href="page_donate.html">Donate</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,7 +41,7 @@
               <a class="nav-link js-scroll-trigger" href="page_about_me.html">About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="issues.html">On The Issues</a>
+              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="experience.html">Experience</a>
@@ -65,19 +65,21 @@
             <hr class="light">
             <p class="text-faded">
                 
-            &bull; Sharron strongly believes in the power of education and is an advocate for better education for the public.
+            &bull; Sharron strongly believes in the power of education and is an advocate for better education of the public.
             <br>
             <br>
-            &bull; Having spent years working with landlord and tenant laws, Sharron believes in strong, fair housing policy.
+            &bull; Having spent years working with landlord and tenant laws, Sharron believes in strong fair housing policy.
             <br>
             <br>
             &bull; Sharron is deeply passionate about honoring and protecting homeless veterans and has experience working with veterans services. 
             <br>
             <br>
-            &bull; Sharron has a strong history of fighting for persons with disabilities, their constitutional rights, and for equitable information, education, and advocacy in housing cases.
+            &bull; Sharron has a strong history of fighting for persons with disabilities, their constitutional rights, and for equitable information, education, and advocacy
+            in housing  cases.
             <br>
             <br>
-            &bull; As an ardent advocate on issues of domestic violence, Sharron is committed to fighting for working mothers and the rights of vulnerable and oppressed groups.
+            &bull; As an ardent advocate on issues of domestic violence, Sharron is committed fighting for working mothers and the rights of vulnerable and oppressed groups.
+            in housing  cases.
             <br>
             <br>
             &bull; Sharron believes in improving opportunities and is committed to policies promoting inclusion, service, and good stewardship.
@@ -86,33 +88,37 @@
             &bull; A former girl scout, Sharron prides herself in her work for Girl Scouts of America and for Cornerstone Church in Chandler, AZ. In her spare time, she enjoys family outings with her son and daughter. 
             
             </p>
-            <a class="btn btn-default btn-xl js-scroll-trigger" href="experience.html">Learn More About Me</a>
+            <a class="btn btn-default btn-xl js-scroll-trigger" href="page_about_me.html">Learn More About Me!</a>
           </div>
         </div>
       </div>
     </section>
     
-    <section id="contact">
+<section id="contact">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
-            <hr class="primary">
-            <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
-          </div>
+        <div class="sauls_logo">
+        <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
         </div>
         <div class="row">
-          <div class="col-lg-4 ml-auto text-center">
+        <div class="text-center"> <!-- col-lg-8 mx-auto -->
+        <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
+        <br>
+        <!-- <hr class="primary"> -->
+        <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+        </div>
+        </div>
+        <div class="row">
+          <div class="text-center contact-phone"> <!-- col-lg-4 ml-auto -->
             <i class="fa fa-phone fa-3x sr-contact"></i>
             <p>(480) 442-8519</p>
           </div>
-          <div class="col-lg-4 mr-auto text-center">
+          <div class="text-center contact-email"> <!-- col-lg-4 mr-auto -->
             <i class="fa fa-envelope-o fa-3x sr-contact"></i>
             <p>
               <a href="mailto:saulsforjustice@gmail.com">saulsforjustice at gmail.com</a>
             </p>
           </div>
-          <div class="mr-auto text-center paid_for">
+          <div class="text-center paid_for">
             <p>
               <a href="page_about_me.html">Paid for by Sauls for Justice</a>
             </p>
@@ -201,13 +207,13 @@ p {
 }
 
 .main-text {
-    margin: 60px auto auto auto;
+    margin: 60px auto auto 0px;
 }
 
 
 @media (max-width: 1200px) {
     .main-text {
-        margin: 60px auto auto auto;
+        margin: 60px auto auto 0px;
     }
 }
 
@@ -356,17 +362,6 @@ body {
     }
 }
 
-.sauls_logo {
-    position: absolute;
-    height:100%;
-    width: 100%;
-    background-image: url(sauls_scale_logo8_arial_full_color.png);
-    background-position: center;
-    background-size: 640.2px 400px;
-    background-repeat: no-repeat;
-}
-
-
 #mainNav {
     border-color: rgba(34, 34, 34, .05);
     background-color: #fff;
@@ -375,7 +370,7 @@ body {
     -moz-transition: all .2s;
     transition: all .2s;
 }
-#mainNav .navbar-brand {
+#mainNav .navbar-brand { /*controls home navbar text */
     font-weight: 700;
     text-transform: uppercase;
     color: #0365a3; /*#0f2e60; /*#f05f40*/
@@ -411,25 +406,28 @@ body {
 #mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active:hover {
     background-color: transparent;
 }
-@media (min-width: 992px) {
+@media (min-width: 992px) { /* Execute rules contained until a min width of X (execute rules for width >= X) */
     #mainNav {
         border-color: rgba(255, 255, 255, .3);
         background-color: transparent;
     }
-    #mainNav .navbar-brand {
-        color: #0f2e60; /*color: rgba(66, 134, 244, 1);*/
-    }
-    #mainNav .navbar-brand:focus,
-    #mainNav .navbar-brand:hover {
+    #mainNav .navbar-brand { /*controls home navbar text only */
         color: #ffffff; /*color: rgba(66, 134, 244, 1);*/
     }
-    #mainNav .navbar-nav>li.nav-item>a.nav-link,
-    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
+    #mainNav .navbar-brand:focus,
+    #mainNav .navbar-brand:hover { /*controls home navbar text only */
+        color: #0f2e60; /*color: rgba(66, 134, 244, 1);*/
+    }
+    #mainNav .navbar-nav>li.nav-item>a.nav-link { /*controls about, contact, etc navbar text*/
+        color: #ffffff;
+    }
+    
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus { /*controls about, contact, etc navbar text*/
         color: #0f2e60; /*color: rgba(66, 134, 244, 1);*/
     }
     #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
     #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
-        color: #ffffff; /*color: rgba(66, 134, 244, 1);*/
+        color: #0f2e60; /*color: rgba(66, 134, 244, 1);*/
     }
     #mainNav.navbar-shrink {
         border-color: rgba(34, 34, 34, .05);
@@ -533,6 +531,46 @@ header.masthead .header-content .header-content-inner p {
     margin-bottom: 0;
 }
 
+.sauls_logo { 
+    margin: -50px auto 20px auto; /*t r b l */
+    position: relative;
+    height: 270px;
+    width: 250px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_short_text_newarm2.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.text-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container{
+    width: 100%;
+}
+
+.contact-phone {
+    float: left;
+    width: 150px;
+}
+
+.contact-email {
+    /*margin: 0px auto auto auto;*/
+    width: 295px;
+    padding-left: 85px;
+}
+
+@media (max-width: 462px) { /* Execute code until a max-width of... */
+    .contact-email {
+        width: 295px;
+        padding-left: 0px;
+    }
+}
+
 .paid_for {
   margin-top: 40px;
   margin-left: auto;
@@ -542,6 +580,7 @@ header.masthead .header-content .header-content-inner p {
   border-style: solid;
   border-width: 2px;
   border-color: #0365a3;
+  float:right;
 }
 
 .paypal_form {

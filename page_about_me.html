@@ -110,27 +110,31 @@
       </div>
     </section>
 
-    <section id="contact">
+   <section id="contact">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
-            <hr class="primary">
-            <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
-          </div>
+        <div class="sauls_logo">
+        <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
         </div>
         <div class="row">
-          <div class="col-lg-4 ml-auto text-center">
+        <div class="text-center"> <!-- col-lg-8 mx-auto -->
+        <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
+        <br>
+        <!-- <hr class="primary"> -->
+        <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+        </div>
+        </div>
+        <div class="row">
+          <div class="text-center contact-phone"> <!-- col-lg-4 ml-auto -->
             <i class="fa fa-phone fa-3x sr-contact"></i>
             <p>(480) 442-8519</p>
           </div>
-          <div class="col-lg-4 mr-auto text-center">
+          <div class="text-center contact-email"> <!-- col-lg-4 mr-auto -->
             <i class="fa fa-envelope-o fa-3x sr-contact"></i>
             <p>
               <a href="mailto:saulsforjustice@gmail.com">saulsforjustice at gmail.com</a>
             </p>
           </div>
-          <div class="mr-auto text-center paid_for">
+          <div class="text-center paid_for">
             <p>
               <a href="page_about_me.html">Paid for by Sauls for Justice</a>
             </p>
@@ -640,6 +644,46 @@ header.masthead .header-content .header-content-inner {
     margin-bottom: 0;
 }
 
+.sauls_logo { 
+    margin: -50px auto 20px auto; /*t r b l */
+    position: relative;
+    height: 270px;
+    width: 250px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_short_text_newarm2.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.text-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container{
+    width: 100%;
+}
+
+.contact-phone {
+    float: left;
+    width: 150px;
+}
+
+.contact-email {
+    /*margin: 0px auto auto auto;*/
+    width: 295px;
+    padding-left: 85px;
+}
+
+@media (max-width: 462px) { /* Execute code until a max-width of... */
+    .contact-email {
+        width: 295px;
+        padding-left: 0px;
+    }
+}
+
 .paid_for {
   margin-top: 40px;
   margin-left: auto;
@@ -649,6 +693,7 @@ header.masthead .header-content .header-content-inner {
   border-style: solid;
   border-width: 2px;
   border-color: #0365a3;
+  float:right;
 }
 
 .portfolio-box2 {

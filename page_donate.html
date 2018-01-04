@@ -23,6 +23,52 @@
 
     <!-- Custom styles for this template -->
     <link href="css/creative.min.css" rel="stylesheet">
+    
+    <!-- Embedded scipts -->
+    <script type="text/javascript">
+    function Validate() {
+        
+        function check_cases(){
+            var isValid = false;
+            // Begin actual validation
+            // Storing field vals in vars
+            var employer = document.getElementById("contact_nom").value;
+            var occup = document.getElementById("contact_sujet").value;
+            var email = document.getElementById("entry_295122875").value;
+            // Regular expression for email addr
+            var email_regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            // Conditions
+            if (employer == '' || occup == '') {
+                alert("Please fill employer & occupation to proceed...");
+                return false;
+            }
+            else if (occup.length < 2 || employer.length < 2) {
+                alert("Please enter a valid employer/occupation (> 1 letter or NA)...");
+                return false;
+            }
+            else if (!email.match(email_regex)) {
+                alert("Invalid Email Address...");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        
+        document.querySelector("#form1").addEventListener("submit", function(e){ // Listen to submit event with fucntcion e
+            if(!check_cases()){
+                e.preventDefault();    //execute preventDefault lib-function to stop form from submitting
+                // alert("Not valid!");
+            }
+            else {
+                document.getElementById('check_contact').checked=true;
+                this.submit();
+                return true;
+            }   
+        });
+    }
+    </script>
+
 
   </head>
 
@@ -59,13 +105,44 @@
     </div>
       <div class="header-content">
         <div class="header-content-inner">
-          <h1 id="homeHeading">Thank You for Your Kind Support!</h1> 
-          <h3>Please contact us for paper receipts or details on use of your contribution</h3>
-          <hr>
-          <!--
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Donate Here</a>
-          TAVP2YYCHEYP2 -->          
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <h1 id="home_heading">Thank You for Your Kind Support!</h1>
+
+        <hr id="home_heading_hr">
+        <!--
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Donate Here</a>
+        TAVP2YYCHEYP2 -->          
+            
+        <section id="services">
+        <!-- <div class="sectionheader">    <h1>BEFORE YOU DONATE</h1></div> -->
+        <article>
+           
+        <p class="notice">Arizona Law requires that we ask for your employer and occupation. If you have no employer, put NA or self-employed. Please note that your contribution is not tax deductible. Email is asked (optional) in case of errors and for occasional updates.
+        </p>
+
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) { window.location='page_donate2.html';}">
+        </iframe>
+        
+        <form id="form1" action="https://docs.google.com/forms/d/e/1FAIpQLSc1Um8K4KPK9R5V7lrDQrszoGb4AXqDtUahiCX6240tSv6NXw/formResponse" method="post" class="contact_prior" target="hidden_iframe"> <!-- target="hidden_iframe" onsubmit="submitted = true;" in case url redirect needed -->
+            <p class="input_wrapper">
+            <input type="text" name="entry.608595779" value="" id ="contact_nom">
+            <label for="contact_nom">Employer</label>
+            </p>
+            <p class="input_wrapper">
+            <input type="text" name="entry.295122875" value="" id ="contact_sujet">
+            <label for="contact_sujet">Occupation</label>
+            </p>
+            <p class="input_wrapper">
+            <input type="text" name="entry.1410559524" value="" id="entry_295122875" dir="auto" aria-label="Email: Please enter a valid email" title="Please enter a valid email"> <!--  onfocusout="Validate();" -->
+            <label for="entry_295122875">Email</label>
+            </p>
+            <p class="submit_wrapper">
+            <input type="submit" name="submit" value="Proceed" id="ss-submit" class="contactbutton" onclick="Validate();"> <!-- onmouseover="Validate();" onclick="Validate();" -->
+            </p>
+        </form>
+        
+        <input type="checkbox" id="check_contact"> <!--WATCH FOR MATCHING ID NAMES (JS nightmare)!!! and input must be located after label -->
+        
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="contactform">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="QQ7UJ7N5NNFG4">
             <table class="pay paypal_form header-content-inner">
@@ -89,15 +166,9 @@
                 </tr>
                 <tr>
                 <td>
-                
-                <!--Choose amount:&nbsp;&nbsp; -->
                 <br>
                 <input type="hidden" name="on1" value="Any amount">Any amount
                 <br>
-                <!--
-                <input type="hidden" name="on1" value="Choose amount">
-                Choose amount
-                -->
                 </td>
                 </tr>
                 <tr>
@@ -107,96 +178,43 @@
                 </tr>
             </table>
             <input type="hidden" name="currency_code" value="USD">
-            <!--<input class="btn btn-primary btn-xl js-scroll-trigger" type="button" onclick="location.href='https://www.paypal.com/cgi-bin/webscr';" value="DONATE HERE"> -->
+            <br>
             <input type="image" src="img/portfolio/fullsize/donate_btn.png" width="200" height="100" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
+        
+        </article>
+        </section>
             
-            <!-- New Button
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="QQ7UJ7N5NNFG4">
-            <table>
-            <tr>
-            <td>
-            <input type="hidden" name="on0" value="Amounts">Amounts
-            </td>
-            </tr>
-            <tr>
-                <td>
-                <select name="os0">
-                <option value="Option 1">Option 1 $5.00 USD</option>
-                <option value="Option 2">Option 2 $50.00 USD</option>
-                <option value="Option 3">Option 3 $250.00 USD</option>
-                <option value="Option 4">Option 4 $1,250.00 USD</option>
-                <option value="Option 5">Option 5 $4,250.00 USD</option>
-                <option value="Option 6">Option 6 $6,350.00 USD</option>
-                </select> 
-                </td>
-            </tr>
-            <tr>
-            <td>
-            <input type="hidden" name="on1" value="Any amount">Any amount
-            </td>
-            </tr>
-            <tr>
-            <td>
-            <input type="text" name="os1" maxlength="200">
-            </td>
-            </tr>
-            </table>
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="image" src="https://github.com/saulsforjustice/saulsforjustice.github.io/blob/master/img/portfolio/fullsize/donate_btn.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
-            -->
-           
-            
-            <!--
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="JPL5Q8URV4TN4">
-            <table>
-            <tr><td><input type="hidden" name="on0" value="Amounts">Amounts</td></tr><tr><td><select name="os0">
-                <option value="Option 1">Option 1 $1.00 USD</option>
-                <option value="Option 2">Option 2 $25.00 USD</option>
-                <option value="Option 3">Option 3 $50.00 USD</option>
-                <option value="Option 4">Option 4 $100.00 USD</option>
-            </select> </td></tr>
-            <tr><td><input type="hidden" name="on1" value="Choose amount">Choose amount</td></tr><tr><td><input type="text" name="os1" maxlength="200"></td></tr>
-            </table>
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
-            -->
-          
-          <!-- <h2 class="vote_sauls_head"><b><br>Vote Sauls for Justice of the Peace</b></h2> -->
         </div>
       </div>
     </header>
 
     <section id="contact">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
-            <hr class="primary">
-            <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
-          </div>
+        <div class="sauls_logo">
+        <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
         </div>
         <div class="row">
-          <div class="col-lg-4 ml-auto text-center">
+        <div class="text-center"> <!-- col-lg-8 mx-auto -->
+        <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
+        <br>
+        <!-- <hr class="primary"> -->
+        <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+        </div>
+        </div>
+        <div class="row">
+          <div class="text-center contact-phone"> <!-- col-lg-4 ml-auto -->
             <i class="fa fa-phone fa-3x sr-contact"></i>
             <p>(480) 442-8519</p>
           </div>
-          <div class="col-lg-4 mr-auto text-center">
+          <div class="text-center contact-email"> <!-- col-lg-4 mr-auto -->
             <i class="fa fa-envelope-o fa-3x sr-contact"></i>
             <p>
               <a href="mailto:saulsforjustice@gmail.com">saulsforjustice at gmail.com</a>
             </p>
           </div>
-          <div class="mr-auto text-center paid_for">
+          <div class="text-center paid_for">
             <p>
               <a href="page_about_me.html">Paid for by Sauls for Justice</a>
             </p>
@@ -225,6 +243,219 @@
 
 <style>
 /*Use inline for testing, external in creative.min.css*/
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/* Contact Form */
+.sliding_button {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    font-family: Oswald, sans-serif;
+    color: #ffffff;
+    text-shadow: 0 0.06em 0 #424242;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.contactbutton { /* PROCEED BUTTON */
+    font-size: 25px;
+    background: #0365a3;
+    -webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+    box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+.contactbutton:hover {
+    /*
+    margin-top: 22px;
+    margin-top: 22px;
+    margin-left: 2px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    */
+}
+
+.contactform {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    overflow: hidden;
+    margin-top: -50px;
+    max-height: 0px;
+    -webkit-transition: all linear 1s;
+    -moz-transition: all linear 1s;
+    -o-transition: all linear 1s;
+    -ms-transition: all linear 1s;
+    transition: all linear 1s;
+}
+
+.contact_prior {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+}
+
+.input_wrapper {
+    position: relative;
+    text-shadow: 0 0.06em 0 #000000;
+    margin: 0px;
+}
+
+.input_wrapper input[type="text"] {
+    margin-top: 1em;
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #a6a7d8;
+    border-radius: 4px;
+    box-shadow: 0 0 1px 0 #7778a8;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1em;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+    color: #ffffff;
+    text-indent: 5em;
+}
+
+.input_wrapper input[type="text"]:focus + label {
+    left: 100%;
+}
+
+.input_wrapper input[type="text"]:focus {
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 2px 2px 5px 0 #000000;
+    outline: none;
+    text-indent: 0;
+}
+.input_wrapper label {
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    height: 100%;
+    background: #0365a3;
+    color: white;
+    font-size: 15px;
+    font-family: Oswald, sans-serif;
+    text-shadow: 0 0.06em 0 #000000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 5em;
+    text-align: center;
+    text-shadow: 0 0.06em 0 #000000;
+    line-height: 3.9em;
+    -webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+    box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+}
+
+.submit_wrapper {
+    text-align: center;
+}
+.submit_wrapper input { /* PROCEED BUTTON */
+    text-align: center;
+    text-shadow: 0 0.06em 0 #000000;
+    display: inline-block;
+    width: 40%;
+    height: 50px;
+    margin-top: 1em;
+    margin-bottom: 6px;
+    cursor: pointer;
+    background: #0365a3;
+    color: white;
+    font-family: Oswald ,sans-serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 40px;
+    -webkit-box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c;
+    box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c;
+    -webkit-appearance: none;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+}
+.submit_wrapper input:hover {
+    -webkit-box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c;
+    box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c;
+    margin-top: 22px;
+    border-radius: 40px;
+    /*
+    margin-left: 2px;
+    */
+}
+
+#check_contact{
+    position: absolute;
+    left: -9999px; /*-9999px;*/
+}
+
+#check_contact:checked + .contactform {
+    max-height: 1000px;
+}
+
+#home_heading {
+    margin-top: 20px;
+}
+
+#home_heading_hr {
+    position: relative;
+    height: 10px;
+    width: 200px;
+    top: 90px;
+}
+
+#services article p {
+    color: #fff;
+    text-shadow: 0 0.06em 0 #424242;
+}
+
+#services {
+    width: 100%;
+    overflow-x: auto;
+    /*overflow-y: auto;*/
+    margin-bottom: -15px;
+    text-shadow: 0 0.06em 0 #000000;
+}
+
+@media (max-width: 768px){ /*Execute rules contained until max width of...*/
+    #services {
+        width: 100%;
+        overflow-x: auto;
+        /*overflow-y: auto;*/
+        margin-bottom: -15px;
+    }
+    .input_wrapper label {
+        text-shadow: 0 0.06em 0 #000000;
+        line-height: 4.0em;
+        font-size: 0.8em;
+        border-radius: 10px 4px 4px 7px;
+        -webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+        box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+    }
+    
+    .input_wrapper input[type="text"] {
+        font-size: 15px;
+    }
+}
+
+/* End Contact Form */
 
 .vote_sauls_head {
   margin-bottom: 50px;
@@ -235,14 +466,17 @@ html {
     width: 100%;
     height: 100%;
 }
+
 body {
     font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif
 }
+
 hr {
-    max-width: 200px;
+    max-width: 100px;
     border-width: 3px;
     border-color: #0365a3; /*#0f2e60; /*#f05f40*/
 }
+
 hr.light {
     border-color: #fff;
 }
@@ -259,7 +493,6 @@ a:hover {
     color: #0f2e60; /*#f05f40;*/
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -267,32 +500,44 @@ h5,
 h6 {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
+
 p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
     margin-bottom: 20px;
 }
+
 .bg-primary {
     background-color: #0365a3 /*#0f2e60; /*#f05f40*/ !important
 }
+
 .bg-dark {
     color: #fff;
     background-color: #222!important;
 }
+
 .text-faded {
     color: rgba(255, 255, 255, .7);
 }
+
 section {
     padding: 100px 0;
 }
+
 .section-heading {
     margin-top: 0;
 }
+
+.sectionheader {
+    margin-top: -40px;
+}
+
 ::-moz-selection {
     color: #fff;
     background: #222;
     text-shadow: none;
 }
+
 ::selection {
     color: #fff;
     background: #222;
@@ -309,10 +554,12 @@ img::selection {
     color: #fff;
     background: 0 0;
 }
+
 img::-moz-selection {
     color: #fff;
     background: 0 0;
 }
+
 body {
     -webkit-tap-highlight-color: #222;
 }
@@ -342,6 +589,42 @@ body {
 .caption6 {
   animation: op_frame6 30s ease-in-out 0s infinite;
 }
+
+.glass_div {
+    /*display: block;
+    /*padding-right: 0px;*/
+    box-shadow: 0px 0px 0px 0.5px #000000;
+    position: absolute;
+    text-align: center;
+    font-weight: normal;
+    /*display: table-cell /to fix height w tbl */
+    height: 105%; /* height & width needed */
+    width: 110%;
+    right: -5%;
+    /*background-color: rgba(203, 206, 211, 0.70);*/
+    /*background-color: rgba(255, 255, 211, 0.70);*/
+    background-color: rgba(0, 0, 0, 0.78);
+    /*background: transparent;*/
+    /*background-color: rgba(255, 255, 255, 0.30);*/
+    /* color: rgba(223, 108, 73, 0.3); #df6c49*/
+    /*filter: alpha(opacity=65);*/
+    /*progid:DXImageTransform.Microsoft.gradient(startColorstr=#9ADF6C49,endColorstr=#9ADF6C49); */
+    filter: progid: DXImageTransform.Microsoft.Alpha(opacity=78);
+    -moz-opacity: 0.78;
+    opacity: 0.78;
+    zoom: 1;
+    z-index: -1;
+    top: -15px;
+    margin: 0px 0px 0px 9.2%; /* t b r l */
+    border-radius: 2px;
+}
+
+.notice {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+
+
 
 @keyframes blurred-bg {
   0% {
@@ -437,6 +720,38 @@ body {
     }
 }
 
+#contact {   
+    width: auto;
+    margin: 2em auto;
+    background: white;
+    position: relative;
+
+}
+
+#contact::after {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 90%;
+    left: 5%;
+    bottom: 0;
+    position: absolute;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25); /*envelope shadow effect*/
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+    z-index: -1;
+}
+
+#contact h1 {
+    background: #0365a3;
+    font-family: Oswald, sans-serif; /*Oswald ,sans-serif;*/
+    font-size: 1.75em;
+    padding: 0.6em 0 0.6em 0.4em;
+    color: white;
+    text-shadow: 0 0.06em 0 #424242;
+    position: relative;
+}
+
 #mainNav {
     border-color: rgba(34, 34, 34, .05);
     background-color: #fff;
@@ -445,22 +760,26 @@ body {
     -moz-transition: all .2s;
     transition: all .2s;
 }
+
 #mainNav .navbar-brand {
     font-weight: 700;
     text-transform: uppercase;
     color: #0365a3; /*#0f2e60; /*#f05f40*/
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
+
 #mainNav .navbar-brand:focus,
 #mainNav .navbar-brand:hover {
     color: #0365a3; /*#0f2e60; /*#f05f40*/
 }
+
 #mainNav .navbar-toggle {
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: #222;
 }
+
 #mainNav .navbar-nav>li.nav-item>a.nav-link,
 #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
     font-size: 13px;
@@ -468,19 +787,23 @@ body {
     text-transform: uppercase;
     color: #222;
 }
+
 #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
 #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
     color: #0365a3; /*#0f2e60; /*#f05f40*/
 }
+
 #mainNav .navbar-nav>li.nav-item>a.nav-link.active,
 #mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active {
     color: #0365a3 /*#0f2e60; /*#f05f40*/ !important;
     background-color: transparent;
 }
+
 #mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover,
 #mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active:hover {
     background-color: transparent;
 }
+
 @media (min-width: 992px) {
     #mainNav {
         border-color: rgba(255, 255, 255, .3);
@@ -538,36 +861,89 @@ body {
     -webkit-animation: blurred-bg 4s 1 ease-in-out forwards;
 }
 
+.call-to-action {
+    padding: 50px 0;
+}
+.call-to-action h2 {
+    margin: 0 auto 20px;
+}
+
+.container{
+    width: 100%;
+}
+
+.contact-phone {
+    float: left;
+    width: 150px;
+}
+
+.contact-email {
+    /*margin: 0px auto auto auto;*/
+    width: 295px;
+    padding-left: 85px;
+}
+
 header.masthead {
     position: relative;
     width: 100%;
-    min-height: auto;
     text-align: center;
     color: #fff;
     /*background-color: #000000;*/
 }
+
 header.masthead .header-content {
     position: relative;
     width: 100%;
     padding: 150px 15px 100px;
     text-align: center;
 }
+
 header.masthead .header-content .header-content-inner h1 {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 30px;
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: -70px;
     text-transform: uppercase;
 }
+/*
 header.masthead .header-content .header-content-inner hr {
-    margin: 30px auto;
+    margin: 5px auto auto auto;
 }
+*/
 header.masthead .header-content .header-content-inner p {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 50px;
     color: rgba(255, 255, 255, .7);
 }
+
+@media (max-width: 462px) { /* Execute code until a max-width of... */
+    .contact-email {
+        width: 295px;
+        padding-left: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .service-box {
+        margin: 20px auto 0;
+    }
+    
+    .pay {
+        margin: 20px auto 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
+        font-size: 16px;
+    }
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+        font-size: 22px;
+    }
+}
+
 @media (min-width: 768px) {
     header.masthead {
         height: 100%;
@@ -586,15 +962,18 @@ header.masthead .header-content .header-content-inner p {
         margin-right: auto;
         margin-left: auto;
     }
-    header.masthead .header-content .header-content-inner h1 {
-        font-size: 50px;
-    }
+
     header.masthead .header-content .header-content-inner p {
         font-size: 18px;
         max-width: 80%;
         margin-right: auto;
         margin-left: auto;
     }
+}
+
+.no-gutter>[class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .paid_for {
@@ -606,30 +985,26 @@ header.masthead .header-content .header-content-inner p {
   border-style: solid;
   border-width: 2px;
   border-color: #0365a3;
+  float:right;
 }
+
+/* ROW DIV ALIGNMENT
+.container{width:100%;}
+.contact-phone {float:left;width:100px;}
+.paid_for {float:right; width:100px;}
+.contact-email {margin:0 auto;width:100px;}
+*/
 
 .pay {
     margin: 50px auto 0;
 }
-.service-box {
-    max-width: 400px;
-    margin: 50px auto 0;
-}
-@media (min-width: 992px) {
-    .service-box {
-        margin: 20px auto 0;
-    }
-    
-    .pay {
-        margin: 20px auto 0;
-    }
-}
-.service-box p {
-    margin-bottom: 0;
-}
 
 .paypal_form {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    background-size: 220px auto;
+    
 }
 .portfolio-box2 {
     position: relative;
@@ -675,32 +1050,43 @@ header.masthead .header-content .header-content-inner p {
     opacity: 1;
 }
 
-
-
 .portfolio-box2:focus {
     outline: 0;
 }
-@media (min-width: 768px) {
-    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
-        font-size: 16px;
-    }
-    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
-        font-size: 22px;
-    }
+
+.service-box {
+    max-width: 400px;
+    margin: 50px auto 0;
 }
-.call-to-action {
-    padding: 50px 0;
+
+.sauls_logo { 
+    margin: -50px auto 20px auto; /*t r b l */
+    position: relative;
+    height: 270px;
+    width: 250px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_short_text_newarm2.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
-.call-to-action h2 {
-    margin: 0 auto 20px;
+
+.service-box p {
+    margin-bottom: 0;
 }
+
+.text-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .text-primary {
     color: #0365a3 /*#0f2e60; /*#f05f40*/!important
 }
-.no-gutter>[class*=col-] {
-    padding-right: 0;
-    padding-left: 0;
-}
+
+/* BUTTONS */
+
 .btn-default {
     color: #222;
     border-color: #fff;
