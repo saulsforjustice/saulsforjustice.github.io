@@ -57,65 +57,77 @@
     <header class="masthead">
     </header>
     
-    <section class="bg-primary" id="about">
-      <div class="container">
-        <div class="row">
+    <section class="bg-primary" id="contact">
+      <div class="panel_container">
+        <div class="rows">
           <div class="text-center main-text">
             <h3 class="section-heading text-white">Professional and Community Boards, Associations, and Commissions</h3>
             <hr class="light">
-            <p class="text-faded">
-            <li>City of Phoenix, Community Service Fund Drive Chair
+            <div class="panel_left phoenix_text">
+            <li> &#10146; City of Phoenix, Community Service Fund Drive Chair
             </li>
-            <br>
-            <br>
-            <li>Ahwatukee Foothills Community Chamber Board Member
+            <li>&#10146; City of Phoenix, Neighborhood Service, Paint Phoenix Purple, Domestic Violence Committee Member
             </li>
-            <br>
-            <br>
-            <li>Kyrene Akimel A-al, Co-Vice President, Parent Teacher Student Organization
+            <li>
+            &#10146; City of Phoenix, Cultural Connections Committee Chair
+            </li>   
+            </div>
+            <div class="panel_right phoenix_media">
+            <li><!-- Video/photo of phoenix activities -->
             </li>
-            <br>
-            <br>
-            <li>City of Phoenix, Neighborhood Service, Paint Phoenix Purple, Domestic Violence Committee Member
+            </div>
+            <div class="panel_left tukee_media">
+            <li><!-- Video/Photo of Tukee -->
             </li>
-            <br>
-            <br>
-            <li>City of Phoenix, Cultural Connections Committee Chair
+            </div>
+            <div class="panel_right tukee_text">
+            <li>
+            &#10146; Ahwatukee Foothills Community Chamber Board Member
             </li>
+            <li>
+            &#10146; Kyrene Akimel A-al, Co-Vice President of 
             <br>
-            <br>
-            <li>City of Chandler Housing & Human Services Commission, Board Member
+            Parent Teacher Student Organization
             </li>
-            <br>
-            <br>
-            <li>Girl Scouts of America, Activity Coordinator 
+            </div>
+            <div class="panel_left chand_text">
+            <li>&#10146; City of Chandler Housing & Human Services Commission, Board Member
             </li>
-            
-            </p>
+            <li>&#10146; Girl Scouts of America, Activity Coordinator 
+            </li>
+            </div>
+            <div class="panel_right chandler_media">
+            <li><!-- Video/photo of chandler --> 
+            </li>
+            </div>
             <br>
             <br>
-            <h3 class="section-heading text-white">Awards and Recognitions</h3>
+            <br>
+            <br>
+            <div class="panel_center">
+            <a class="btn btn-default btn-xl js-scroll-trigger" href="page_about_me.html">Learn More About Me!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+<section class="bg-primary" id="awards-section">
+        <div class="awards">
+        <h3 class="section-heading text-white">Awards and Recognitions</h3>
             <hr class="light">
-            <p>
             <li>City of Phoenix Neighborhood Services Department, Living the Values Award
             </li>
-            <br>
             <br>
             <li>City of Phoenix Community Service Hero Award 
             </li>
             <br>
-            <br>
             <li>City of Phoenix Employee Excellence Award 
             </li>
-            </p>
             <br>
             <br>
-            <a class="btn btn-default btn-xl js-scroll-trigger" href="page_about_me.html">Learn More About Me!</a>
-          </div>
         </div>
-      </div>
-    </section>
-    
+</section>
+
 <section id="contact">
       <div class="container">
         <div class="sauls_logo">
@@ -379,6 +391,12 @@ body {
     }
 }
 
+#awards-section {
+    top: 0px;
+    margin: 0px auto 0px auto;
+    text-align: center;
+}
+
 #mainNav {
     border-color: rgba(34, 34, 34, .05);
     background-color: #fff;
@@ -573,6 +591,278 @@ header.masthead .header-content .header-content-inner p {
     margin-bottom: 0;
 }
 
+/* Portfolio panel*/
+.panel_container{
+    width: 100%;
+}
+
+.panel_center {
+    position: relative;
+    height: 50px;
+    width: 250px;
+    top: 30px;
+    margin: 0px auto 0px auto;
+}
+
+.panel_left {
+    position: relative;
+    margin: 40px auto auto auto;
+    float: left;
+    width: 50%;
+    height: 200px;
+    border-style: none;
+    border-width: 0px;
+    border-color: transparent;
+}
+
+.panel_right {
+    position: relative;
+    margin: 40px auto auto auto;
+    width: 50%;
+    /*padding-left: 77px;*/
+    height: 200px;
+    border-style: none;
+    border-width: 0px;
+    border-color: transparent;
+    float:right; 
+}
+
+.panel_left li {
+    margin: 20px auto auto auto;
+    padding-top: 5px;
+    list-style-type: none;
+}
+
+.panel_right li {
+    margin: 20px auto auto auto;
+    padding-top: 5px;
+    list-style-type: none;
+}
+
+.phoenix_media {
+    background-image: url(paint_phx_purple2.png);
+    background-position: 0px -5px; /*xpos ypos*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: none;
+    border-radius: 100px;
+    list-style: none;
+}
+
+.pheomix_text {
+    padding-top: 15px;
+    
+}
+
+.tukee_text {
+    padding-top: 20px;    
+}
+
+.chand_text {
+    padding-top: 30px;    
+}
+
+.tukee_media {
+    background-image: url(atown_sign_sdof.png);
+    background-position: 0px 0px; /*xpos ypos*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid;
+    border-radius: 100px;
+    list-style: none;
+}
+
+.chandler_media {
+    background-image: url(chandler_water_utility.jpg);
+    background-position: 0px 0px; /*xpos ypos*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-style: solid;
+    border-radius: 100px;
+    list-style: none;
+}
+
+@media (max-width: 900px) { /* Execute code until a max-width of... */
+    .awards {
+        position: relative;
+        height: auto;
+        width:auto;
+        top: 100px;
+        margin: 0px auto 0px auto;
+        font-size: 14px;
+    }
+    
+    .pheomix_text {
+        padding-top: 0px;
+    }
+    
+    .tukee_text {
+        padding-top: 0px;    
+    }
+    
+    .chand_text {
+        padding-top: 0px;    
+    }
+    
+    .panel_left {
+        position: relative;
+        margin: 40px auto auto auto;
+        width: 50%;
+        height: 200px;
+        border-style: none;
+        border-width: 0px;
+        border-color: transparent;
+    }
+    
+    .panel_right {
+        position: relative;
+        margin: 40px auto auto auto;
+        width: 50%;
+        /*padding-left: 77px;*/
+        height: 200px;
+        border-style: none;
+        border-width: 0px;
+        border-color: transparent;
+    }
+
+    .panel_left li {
+        margin: 0px auto auto auto;
+        padding-top: 5px;
+        font-size: 12px;
+        list-style-type: none;
+    }
+
+    .panel_left li:first-child {
+        margin: 0px auto auto auto;
+        padding-top: 60px;
+        font-size: 12px;
+    }
+    
+    .panel_right li {
+        margin: 0px auto auto auto;
+        padding-top: 5px;
+        font-size: 12px;
+        list-style-type: none;
+    }
+    
+    .panel_right li:first-child {
+        margin: 0px auto auto auto;
+        padding-top: 60px;
+        font-size: 12px;
+        list-style-type: none;
+    }
+}
+
+@media (max-width: 500px) { /* Execute code until a max-width of... */
+    .awards {
+        position: relative;
+        height: auto;
+        width: auto;
+        top: 100px;
+        margin: 0px auto 0px auto;
+        font-size: 12px;
+    }
+    
+    .pheomix_text {
+        padding-top: 10px;
+    }
+    
+    .tukee_text {
+        padding-top: 0px;
+    }
+    
+    .chand_text {
+        padding-top: 20px;    
+    }
+    
+    .panel_left {
+        position: relative;
+        margin: 40px auto auto auto;
+        width: 50%;
+        height: 200px;
+        border-style: none;
+        border-width: 0px;
+        border-color: transparent;
+    }
+    
+    .panel_right {
+        position: relative;
+        margin: 40px auto auto auto;
+        width: 50%;
+        /*padding-left: 77px;*/
+        height: 200px;
+        border-style: none;
+        border-width: 0px;
+        border-color: transparent;
+    }
+
+    .panel_left li {
+        margin: 0px auto auto auto;
+        padding-top: 5px;
+        font-size: 12px;
+    }
+
+    .panel_left li:first-child {
+        margin: 0px auto auto auto;
+        padding-top: 0px;
+        font-size: 12px;
+    }
+    
+    .panel_right li {
+        margin: 0px auto auto auto;
+        padding-top: -25px;
+        font-size: 12px;
+    }
+    
+    .panel_right li:first-child {
+        margin: 0px auto auto auto;
+        padding-top: 20px;
+        font-size: 12px;
+    }
+    
+    .contact-phone {
+        width: 150px;
+    }
+
+    .contact-email {
+        width: 300px;
+        padding-left: 0px;
+        margin: 0px auto auto auto;
+    }
+    
+    .paid_for {
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 30px;
+        width: 250px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #0365a3;
+    }
+}
+
+.panel_media {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0365a3;
+    float:right;
+}
+
+.awards {
+    position: relative;
+    height: auto;
+    width: auto;
+    top: 100px;
+    margin: 0px auto 0px auto;
+}
+/* END Portfolio panel*/
+
 .text-center {
     margin-left: auto;
     margin-right: auto;
@@ -590,28 +880,43 @@ header.masthead .header-content .header-content-inner p {
 .contact-email {
     /*margin: 0px auto auto auto;*/
     width: 300px;
-    padding-left: 77px;
+    padding-left: 70px;
 }
 
-@media (max-width: 462px) { /* Execute code until a max-width of... */
+@media (max-width: 600px) { /* Execute code until a max-width of... */
+    .contact-phone {
+        width: 150px;
+    }
+
     .contact-email {
-        width: 295px;
+        width: 300px;
         padding-left: 0px;
+        margin: 0px auto auto auto;
+    }
+    
+    .paid_for {
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 30px;
+        width: 250px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #0365a3;
     }
 }
 
 .paid_for {
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 30px;
-  width: 250px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #0365a3;
-  float:right;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0365a3;
+    float: right;
 }
-
 .paypal_form {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
