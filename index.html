@@ -57,10 +57,12 @@
 
     <header class="masthead">
       <div class="header-content">
+      <div class="at-your-service">
+        </div>
         <div class="header-content-inner">
           <h1 id="homeHeading">At Your Service, With Experience, Fairness, and Dedication</h1>
           <hr>
-          <h2 class="vote_sauls_head"><b>Vote Sauls for Justice of the Peace</b></h2>
+          <h2><b>Vote Sauls for Justice of the Peace</b></h2>
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="page_about_me.html">Get to Know Me Better</a>
         </div>
       </div>
@@ -133,7 +135,7 @@
         <div class="row no-gutter"> <!-- <div class="row no-gutter popup-gallery"> -->
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box2" href="experience.html">
-              <img class="img-fluid" src="img/portfolio/fullsize/lease_gavel.jpg" alt="">
+              <img class="img-fluid" src="img/portfolio/fullsize/lease_gavel.jpg" alt="Landlord and Tenant Law">
               <div class="portfolio-box-caption begin_on_scroll caption1" data-animation="op_frame1">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -148,7 +150,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box2" href="issues.html">
-              <img class="img-fluid" src="img/portfolio/thumbnails/va_sdof_3200x1700.jpg" alt="">
+              <img class="img-fluid" src="img/portfolio/thumbnails/va_sdof_3200x1700.jpg" alt="VA Experience">
               <div class="portfolio-box-caption caption2">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -163,7 +165,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box2" href="experience.html">
-              <img class="img-fluid" src="img/portfolio/thumbnails/house_sharron_10-28-17_wide.jpg" alt="">
+              <img class="img-fluid" src="img/portfolio/fullsize/sauls_unity1.jpg" alt="Sharron At Unity March">
               <div class="portfolio-box-caption caption3">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -178,7 +180,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box2" href="experience.html">
-              <img class="img-fluid" src="img/portfolio/fullsize/family_law_2300x1700_sdof.png" alt="">
+              <img class="img-fluid" src="img/portfolio/fullsize/family_law_2300x1700_sdof.png" alt="Family Law">
               <div class="portfolio-box-caption caption4">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -193,7 +195,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box2" target="_blank" href="https://voter.azsos.gov/VoterView/RegistrantSearch.do">
-              <img class="img-fluid" src="img/portfolio/fullsize/towns_collage2.png" alt="">
+              <img class="img-fluid" src="img/portfolio/fullsize/towns_collage2.png" alt="Towns in Precinct">
               <div class="portfolio-box-caption caption5">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -231,7 +233,7 @@
         </h2>
         <h3>
         &#8227; Education and Counseling <br>
-        &#8227; Landlord and Tenant Law <br>
+        &#8227; Tenant and Landlord Law <br>
         &#8227; Issues concerning veterans <br>
         &#8227; Fair Housing Law <br>
         &#8227; Family Law <br>
@@ -288,7 +290,7 @@
     <script src="js/creative.min.js"></script>
     
     <script type="text/javascript">
-    $(function() {
+    function OnScroll() {
         var $window = $(window), win_height_padded = $window.height() * 1.1, isTouch = Modernizr.touch;
         if (isTouch) {
           $('.begin_on_scroll').addClass('caption1');
@@ -319,7 +321,6 @@
         }
         begin_on_scroll();
       }
-    );
     </script>
 
   </body>
@@ -329,10 +330,6 @@
 
 <style>
 /*Use inline for testing, external in creative.min.css*/
-
-.vote_sauls_head {
-  margin-bottom: 20px;
-}
 
 body,
 html {
@@ -531,10 +528,24 @@ body {
   }
 }
 
-#homeHeading {
+.at-your-service {
+    position: absolute;
+    width: 100%;
+    height: 280px;
     background-color: rgba(0, 0, 0, 0.25);
     border-radius: 0px;
+    background-size: 100% 250%; /*400px auto;*/
+    /*text-shadow: 0 0.06em 0 #000000;*/
+    z-index: -1;
+    margin: 0px auto auto 0px;
+    left: 0px;
+}
+
+#homeHeading {
+    background-color: rgba(0, 0, 0, 0.0);
+    border-radius: 0px;
     background-size: 400px auto;
+    /*text-shadow: 0 0.06em 0 #000000;*/
 }
 
 #mainNav {
@@ -629,6 +640,7 @@ header.masthead {
     min-height: auto;
     text-align: center;
     color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     background-image: url(img/portfolio/thumbnails/header.jpg);
     background-position: center;
     -webkit-background-size: cover;
@@ -694,11 +706,11 @@ header.masthead .header-content .header-content-inner p {
 .sauls_logo { 
     margin: -50px auto 20px auto; /*t r b l */
     position: relative;
-    height: 270px;
+    height: 278px;
     width: 250px;
     max-height: 100%;
     max-width: 100%;
-    background-image: url(sauls_logo_fin_short_text_newarm2_of.png);
+    background-image: url(sauls_logo_fin_2-4-18_thin_ring.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
