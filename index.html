@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="page_donate.html">Donate</a>
-        <a class="navbar-brand js-scroll-trigger" target="_blank" href="https://voter.azsos.gov/VoterView/RegistrantSearch.do">Registered to vote?</a>
+        <a class="navbar-brand js-scroll-trigger" href="https://voter.azsos.gov/VoterView/RegistrantSearch.do">Registered to vote?</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,10 +58,10 @@
     <header class="masthead">
       <div class="header-content">
       <div class="at-your-service">
-        </div>
+      </div>
         <div class="header-content-inner">
           <h1 id="homeHeading">At Your Service, With Experience, Fairness, and Dedication</h1>
-          <hr>
+          <hr id="homeHeading">
           <h2><b>Vote Sauls for Justice of the Peace</b></h2>
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="page_about_me.html">Get to Know Me Better</a>
         </div>
@@ -114,7 +114,7 @@
             <div class="service-box">
               <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
               <h3>Up and Current</h3>
-              <p class="text-muted">Currently Sharron works and is well-versed on the most pressing matters affecting Kyrene Precinct residents today</p>
+              <p class="text-muted">Sharron works and is well-versed on the most pressing matters affecting Kyrene area residents today</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
@@ -541,13 +541,6 @@ body {
     left: 0px;
 }
 
-#homeHeading {
-    background-color: rgba(0, 0, 0, 0.0);
-    border-radius: 0px;
-    background-size: 400px auto;
-    /*text-shadow: 0 0.06em 0 #000000;*/
-}
-
 #mainNav {
     border-color: rgba(34, 34, 34, .05);
     background-color: #fff;
@@ -633,6 +626,7 @@ body {
         color: #0365a3; /*#0f2e60; /*#f05f40*/
     }
 }
+
 header.masthead {
     position: relative;
     background-attachment: fixed;
@@ -670,33 +664,82 @@ header.masthead .header-content .header-content-inner p {
     margin-bottom: 50px;
     color: rgba(255, 255, 255, .7);
 }
+
+@media (max-width: 767px) {
+  
+  .header-content-inner hr {
+    height: 400%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  .header-content-inner h1 {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  .header-content-inner h2 {
+    background-color: rgba(0, 0, 0, 0.25); 
+  }
+}
+
+
+@media (max-width: 769px) {
+  .at-your-service {
+    position: absolute;
+    width: 100%;
+    height: 335px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    background-size: 100% 250%;  /*400px auto;*/
+    /*text-shadow: 0 0.06em 0 #000000;*/
+    z-index: -1;
+    margin: 0px auto auto 0px;
+    left: 0px;
+  }
+}
+
+@media (max-width: 801px) {
+  .at-your-service {
+    position: absolute;
+    width: 100%;
+    height: 340px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    background-size: 100% 250%;  /*400px auto;*/
+    /*text-shadow: 0 0.06em 0 #000000;*/
+    z-index: -1;
+    margin: 0px auto auto 0px;
+    left: 0px;
+  }
+}
+
 @media (min-width: 768px) {
-    header.masthead {
-        height: 100%;
-        min-height: 600px;
-    }
-    header.masthead .header-content {
-        position: absolute;
-        top: 50%;
-        padding: 0 50px;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-    header.masthead .header-content .header-content-inner {
-        max-width: 1000px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    header.masthead .header-content .header-content-inner h1 {
-        font-size: 50px;
-    }
-    header.masthead .header-content .header-content-inner p {
-        font-size: 18px;
-        max-width: 80%;
-        margin-right: auto;
-        margin-left: auto;
-    }
+  header.masthead {
+    height: 100%;
+    min-height: 600px;
+  }
+  header.masthead .header-content {
+    position: absolute;
+    top: 50%;
+    padding: 0 50px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  header.masthead .header-content .header-content-inner {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  header.masthead .header-content .header-content-inner h1 {
+    font-size: 50px;
+  }
+  header.masthead .header-content .header-content-inner p {
+    font-size: 18px;
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 .service-box {
     max-width: 400px;
