@@ -820,14 +820,17 @@ body {
     #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
         color: rgba(255, 255, 255, .7);
     }
+    
     #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
-    #mainNav .navbar-nav>li.nav-item>a.nav-link:hover 
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
         color: #fff;
     }
+    
     #mainNav.navbar-shrink {
         border-color: rgba(34, 34, 34, .05);
         background-color: #fff;
     }
+    
     #mainNav.navbar-shrink .navbar-brand {
         font-size: 16px;
         color: #0365a3; /*#0f2e60; /*#f05f40*/
@@ -858,7 +861,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     z-index: -1;
-    -webkit-animation: blurred-bg 4s 1 ease-in-out forwards;
+    /* -webkit-animation: blurred-bg 4s 1 ease-in-out forwards; */
 }
 
 .call-to-action {
