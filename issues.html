@@ -63,8 +63,12 @@
           <div class="text-center main-text">
             <h2 class="section-heading text-white">On the Issues</h2>
             <hr class="light">
+            <br>
+            <div class="youtube" id="doMbsw-d3C4">
+            </div>
+            <br>
+            <br>
             <p class="text-faded">
-                
             &bull; Sharron strongly believes in the power of education and is an advocate for better education of the public.
             <br>
             <br>
@@ -94,14 +98,15 @@
       </div>
     </section>
     
-<section id="contact">
+    <section id="contact">
       <div class="container">
         <div class="sauls_logo">
         <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
         </div>
         <div class="row">
         <div class="text-center"> <!-- col-lg-8 mx-auto -->
-       
+        <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
+        <br>
         <!-- <hr class="primary"> -->
         <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
         </div>
@@ -117,12 +122,14 @@
               <a href="mailto:committee@saulsforjustice.com">committee at saulsforjustice.com</a>
             </p>
           </div>
-          <div class="text-center paid_for">
-            <p>
-              <a href="page_about_me.html">Paid for by Sauls for Justice</a>
-            </p>
-          </div>
         </div>
+       <center>
+        <div class="text-center paid_for">
+          <p>
+            <a href="page_about_me.html">Paid for by Sauls for Justice</a>
+          </p>
+        </div>
+        </center>
       </div>
     </section>
 
@@ -138,14 +145,102 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
+    
+    <!-- ---Video Player Script----- -->
+    <script>
+    'use strict';
+    function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
+    r(function(){
+        if (!document.getElementsByClassName) {
+            // IE8 support
+            var getElementsByClassName = function(node, classname) {
+                var a = [];
+                var re = new RegExp('(^| )'+classname+'( |$)');
+                var els = node.getElementsByTagName("*");
+                for(var i=0,j=els.length; i<j; i++)
+                    if(re.test(els[i].className))a.push(els[i]);
+                return a;
+            }
+            var videos = getElementsByClassName(document.body,"youtube");
+        } else {
+            var videos = document.getElementsByClassName("youtube");
+        }
+    
+        var nb_videos = videos.length;
+        for (var i=0; i<nb_videos; i++) {
+            // Based on the YouTube ID, we can easily find the thumbnail image
+            videos[i].style.backgroundImage = 'url(http://i.ytimg.com/vi/' + videos[i].id + '/sddefault.jpg)';
+    
+            // Overlay the Play icon to make it look like a video player
+            var play = document.createElement("div");
+            play.setAttribute("class","play");
+            videos[i].appendChild(play);
+    
+            videos[i].onclick = function() {
+                // Create an iFrame with autoplay set to true
+                var iframe = document.createElement("iframe");
+                var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&rel=0";
+                if (this.getAttribute("data-params")) iframe_url+='&'+this.getAttribute("data-params");
+                iframe.setAttribute("src",iframe_url);
+                iframe.setAttribute("frameborder",'0');
+    
+                // The height and width of the iFrame should be the same as parent
+                iframe.style.width  = this.style.width;
+                iframe.style.height = this.style.height;
+    
+                // Replace the YouTube thumbnail with YouTube Player
+                this.parentNode.replaceChild(iframe, this);
+            }
+        }
+    });
+    </script>
+    <!--- End Video Player Script -->
 
   </body>
 
 </html>
 
-
-<style>
+<style type="text/css">
 /*Use inline for testing, external in creative.min.css*/
+
+/*========= Video Style ==========*/
+
+.youtube {
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+    width: 500px; 
+    height: 281px;
+}
+
+@media(max-width: 515px){
+    .youtube {
+        width: 322px; 
+        height: 181px;
+    }
+}
+
+.youtube .play {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAERklEQVR4nOWbTWhcVRTHb1IJVoxGtNCNdal2JYJReC6GWuO83PM/59yUS3FRFARdFlwYP1CfiojQWt36sRCUurRIdVFXIn41lAoVdRGrG1M01YpKrWjiYmaSl8ybZJL3cd+YA//NLObd3++eO8x79z5jSq5Gw+8kov0AP8vMR5l1BtBZQM4B8ks75wCdZdYZZj5qLZ4hov2Nht9Z9vhKKSIaB/gI4M4w62KeAO6Mte4lYOq20FxrlqqOibhHmeWbvNC9ZfDX1mLae391aN6limO/gwgvAPJbWeAZuSDingdwXTBw7/0IsyaA/Fkh+KqOkD+YNfHej1QKD+y7iVlOhgLvFqFfNJvNGyuBJ+KDAF8MDd0tgS8y64OlgSdJMsysL4cG7SOHkyQZLhTee7+d2R2rAVy/S+Jd7/32ouBHAP4gNNRGQyTHc/84NhqNywZp5rvjjnnvt21aABFeCQ+RLwAf2hQ8s7sv9OCLk6AHNgQvIrvbfzKCD76g/O6cu7lf/iER/aQGgy448pExZmhdegAPhR9sObFWH1gT3lp7DaA/5bkIgJhZPgsNmz02novj+KqeApj1ubwXWe4kdyeznAgNvTpE/HQmvKqOMeuFogTUVQSRno+iaLRLAJF7uIgL9O4ubgL8aWgB7S44mNX+35YpICUiAvS9sBLkq1WzT+NFffl6AuoiApi6NT37h6sWkBIRZGkQ8YtLgyji6e1mBYTqCEBPG2Naz+0BWQgtoGoRgCzEsd9hAN1X5BfnFZASUfrSAFQNsyZ1FJASUVpHiLinDJG8U2cBZYogkrcNs5waBAGdstbeU9zdqpw0gPwwSAI6VUxHyFlDpOcHUUBBIuYNs14aZAE5RVwyzPr3/0EAEY0TyfGNjBWQvwZ +CTSbehfAH29mrID8bET0+0EUkAd8WYDOmqJ3ecsG30yr9wqRfm6Y+a1BEFDEjHfHvWmY9ck6CygHvBVr8Xhtb4ZE5HZA3y8DvBNA1TjnrmXWf+sioMwZX5V/VHXMGGMMoKdDCxCRvRWBdzKzdHEO+EisilbPyopHYqp6S9UCAsz4iojI7hUDAtyXVQgIDd6KnOoaWNkbI6FaPSuZGyMArsi7MZoloB4zviI/Nhr3X95jltwTRQmoIfgisy5ai+me67OI7fE4nrqjrqfK1t0eby0FPRB6oGVlchL3rgnfrq19RKbVBdhV9IOSwJmfmJi4vi/4ThERitwyCxVAFqydshuCX5awhQ9KtmuIWd8IDZED/nXT77rvVVv6sHRKwjYi91poqP7Dr+Y6JJ1VSZIMA3wkPNy6bX+o8Bcm0sXMdwM8Fxo0A3xORPaWBp6uPXsmbxCRD0NDL0dOANhVCXy6iAjMcjbcrMt3RITKwdMVRdFo+y5yvkL4eWZ+zHt/ZVD4dEVRNGotpst+dZZZH8k86lqn2pIvT/eqrNfn2xuyqYPZ8mv7s8pfn/8Pybm4TIjanscAAAAASUVORK5CYII=") no-repeat center center;
+    background-size: 64px 64px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    filter: alpha(opacity=80);
+    transition: all 0.2s ease-out;
+}
+
+.youtube .play:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/*================================*/
 
 .vote_sauls_head {
   margin-bottom: 50px;
@@ -560,7 +655,8 @@ header.masthead .header-content .header-content-inner p {
 .contact-email {
     /*margin: 0px auto auto auto;*/
     width: 300px;
-    padding-left: 77px;
+    /*padding-left: 77px;*/
+    float:right;
 }
 
 @media (max-width: 462px) { /* Execute code until a max-width of... */
@@ -579,7 +675,6 @@ header.masthead .header-content .header-content-inner p {
   border-style: solid;
   border-width: 2px;
   border-color: #0365a3;
-  float:right;
 }
 
 .paypal_form {
