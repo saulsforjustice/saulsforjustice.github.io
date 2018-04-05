@@ -20,53 +20,10 @@
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-    
-    <!-- Priority scripts -->
-    <!-- JQuery library include -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
-    <!-- Google reCaptcha API script -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    
-    <!-- Ajax compatibility script -->
-    <script type="text/javascript">
-    function ajaxFunction()
-    {
-    var xmlHttp;
-    try
-      {
-      // Firefox, Opera 8.0+, Safari
-      xmlHttp=new XMLHttpRequest();
-      }
-    catch (e)
-      {
-      // Internet Explorer
-      try
-        {
-        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
-        }
-      catch (e)
-        {
-        try
-          {
-          xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
-          }
-        catch (e)
-          {
-          alert("Your browser does not support AJAX!");
-          return false;
-          }
-        }
-      }
-      }
-    </script>
-    <!-- End script -->
-    
-    <!--End Priority scripts -->
 
     <!-- Custom styles for this template -->
     <link href="css/creative.min.css" rel="stylesheet">
+
   </head>
 
   <body id="page-top">
@@ -84,13 +41,13 @@
               <a class="nav-link js-scroll-trigger" href="page_about_me.html">About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="issues.html">On The Issues</a>
+              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="experience.html">Experience</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+              <a class="nav-link js-scroll-trigger" href="contact.html">Contact Me</a>
             </li>
           </ul>
         </div>
@@ -100,234 +57,48 @@
     <header class="masthead">
     </header>
     
-    <section id="contact">
-    <!-- Contact form section -->
-    <section id="contact-form">
-      
-  <!-- New Contact Form Script (updated 4/3/18)-->
-    <script type="text/javascript">
-      var submitted=false;
-      var name = '';
-      var str = '';
-      var n = -1;
-      
-      function _(id){ return document.getElementById(id); }
-      
-      var imNotARobot = function() {
-        console.info("Captcha box was clicked");
-        _("ss-submit").disabled = false;
-        var name = $("#name").val();
-        $.ajax({
-            url: 'recaptcha.php',
-            type: "POST",
-            data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-            success: function(data) {
-                str = data;
-                console.log(data);
-                //document.getElementById("status_msg").innerHTML = n;
-                n = str.indexOf("[success] => 1");
-                if (n >= 0) {
-                  if ($(".status_msg")[0]){
-                // Do something if class exists
-                $( "#status_msg" ).removeClass();
-                $("#status_msg").addClass( "successMessage" );
-            } else {
-                // Do something if class does not exist
-            }
-                  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
-                }
-            }
-        })
-    };
-      
-      /* print to present page function */
-      (function () {
-        $.webshims.setOptions('form', {
-            lazyCustomMessages: true,
-            iVal: {
-                handleBubble: 'hide',
-                fx: 'slide',
-                sel: '.ws-validate',
-                fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
-            }
-        });
-        $.webshims.polyfill('form');
-    })();
-    
-    function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
-    
-        var reason = "";
-        var i = document.getElementById("status_msg");
-        var j = document.getElementById("successMessage");
-        reason += validateName(contact.name);
-        reason += validateEmail(contact.email);
-        reason += validatePhone(contact.phone);
-        
-        //_("ss-submit").disabled = true;
-        var formdata = new FormData();
-        formdata.append( "name", _("name").value );
-        formdata.append( "email", _("email").value );
-        formdata.append( "msg", _("msg").value );
-        
-        //var ajax = new XMLHttpRequest();
-        //event.preventDefault();
-        name = $("#name").val();
-        $.ajax({
-            url: 'recaptcha.php',
-            type: "POST",
-            data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-            success: function(data) {
-                str = data;
-                console.log(data);
-                n = str.indexOf("[success] => 1");
-                //document.getElementById("status_msg").innerHTML = n;
-            }
-        })
-        
-        console.log(reason);
-        switch (true) {
-        
-          case (reason.length <= 0 && str.indexOf("[success] => 1") > 0):
-            _("status_msg").innerHTML = "";
-            j.className += "successMessage";
-            _("ss-submit").value = _("msg").value;
-            submitted = true;
-            _("successMessage").innerHTML = "Thank you, " + name + "! Sharron and the team will be in touch shortly!"
-            return true;
-            break;
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="text-center main-text">
+            <h2 class="section-heading text-white">On the Issues</h2>
+            <hr class="light">
+            <br>
+            <div class="youtube" id="doMbsw-d3C4" style="width: 500px; height: 281px;">
+            </div>
+            <br>
+            <br>
+            <p class="text-faded">
+            &bull; Sharron strongly believes in the power of education and is an advocate for better education of the public.
+            <br>
+            <br>
+            &bull; Having spent years working with landlord and tenant laws, Sharron believes in strong fair housing policy.
+            <br>
+            <br>
+            &bull; Sharron is deeply passionate about honoring and protecting homeless veterans and has experience working with veterans' services. 
+            <br>
+            <br>
+            &bull; Sharron has a strong history of fighting for persons with disabilities, their constitutional rights, for equitable justice, education, and advocacy
+            in housing  cases.
+            <br>
+            <br>
+            &bull; As an ardent advocate on issues of domestic violence, Sharron is committed to fighting for working mothers and the rights of vulnerable and oppressed groups
+            in housing cases.
+            <br>
+            <br>
+            &bull; Sharron believes in improving opportunities and is committed to policies promoting inclusion, service, and good stewardship.
+            <br>
+            <br>
+            &bull; A former girl scout, Sharron prides herself in her work for Girl Scouts of America and for Cornerstone Church in Chandler, AZ. In her spare time, she enjoys family outings with her son and daughter. 
             
-          case (reason.length <= 0 && n <= 0):
-              i.className += "status_msg";
-            _("status_msg").innerHTML = 'Please click the "captcha" box';
-            _("ss-submit").disabled = true;
-            return false;
-            break;
-            
-          default:
-                return false;
-        }
-        /*
-        if (reason.length <= 0 && str.indexOf("[success] => 1") > 0) {
-            _("ss-submit").value = _("msg").value;
-            submitted = true;
-            _("successMessage").innerHTML = "Thank you " + name + "! The Spectrum team will be in touch with you shortly!"
-            return true;
-        }
-        else {
-            if (reason.length <= 0 && n <= 0) {
-                _("status_msg").innerHTML = 'please attempt captcha' + ", status code:" + n;
-            }
-            return false;
-        }
-        */
-        
-    }
-    // validate required fields
-    function validateName(name) { // takes name var as input
-        var error = "";
-    
-        if (name.value.length == 0) {
-          alert("Please fill all inputs to submit");
-            //name.style.background = "Red";
-            var error = "1";
-        } else {
-            //name.style.background = "White";
-        }
-        return error;
-    }
-    
-    // validate email as required field and format (or handle with html5)
-    function trim(s) {
-        return s.replace(/^\s+|\s+$/, "");
-    }
-    
-    function validateEmail(email) { // takes email var as input
-        var error = "";
-        var temail = trim(email.value); // value of field with whitespace trimmed off
-        var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
-        var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
-    
-        if (email.value == "") {
-            alert("Please fill all inputs to submit");
-            //email.style.background = "Red";
-            var error = "2";
-        } else if (!emailFilter.test(temail)) { //test email for illegal characters
-            alert("Please enter a valid email to submit");
-            //email.style.background = "Red";
-            var error = "3";
-        } else if (email.value.match(illegalChars)) {
-            alert("Please enter a valid email to submit");
-            //email.style.background = "Red";
-            var error = "4";
-        } else {
-            //email.style.background = "White";
-        }
-        return error;
-    }
-  
-    // validate phone for required and format (or handle with html5)
-    function validatePhone(phone) {
-        var error = "";
-        var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
-    
-        if (phone.value == "") {
-            alert("Please fill all inputs to submit");
-            //phone.style.background = "Red";
-            var error = "6";
-        } else if (isNaN(parseInt(stripped))) {
-            alert("Please enter a valid 10 digit phone number to submit");
-            var error = "5";
-            //phone.style.background = "Red";
-        } else if (stripped.length < 10) {
-            alert("Please enter a valid 10 digit phone number to submit");
-            var error = "6";
-            //phone.style.background = "Red";
-        } else {
-            //phone.style.background = "White";
-        }
-        return error;
-    }
-        
-    </script>
-    <!-- End Script -->
-        
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
-      onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0">
-    </iframe>
-    <center>
-    <div class="content">
-        <div id="form">
-            <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsubmit="submitted=true;" -->
-                <!-- <span>Name</span> -->
-                <input type="text" name="entry.2062577226" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
-                <!--<span>Email</span>-->
-                <input type="email" name="entry.956340906" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
-                <!--<span>Phone</span>-->
-                <input type="tel" name="entry.147794208" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
-            
-                <!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
-                <!--<span>Message</span>-->
-                <textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=2 required></textarea>
-                <br>
-                <br>
-              <button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
-                <br>
-                <div class="g-recaptcha" id="captchabox" data-sitekey="6LcB0VAUAAAAAJwhuKKqS_S3O6ILMMhxP56_nrny" data-callback="imNotARobot">
-                </div>
-                <span id="status_msg" name="msg"></span>
-                <!-- <span id="captcha">Captcha Code:</span> -->
-                
-            </form>
+            </p>
+            <a class="btn btn-default btn-xl js-scroll-trigger" href="page_about_me.html">Learn More About Me!</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div id="successMessage">
-    </div>
-    </center>
     </section>
-    <!-- End Contact form section -->
-        
-        
-    <center>
+    
+    <section id="contact">
       <div class="container">
         <div class="sauls_logo">
         <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
@@ -360,7 +131,6 @@
         </div>
         </center>
       </div>
-     </center>
     </section>
 
     <!-- Bootstrap core JavaScript -->
@@ -376,247 +146,106 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
     
-    <!-- Old Contact form script >
-    <script type="text/javascript">
-    function captchaCode() {
-      var Numb1, Numb2, Numb3, Numb4, Code;     
-      Numb1 = (Math.ceil(Math.random() * 10)-1).toString();
-      Numb2 = (Math.ceil(Math.random() * 10)-1).toString();
-      Numb3 = (Math.ceil(Math.random() * 10)-1).toString();
-      Numb4 = (Math.ceil(Math.random() * 10)-1).toString();
-      
-      Code = Numb1 + Numb2 + Numb3 + Numb4;
-      $("#captcha span").remove();
-      $("#captcha input").remove();
-      $("#captcha").append("<span id='code'>" + Code + "</span><input type='button' onclick='captchaCode();'>");
-    }
+    <!-- ---Video Player Script----- -->
+    <script>
+    'use strict';
+    function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
+    r(function(){
+        if (!document.getElementsByClassName) {
+            // IE8 support
+            var getElementsByClassName = function(node, classname) {
+                var a = [];
+                var re = new RegExp('(^| )'+classname+'( |$)');
+                var els = node.getElementsByTagName("*");
+                for(var i=0,j=els.length; i<j; i++)
+                    if(re.test(els[i].className))a.push(els[i]);
+                return a;
+            }
+            var videos = getElementsByClassName(document.body,"youtube");
+        } else {
+            var videos = document.getElementsByClassName("youtube");
+        }
     
-    $(function() {
-      captchaCode();
-      
-      $('#contactForm').submit_btn(function(){
-        var captchaVal = $("#code").text();
-        var captchaCode = $(".captcha").val();
-        if (captchaVal == captchaCode) {
-          $(".captcha").css({
-            "color" : "#609D29"
-          });
+        var nb_videos = videos.length;
+        for (var i=0; i<nb_videos; i++) {
+            // Based on the YouTube ID, we can easily find the thumbnail image
+            videos[i].style.backgroundImage = 'url(http://i.ytimg.com/vi/' + videos[i].id + '/sddefault.jpg)';
+    
+            // Overlay the Play icon to make it look like a video player
+            var play = document.createElement("div");
+            play.setAttribute("class","play");
+            videos[i].appendChild(play);
+    
+            videos[i].onclick = function() {
+                // Create an iFrame with autoplay set to true
+                var iframe = document.createElement("iframe");
+                var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&rel=0";
+                if (this.getAttribute("data-params")) iframe_url+='&'+this.getAttribute("data-params");
+                iframe.setAttribute("src",iframe_url);
+                iframe.setAttribute("frameborder",'0');
+    
+                // The height and width of the iFrame should be the same as parent
+                iframe.style.width  = this.style.width;
+                iframe.style.height = this.style.height;
+    
+                // Replace the YouTube thumbnail with YouTube Player
+                this.parentNode.replaceChild(iframe, this);
+            }
         }
-        else {
-          $(".captcha").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,10})+$/;   
-        var emailText = $(".email").val();
-        if (emailFilter.test(emailText)) {
-          $(".email").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".email").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        var nameFilter = /^([a-zA-Z \t]{3,15})+$/;
-        var nameText = $(".name").val();
-        if (nameFilter.test(nameText)) {
-          $(".name").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".name").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        var phoneFilter = /^([a-zA-Z \t]{3,15})+$/;
-        var phoneText = $(".phone").val();
-        if (phoneFilter.test(phoneText)) {
-          $(".phone").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".phone").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        var messageText = $(".message").val().length;
-        if (messageText > 100) {
-          $(".message").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".message").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        if ((captchaVal !== captchaCode) || (!emailFilter.test(emailText)) || (!nameFilter.test(nameText)) || (messageText < 100)) {
-          return false;
-        }
-        if ((captchaVal == captchaCode) && (emailFilter.test(emailText)) && (nameFilter.test(nameText)) && (messageText > 100)) {
-          $("#contactForm").css("display", "none");
-          $("#form").append("<h2>Message sent!</h2>");
-          return false;
-        }
-      });       
     });
     </script>
-    <!-- End contact form script -->
-    
+    <!--- End Video Player Script -->
+
   </body>
 
 </html>
 
-
-<style>
+<style type="text/css">
 /*Use inline for testing, external in creative.min.css*/
 
+/*========= Video Style ==========*/
 
-/* ========= Contact Form ===============*/
-.status_msg {
-    color:red; 
+@media(max-width: 499px){
+    .youtube {
+        width: 322px; 
+        height: 181px;
+    }
+    
+    .play {
+        width: 322px; 
+        height: 181px;
+        opacity: .8;
+    }
 }
-
-.successMessage {
-    color: green;
-}
-
-.submit_btn{
-    display:block;
-    border:none;
-    background: #ffc20c;/*#f8ae45;*/
-    color:#FFFFFF;
-    padding:12px 25px;
-    cursor:pointer;
-    text-decoration:none;
-    font-weight:bold;
-}
-.submit_btn:hover{
-    background: #bc8f09;/*#d8850e;*/
-
-}
-#contact-form {
-  overflow: auto;
-  padding-top: 60px;
-}
-#contact-form #form {
-  width: 70%; /*410px;*/
-  /*float:left;*/
-}
-#contact-form #form h2 {
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form span {
-  display:block;
-  /*float:left;*/
-  width: 70%; /*100px;*/
-  padding-top:5px;
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form input {
-  /*float:left;*/
-  width: 55%; /*255px;*/
-  border:0px;
-  color: #ffffff; /*#F1F1F1;*/
-  padding:10px 10px 10px 30px;
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-  margin-bottom:10px;
-}
-#contact-form #form textarea {
-  /*float:left;*/
-  border:0px;
-  width: 55%; /*255px;*/
-  height:140px;
-  padding:10px 10px 10px 30px;
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-  color: #ffffff; /*#F1F1F1;*/
-  resize: none;
-  margin: auto 0px 0px 2px;
+.youtube {
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+    width: 500px; 
+    height: 281px;
 }
 
-#contact-form #form input.name {
-  background: #828da0 /*#222222*/ url(name_icon_wht.png) no-repeat 10px 8px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+.youtube .play {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAERklEQVR4nOWbTWhcVRTHb1IJVoxGtNCNdal2JYJReC6GWuO83PM/59yUS3FRFARdFlwYP1CfiojQWt36sRCUurRIdVFXIn41lAoVdRGrG1M01YpKrWjiYmaSl8ybZJL3cd+YA//NLObd3++eO8x79z5jSq5Gw+8kov0AP8vMR5l1BtBZQM4B8ks75wCdZdYZZj5qLZ4hov2Nht9Z9vhKKSIaB/gI4M4w62KeAO6Mte4lYOq20FxrlqqOibhHmeWbvNC9ZfDX1mLae391aN6limO/gwgvAPJbWeAZuSDingdwXTBw7/0IsyaA/Fkh+KqOkD+YNfHej1QKD+y7iVlOhgLvFqFfNJvNGyuBJ+KDAF8MDd0tgS8y64OlgSdJMsysL4cG7SOHkyQZLhTee7+d2R2rAVy/S+Jd7/32ouBHAP4gNNRGQyTHc/84NhqNywZp5rvjjnnvt21aABFeCQ+RLwAf2hQ8s7sv9OCLk6AHNgQvIrvbfzKCD76g/O6cu7lf/iER/aQGgy448pExZmhdegAPhR9sObFWH1gT3lp7DaA/5bkIgJhZPgsNmz02novj+KqeApj1ubwXWe4kdyeznAgNvTpE/HQmvKqOMeuFogTUVQSRno+iaLRLAJF7uIgL9O4ubgL8aWgB7S44mNX+35YpICUiAvS9sBLkq1WzT+NFffl6AuoiApi6NT37h6sWkBIRZGkQ8YtLgyji6e1mBYTqCEBPG2Naz+0BWQgtoGoRgCzEsd9hAN1X5BfnFZASUfrSAFQNsyZ1FJASUVpHiLinDJG8U2cBZYogkrcNs5waBAGdstbeU9zdqpw0gPwwSAI6VUxHyFlDpOcHUUBBIuYNs14aZAE5RVwyzPr3/0EAEY0TyfGNjBWQvwZ +CTSbehfAH29mrID8bET0+0EUkAd8WYDOmqJ3ecsG30yr9wqRfm6Y+a1BEFDEjHfHvWmY9ck6CygHvBVr8Xhtb4ZE5HZA3y8DvBNA1TjnrmXWf+sioMwZX5V/VHXMGGMMoKdDCxCRvRWBdzKzdHEO+EisilbPyopHYqp6S9UCAsz4iojI7hUDAtyXVQgIDd6KnOoaWNkbI6FaPSuZGyMArsi7MZoloB4zviI/Nhr3X95jltwTRQmoIfgisy5ai+me67OI7fE4nrqjrqfK1t0eby0FPRB6oGVlchL3rgnfrq19RKbVBdhV9IOSwJmfmJi4vi/4ThERitwyCxVAFqydshuCX5awhQ9KtmuIWd8IDZED/nXT77rvVVv6sHRKwjYi91poqP7Dr+Y6JJ1VSZIMA3wkPNy6bX+o8Bcm0sXMdwM8Fxo0A3xORPaWBp6uPXsmbxCRD0NDL0dOANhVCXy6iAjMcjbcrMt3RITKwdMVRdFo+y5yvkL4eWZ+zHt/ZVD4dEVRNGotpst+dZZZH8k86lqn2pIvT/eqrNfn2xuyqYPZ8mv7s8pfn/8Pybm4TIjanscAAAAASUVORK5CYII=") no-repeat center center;
+    background-size: 64px 64px;
+    position: absolute;
+    width: 500px; 
+    height: 281px;
+    opacity: .8;
+    filter: alpha(opacity=80);
+    transition: all 0.2s ease-out;
 }
 
-#contact-form #form input.phone {
-  background: #828da0 /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 8px;
-  /*background-size: 0.75em 0.75em;*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+.youtube .play:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 
-#contact-form #form input.email {
-  background: #828da0 /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form input.captcha {
-  background: #828da0 /*#222222*/ url(refresh_icon_wht.png) no-repeat 10px 9px;  /*http://img3.uploadhouse.com/fileuploads/17737/17737011310213e71805ecf2292144cbbecf42ad.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form textarea.message {
-  background: #828da0 /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form button {
-
-  /*
-  cursor: pointer;
-  width:85px;
-  height:30px;
-  /*float:right;
-  padding:0px 0px 5px 0px;
-  margin:10px 16px 0px 0px;
-  background:#222222;
-  color:#F1F1F1;
-  */
-  font: 12px, 'Open Sans', Verdana, Helvetica, sans-serif;
-  width: 55%;
-  /*border-radius: 20px;*/
-}
-#contact-form #captcha span{
-    width: 44px;
-}
-#contact-form #captcha input{
-  background: url(refresh_icon.png) no-repeat scroll 0 0 transparent;
-  margin: 5px 0 0;
-  padding: 0;
-  border: medium none;
-  cursor: pointer;
-  width: 15px;
-}
-
-.fa-phone {
-    font-size:3em; 
-    color:#fff;
-}
-
-.fa-phone:before {content: "\f095";}
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #ffffff;
-    opacity: 0.7; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #ffffff;
-    opacity: 0.7;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: #ffffff;
-    opacity: 0.7;
-}
-
-/* ========= End Contact Form ===========*/
+/*================================*/
 
 .vote_sauls_head {
   margin-bottom: 50px;
@@ -665,6 +294,7 @@ p {
     margin-bottom: 20px;
 }
 .bg-primary {
+    margin-top: -110px;
     background-color: #0365a3 /*#0f2e60; /*#f05f40*/ !important
 }
 .bg-dark {
@@ -674,11 +304,23 @@ p {
 .text-faded {
     color: rgba(255, 255, 255, .7);
 }
+
+.main-text {
+    margin: 60px auto auto 0px;
+}
+
+
+@media (max-width: 1200px) {
+    .main-text {
+        margin: 60px auto auto 0px;
+    }
+}
+
 section {
     padding: 100px 0;
 }
 .section-heading {
-    margin-top: 0;
+    margin-top: 10px;
 }
 ::-moz-selection {
     color: #fff;
@@ -733,10 +375,6 @@ body {
 
 .caption6 {
   animation: op_frame6 30s ease-in-out 0s infinite;
-}
-
-#contact {
-    padding-top: 0px;
 }
 
 @keyframes op_frame1 {
@@ -831,7 +469,7 @@ body {
     -moz-transition: all .2s;
     transition: all .2s;
 }
-#mainNav .navbar-brand {
+#mainNav .navbar-brand { /*controls home navbar text */
     font-weight: 700;
     text-transform: uppercase;
     color: #0365a3; /*#0f2e60; /*#f05f40*/
@@ -867,25 +505,28 @@ body {
 #mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active:hover {
     background-color: transparent;
 }
-@media (min-width: 992px) {
+@media (min-width: 992px) { /* Execute rules contained until a min width of X (execute rules for width >= X) */
     #mainNav {
         border-color: rgba(255, 255, 255, .3);
         background-color: transparent;
     }
-    #mainNav .navbar-brand {
-        color: #1f4077; /*color: rgba(66, 134, 244, 1);*/
+    #mainNav .navbar-brand { /*controls home navbar text only */
+        color: #ffffff; /*color: rgba(66, 134, 244, 1);*/
     }
     #mainNav .navbar-brand:focus,
-    #mainNav .navbar-brand:hover {
-        color: #0365a3; /*color: rgba(66, 134, 244, 1);*/
+    #mainNav .navbar-brand:hover { /*controls home navbar text only */
+        color: #0f2e60; /*color: rgba(66, 134, 244, 1);*/
     }
-    #mainNav .navbar-nav>li.nav-item>a.nav-link,
-    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
-        color: #1f4077; /*color: rgba(66, 134, 244, 1);*/
+    #mainNav .navbar-nav>li.nav-item>a.nav-link { /*controls about, contact, etc navbar text*/
+        color: #ffffff;
+    }
+    
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus { /*controls about, contact, etc navbar text*/
+        color: #0f2e60; /*color: rgba(66, 134, 244, 1);*/
     }
     #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
     #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
-        color: #0365a3; /*color: rgba(66, 134, 244, 1);*/
+        color: #0f2e60; /*color: rgba(66, 134, 244, 1);*/
     }
     #mainNav.navbar-shrink {
         border-color: rgba(34, 34, 34, .05);
@@ -948,15 +589,15 @@ header.masthead .header-content .header-content-inner p {
     margin-bottom: 50px;
     color: rgba(255, 255, 255, .7);
 }
-@media (min-width: 768px) {
+@media (min-width: 7680px) { /*if viewport >= 768px do this*/
     header.masthead {
         height: 10%;
-        /*min-height: 200px;*/
+        min-height: 200px;
     }
     header.masthead .header-content {
         position: absolute;
         top: 50%;
-        padding: 0px 50px;
+        padding: 0 50px;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -980,6 +621,14 @@ header.masthead .header-content .header-content-inner p {
     max-width: 400px;
     margin: 50px auto 0;
 }
+@media (min-width: 992px) {
+    .service-box {
+        margin: 20px auto 0;
+    }
+}
+.service-box p {
+    margin-bottom: 0;
+}
 
 .sauls_logo { 
     margin: -50px auto 20px auto; /*t r b l */
@@ -992,15 +641,6 @@ header.masthead .header-content .header-content-inner p {
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-}
-
-@media (min-width: 992px) {
-    .service-box {
-        margin: 20px auto 0;
-    }
-}
-.service-box p {
-    margin-bottom: 0;
 }
 
 .text-center {
@@ -1020,8 +660,8 @@ header.masthead .header-content .header-content-inner p {
 .contact-email {
     /*margin: 0px auto auto auto;*/
     width: 300px;
-    float: right;
-    /*padding-left: 77px; */
+    /*padding-left: 77px;*/
+    float:right;
 }
 
 @media (max-width: 462px) { /* Execute code until a max-width of... */

@@ -20,53 +20,10 @@
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-    
-    <!-- Priority scripts -->
-	<!-- JQuery library include -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	
-	<!-- Google reCaptcha API script -->
-	<script src='https://www.google.com/recaptcha/api.js'></script>
-	
-	<!-- Ajax compatibility script -->
-	<script type="text/javascript">
-	function ajaxFunction()
-	{
-	var xmlHttp;
-	try
-	  {
-	  // Firefox, Opera 8.0+, Safari
-	  xmlHttp=new XMLHttpRequest();
-	  }
-	catch (e)
-	  {
-	  // Internet Explorer
-	  try
-	    {
-	    xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
-	    }
-	  catch (e)
-	    {
-	    try
-	      {
-	      xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
-	      }
-	    catch (e)
-	      {
-	      alert("Your browser does not support AJAX!");
-	      return false;
-	      }
-	    }
-	  }
-	  }
-	</script>
-	<!-- End script -->
-	
-	<!--End Priority scripts -->
 
     <!-- Custom styles for this template -->
     <link href="css/creative.min.css" rel="stylesheet">
+
   </head>
 
   <body id="page-top">
@@ -75,6 +32,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="page_donate.html">Donate</a>
+        <a class="navbar-brand js-scroll-trigger" href="https://voter.azsos.gov/VoterView/RegistrantSearch.do">Registered to vote?</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -90,236 +48,202 @@
               <a class="nav-link js-scroll-trigger" href="experience.html">Experience</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+              <a class="nav-link js-scroll-trigger" href="contact.html">Contact Me</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    
+
     <header class="masthead">
+      <div class="header-content">
+      <div class="at-your-service">
+      </div>
+        <div class="header-content-inner">
+          <h1 id="homeHeading">At Your Service, With Experience, Fairness, and Dedication</h1>
+          <hr id="homeHeading">
+          <h2><b>Vote Sauls for Justice of the Peace</b></h2>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="page_about_me.html">Get to Know Me Better</a>
+        </div>
+      </div>
     </header>
-    
-    <section id="contact">
-    <!-- Contact form section -->
-    <section id="contact-form">
-      
-  <!-- New Contact Form Script (updated 4/3/18)-->
-    <script type="text/javascript">
-    var submitted=false;
-    var name = '';
-    var str = '';
-    var n = -1;
-    
-    function _(id){ return document.getElementById(id); }
-    
-  	var imNotARobot = function() {
-		console.info("Captcha box was clicked");
-		_("ss-submit").disabled = false;
-		var name = $("#name").val();
-  		$.ajax({
-  			url: 'recaptcha.php',
-  			type: "POST",
-  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-  			success: function(data) {
-  				str = data;
-  				console.log(data);
-  				n = str.indexOf("[success] => 1");
-  				$("#status_msg").addClass( "successMessage" );
-  				//document.getElementById("status_msg").innerHTML = n;
-  			}
-  		})
-	  };
-      
-      /* print to present page function */
-      (function () {
-  		$.webshims.setOptions('form', {
-  			lazyCustomMessages: true,
-  			iVal: {
-  				handleBubble: 'hide',
-  				fx: 'slide',
-  				sel: '.ws-validate',
-  				fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
-  			}
-  		});
-  		$.webshims.polyfill('form');
-  	})();
-  	
-  	function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
-  	
-  		var reason = "";
-  		var i = document.getElementById("status_msg");
-  		var j = document.getElementById("successMessage");
-	    reason += validateName(contact.name);
-	    reason += validateEmail(contact.email);
-	    reason += validatePhone(contact.phone);
-	    
-  		//_("ss-submit").disabled = true;
-  		var formdata = new FormData();
-  		formdata.append( "name", _("name").value );
-  		formdata.append( "email", _("email").value );
-  		formdata.append( "msg", _("msg").value );
-  		
-  		//var ajax = new XMLHttpRequest();
-  		//event.preventDefault();
-  		name = $("#name").val();
-  		$.ajax({
-  			url: 'recaptcha.php',
-  			type: "POST",
-  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-  			success: function(data) {
-  				str = data;
-  				console.log(data);
-  				n = str.indexOf("[success] => 1");
-  				//document.getElementById("status_msg").innerHTML = n;
-  			}
-  		})
-  		
-  	    console.log(reason);
-  	    switch (true) {
-  		
-  		  case (reason.length <= 0 && str.indexOf("[success] => 1") > 0):
-		  	  _("status_msg").innerHTML = "";
-		  	  j .className += "successMessage";
-		      _("ss-submit").value = _("msg").value;
-	        submitted = true;
-	        _("successMessage").innerHTML = "Thank you, " + name + "! Sharron and the team will be in touch shortly!"
-	        _("ss-submit").disabled = true;
-	        return true;
-  		    break;
-  		    
-  		  case (reason.length <= 0 && n <= 0):
-  			  i.className += "status_msg";
-  	    	_("status_msg").innerHTML = 'Please click the "captcha" box';
-  	    	_("ss-submit").disabled = true;
-  	    	return false;
-  		    break;
-  		    
-  		  default:
-  				return false;
-  		}
-  	    /*
-  	    if (reason.length <= 0 && str.indexOf("[success] => 1") > 0) {
-  	    	_("ss-submit").value = _("msg").value;
-  	        submitted = true;
-  	        _("successMessage").innerHTML = "Thank you " + name + "! The Spectrum team will be in touch with you shortly!"
-  	        return true;
-  	    }
-  	    else {
-  	    	if (reason.length <= 0 && n <= 0) {
-  	        	_("status_msg").innerHTML = 'please attempt captcha' + ", status code:" + n;
-  		    }
-  	    	return false;
-  	    }
-  	    */
-  		
-  	}
-  	// validate required fields
-  	function validateName(name) { // takes name var as input
-  	    var error = "";
-  	
-  	    if (name.value.length == 0) {
-  	      alert("Please fill all inputs to submit");
-  	        //name.style.background = "Red";
-  	        var error = "1";
-  	    } else {
-  	        //name.style.background = "White";
-  	    }
-  	    return error;
-  	}
-  	
-  	// validate email as required field and format (or handle with html5)
-  	function trim(s) {
-  	    return s.replace(/^\s+|\s+$/, "");
-  	}
-  	
-  	function validateEmail(email) { // takes email var as input
-  	    var error = "";
-  	    var temail = trim(email.value); // value of field with whitespace trimmed off
-  	    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
-  	    var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
-  	
-  	    if (email.value == "") {
-  	        alert("Please fill all inputs to submit");
-  	        //email.style.background = "Red";
-  	        var error = "2";
-  	    } else if (!emailFilter.test(temail)) { //test email for illegal characters
-  	        alert("Please enter a valid email to submit");
-  	        //email.style.background = "Red";
-  	        var error = "3";
-  	    } else if (email.value.match(illegalChars)) {
-  	        alert("Please enter a valid email to submit");
-  	        //email.style.background = "Red";
-  	        var error = "4";
-  	    } else {
-  	        //email.style.background = "White";
-  	    }
-  	    return error;
-  	}
-  
-  	// validate phone for required and format (or handle with html5)
-  	function validatePhone(phone) {
-  	    var error = "";
-  	    var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
-  	
-  	    if (phone.value == "") {
-  	        alert("Please fill all inputs to submit");
-  	        //phone.style.background = "Red";
-  	        var error = "6";
-  	    } else if (isNaN(parseInt(stripped))) {
-  	        alert("Please enter a valid 10 digit phone number to submit");
-  	        var error = "5";
-  	        //phone.style.background = "Red";
-  	    } else if (stripped.length < 10) {
-  	        alert("Please enter a valid 10 digit phone number to submit");
-  	        var error = "6";
-  	        //phone.style.background = "Red";
-  	    } else {
-  	        //phone.style.background = "White";
-  	    }
-  	    return error;
-  	}
-	    
-    </script>
-    <!-- End Script -->
-        
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
-      onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0">
-    </iframe>
-    <center>
-    <div class="content">
-    	<div id="form">
-    		<form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsubmit="submitted=true;" -->
-    			<!-- <span>Name</span> -->
-    			<input type="text" name="entry.2062577226" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
-    			<!--<span>Email</span>-->
-    			<input type="email" name="entry.956340906" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
-    			<!--<span>Phone</span>-->
-    			<input type="tel" name="entry.147794208" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
-    		
-    			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
-    			<!--<span>Message</span>-->
-    			<textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=2 required></textarea>
-    			<br>
-    			<br>
-    		  <button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
-    			<br>
-    			<div class="g-recaptcha" id="captchabox" data-sitekey="6LcB0VAUAAAAAJwhuKKqS_S3O6ILMMhxP56_nrny" data-callback="imNotARobot">
-    			</div>
-    			<span id="status_msg" name="msg"></span>
-    			<!-- <span id="captcha">Captcha Code:</span> -->
-    			
-    		</form>
+
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">Dedicated to Service and Securing Justice for All</h2>
+            <hr class="light">
+            <p class="text-faded">With more than 20 years of social service and government experience spanning several regions, 
+            Sharron has abundant knowledge of Arizona Landlord/Tenant law. Having served as a landlord and tenant counselor for 
+            more than 13 years, Sharron has held the title of lead counselor for more than five years. She most recently worked 
+            for the city of Phoenix Housing Department where she served as the landlord liaison, staff training coordinator and 
+            assistant to the city’s housing manager. </p>
+            <a class="btn btn-default btn-xl js-scroll-trigger" href="page_about_me.html">Learn More About Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Ready to Work</h2>
+            <hr class="primary">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+              <h3>Sharp and Tough</h3>
+              <p class="text-muted">Sharron has demonstrated strong leadership and is tough when it matters</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+              <h3>Ready to Start</h3>
+              <p class="text-muted">Sharron is ready to roll up her sleeves and work to make positive changes in the Kyrene Precinct</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+              <h3>Up and Current</h3>
+              <p class="text-muted">Sharron works and is well-versed on the most pressing matters affecting Kyrene area residents today</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+              <h3>Passionate about service</h3>
+              <p class="text-muted">With a deep passion for serving others, Sharron has spent decades educating the public while working to improve housing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2><center><br>Sharron has experience in several key areas of law</center>
+      </h2>
+    </section>
+
+    <section class="p-0" id="portfolio">
+      <div class="container-fluid">
+        <div class="row no-gutter"> <!-- <div class="row no-gutter popup-gallery"> -->
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box2" href="experience.html">
+              <img class="img-fluid" src="img/portfolio/fullsize/lease_gavel.jpg" alt="Landlord and Tenant Law">
+              <div class="portfolio-box-caption begin_on_scroll caption1" data-animation="op_frame1">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Experienced in Landlord & Tenant Law
+                  </div>
+                  <div class="project-name">
+                    Learn more <u>here</u>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box2" href="issues.html">
+              <img class="img-fluid" src="img/portfolio/thumbnails/va_sdof_3200x1700.jpg" alt="VA Experience">
+              <div class="portfolio-box-caption caption2">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    History of Fighting for Vets
+                  </div>
+                  <div class="project-name">
+                    Learn more <u>here</u>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box2" href="experience.html">
+              <img class="img-fluid" src="img/portfolio/fullsize/sauls_unity1.jpg" alt="Sharron At Unity March">
+              <div class="portfolio-box-caption caption3">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Experience in Education and Counseling
+                  </div>
+                  <div class="project-name">
+                    Learn more <u>here</u>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box2" href="experience.html">
+              <img class="img-fluid" src="img/portfolio/fullsize/family_law_2300x1700_sdof.png" alt="Family Law">
+              <div class="portfolio-box-caption caption4">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Experienced in social service needs
+                  </div>
+                  <div class="project-name">
+                    Learn more <u>here</u>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box2" target="_blank" href="https://voter.azsos.gov/VoterView/RegistrantSearch.do">
+              <img class="img-fluid" src="img/portfolio/fullsize/towns_collage2.png" alt="Towns in Precinct">
+              <div class="portfolio-box-caption caption5">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Registered to Vote?
+                  </div>
+                  <div class="project-name">
+                    Check <u>here</u>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box2" href="issues.html">
+              <img class="img-fluid" src="img/portfolio/fullsize/wheelchair-steps_sdof_wide_996x667.png" alt="">
+              <div class="portfolio-box-caption caption6">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Knowledgeable in Fair Housing Law
+                  </div>
+                  <div class="project-name">
+                    Learn more <u>here</u>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="call-to-action bg-dark">
+      <div class="container text-center">
+        <h2>Sharron is experienced in:<br>
+        </h2>
+        <h3>
+        &#8227; Education and Counseling <br>
+        &#8227; Landlord and Tenant Law <br>
+        &#8227; Issues concerning veterans <br>
+        &#8227; Family &amp; Social Services<br>
+        &#8227; Fair Housing Law <br>
+        <br>
+        </h3>
+        <a class="btn btn-default btn-xl sr-button" href="experience.html">Find Out More</a>
       </div>
     </div>
-    <div id="successMessage">
-    </div>
-    </center>
-    </section>
-    <!-- End Contact form section -->
-        
-        
-    <center>
+
+    <section id="contact">
       <div class="container">
         <div class="sauls_logo">
         <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
@@ -352,7 +276,6 @@
         </div>
         </center>
       </div>
-     </center>
     </section>
 
     <!-- Bootstrap core JavaScript -->
@@ -368,102 +291,40 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
     
-    <!-- Old Contact form script >
     <script type="text/javascript">
-    function captchaCode() {
-      var Numb1, Numb2, Numb3, Numb4, Code;     
-      Numb1 = (Math.ceil(Math.random() * 10)-1).toString();
-      Numb2 = (Math.ceil(Math.random() * 10)-1).toString();
-      Numb3 = (Math.ceil(Math.random() * 10)-1).toString();
-      Numb4 = (Math.ceil(Math.random() * 10)-1).toString();
-      
-      Code = Numb1 + Numb2 + Numb3 + Numb4;
-      $("#captcha span").remove();
-      $("#captcha input").remove();
-      $("#captcha").append("<span id='code'>" + Code + "</span><input type='button' onclick='captchaCode();'>");
-    }
-    
-    $(function() {
-      captchaCode();
-      
-      $('#contactForm').submit_btn(function(){
-        var captchaVal = $("#code").text();
-        var captchaCode = $(".captcha").val();
-        if (captchaVal == captchaCode) {
-          $(".captcha").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".captcha").css({
-            "color" : "#CE3B46"
-          });
+    function OnScroll() {
+        var $window = $(window), win_height_padded = $window.height() * 1.1, isTouch = Modernizr.touch;
+        if (isTouch) {
+          $('.begin_on_scroll').addClass('caption1');
         }
         
-        var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,10})+$/;   
-        var emailText = $(".email").val();
-        if (emailFilter.test(emailText)) {
-          $(".email").css({
-            "color" : "#609D29"
+        $window.on('scroll', begin_on_scroll);
+        function begin_on_scroll() {
+          var scrolled = $window.scrollTop(), win_height_padded = $window.height() * 1.1;
+          $('.begin_on_scroll:not(.caption1)').each(function() {
+            var $this = $(this), offsetTop = $this.offset().top;
+            if (scrolled + win_height_padded > offsetTop) {
+              if ($this.data('timeout')) {
+                window.setTimeout(function () {
+                  $this.addClass('caption1' + $this.data('op'));
+                }, parseInt($this.data('timeout'), 10));
+              } else {
+                $this.addClass('caption1' + $this.data('animation'));
+              }
+            }
+          });
+          
+          $('.begin_on_scroll.caption1').each(function (index) {
+            var $this = $(this), offsetTop = $this.offset().top;
+            if (scrolled + win_height_padded < offsetTop) {
+              $(this).removeClass('caption1');
+            }
           });
         }
-        else {
-          $(".email").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        var nameFilter = /^([a-zA-Z \t]{3,15})+$/;
-        var nameText = $(".name").val();
-        if (nameFilter.test(nameText)) {
-          $(".name").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".name").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        var phoneFilter = /^([a-zA-Z \t]{3,15})+$/;
-        var phoneText = $(".phone").val();
-        if (phoneFilter.test(phoneText)) {
-          $(".phone").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".phone").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        var messageText = $(".message").val().length;
-        if (messageText > 100) {
-          $(".message").css({
-            "color" : "#609D29"
-          });
-        }
-        else {
-          $(".message").css({
-            "color" : "#CE3B46"
-          });
-        }
-        
-        if ((captchaVal !== captchaCode) || (!emailFilter.test(emailText)) || (!nameFilter.test(nameText)) || (messageText < 100)) {
-          return false;
-        }
-        if ((captchaVal == captchaCode) && (emailFilter.test(emailText)) && (nameFilter.test(nameText)) && (messageText > 100)) {
-          $("#contactForm").css("display", "none");
-          $("#form").append("<h2>Message sent!</h2>");
-          return false;
-        }
-      });       
-    });
+        begin_on_scroll();
+      }
     </script>
-    <!-- End contact form script -->
-    
+
   </body>
 
 </html>
@@ -471,148 +332,6 @@
 
 <style>
 /*Use inline for testing, external in creative.min.css*/
-
-
-/* ========= Contact Form ===============*/
-.status_msg {
-	color:red; 
-}
-
-.successMessage {
-	color: green;
-}
-
-.submit_btn{
-	display:block;
-	border:none;
-	background: #ffc20c;/*#f8ae45;*/
-	color:#FFFFFF;
-	padding:12px 25px;
-	cursor:pointer;
-	text-decoration:none;
-	font-weight:bold;
-}
-.submit_btn:hover{
-	background: #bc8f09;/*#d8850e;*/
-
-}
-#contact-form {
-  overflow: auto;
-  padding-top: 60px;
-}
-#contact-form #form {
-  width: 70%; /*410px;*/
-  /*float:left;*/
-}
-#contact-form #form h2 {
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form span {
-  display:block;
-  /*float:left;*/
-  width: 70%; /*100px;*/
-  padding-top:5px;
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form input {
-  /*float:left;*/
-  width: 55%; /*255px;*/
-  border:0px;
-  color: #ffffff; /*#F1F1F1;*/
-  padding:10px 10px 10px 30px;
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-  margin-bottom:10px;
-}
-#contact-form #form textarea {
-  /*float:left;*/
-  border:0px;
-  width: 55%; /*255px;*/
-  height:140px;
-  padding:10px 10px 10px 30px;
-  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-  color: #ffffff; /*#F1F1F1;*/
-  resize: none;
-  margin: auto 0px 0px 2px;
-}
-
-#contact-form #form input.name {
-  background: #828da0 /*#222222*/ url(name_icon_wht.png) no-repeat 10px 8px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-
-#contact-form #form input.phone {
-  background: #828da0 /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 8px;
-  /*background-size: 0.75em 0.75em;*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-
-#contact-form #form input.email {
-  background: #828da0 /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form input.captcha {
-  background: #828da0 /*#222222*/ url(refresh_icon_wht.png) no-repeat 10px 9px;  /*http://img3.uploadhouse.com/fileuploads/17737/17737011310213e71805ecf2292144cbbecf42ad.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form textarea.message {
-  background: #828da0 /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
-  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
-}
-#contact-form #form button {
-
-  /*
-  cursor: pointer;
-  width:85px;
-  height:30px;
-  /*float:right;
-  padding:0px 0px 5px 0px;
-  margin:10px 16px 0px 0px;
-  background:#222222;
-  color:#F1F1F1;
-  */
-  font: 12px, 'Open Sans', Verdana, Helvetica, sans-serif;
-  width: 55%;
-  /*border-radius: 20px;*/
-}
-#contact-form #captcha span{
-    width: 44px;
-}
-#contact-form #captcha input{
-  background: url(refresh_icon.png) no-repeat scroll 0 0 transparent;
-  margin: 5px 0 0;
-  padding: 0;
-  border: medium none;
-  cursor: pointer;
-  width: 15px;
-}
-
-.fa-phone {
-    font-size:3em; 
-    color:#fff;
-}
-
-.fa-phone:before {content: "\f095";}
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #ffffff;
-    opacity: 0.7; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #ffffff;
-    opacity: 0.7;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: #ffffff;
-    opacity: 0.7;
-}
-
-/* ========= End Contact Form ===========*/
-
-.vote_sauls_head {
-  margin-bottom: 50px;
-}
 
 body,
 html {
@@ -727,10 +446,6 @@ body {
   animation: op_frame6 30s ease-in-out 0s infinite;
 }
 
-#contact {
-    padding-top: 0px;
-}
-
 @keyframes op_frame1 {
 	0% {
 		opacity: 0;
@@ -815,6 +530,19 @@ body {
 	}
 }
 
+.at-your-service {
+    position: absolute;
+    width: 100%;
+    height: 280px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    background-size: 100% 250%; /*400px auto;*/
+    /*text-shadow: 0 0.06em 0 #000000;*/
+    z-index: -1;
+    margin: 0px auto auto 0px;
+    left: 0px;
+}
+
 #mainNav {
     border-color: rgba(34, 34, 34, .05);
     background-color: #fff;
@@ -865,19 +593,19 @@ body {
         background-color: transparent;
     }
     #mainNav .navbar-brand {
-        color: #1f4077; /*color: rgba(66, 134, 244, 1);*/
+        color: rgba(255, 255, 255, .7);
     }
     #mainNav .navbar-brand:focus,
     #mainNav .navbar-brand:hover {
-        color: #0365a3; /*color: rgba(66, 134, 244, 1);*/
+        color: #fff;
     }
     #mainNav .navbar-nav>li.nav-item>a.nav-link,
     #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
-        color: #1f4077; /*color: rgba(66, 134, 244, 1);*/
+        color: rgba(255, 255, 255, .7);
     }
     #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
     #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
-        color: #0365a3; /*color: rgba(66, 134, 244, 1);*/
+        color: #fff;
     }
     #mainNav.navbar-shrink {
         border-color: rgba(34, 34, 34, .05);
@@ -900,28 +628,26 @@ body {
         color: #0365a3; /*#0f2e60; /*#f05f40*/
     }
 }
+
 header.masthead {
-    /*
     position: relative;
     background-attachment: fixed;
     width: 100%;
     min-height: auto;
     text-align: center;
     color: #fff;
-    /*background-color: #000000;*/
-    /*
-    background-image: url(img/portfolio/thumbnails/ahwatuk_sunset_3000x1686.jpg);
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(img/portfolio/thumbnails/header.jpg);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    */
 }
 header.masthead .header-content {
-    position: absolute;
-    /*width: 100%;*/
-    padding: 15px 15px 100px;
+    position: relative;
+    width: 100%;
+    padding: 150px 15px 100px;
     text-align: center;
 }
 header.masthead .header-content .header-content-inner h1 {
@@ -940,33 +666,82 @@ header.masthead .header-content .header-content-inner p {
     margin-bottom: 50px;
     color: rgba(255, 255, 255, .7);
 }
+
+@media (max-width: 767px) {
+  
+  .header-content-inner hr {
+    height: 400%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  .header-content-inner h1 {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  .header-content-inner h2 {
+    background-color: rgba(0, 0, 0, 0.25); 
+  }
+}
+
+
+@media (max-width: 769px) {
+  .at-your-service {
+    position: absolute;
+    width: 100%;
+    height: 335px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    background-size: 100% 250%;  /*400px auto;*/
+    /*text-shadow: 0 0.06em 0 #000000;*/
+    z-index: -1;
+    margin: 0px auto auto 0px;
+    left: 0px;
+  }
+}
+
+@media (max-width: 801px) {
+  .at-your-service {
+    position: absolute;
+    width: 100%;
+    height: 340px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    background-size: 100% 250%;  /*400px auto;*/
+    /*text-shadow: 0 0.06em 0 #000000;*/
+    z-index: -1;
+    margin: 0px auto auto 0px;
+    left: 0px;
+  }
+}
+
 @media (min-width: 768px) {
-    header.masthead {
-        height: 10%;
-        /*min-height: 200px;*/
-    }
-    header.masthead .header-content {
-        position: absolute;
-        top: 50%;
-        padding: 0px 50px;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-    header.masthead .header-content .header-content-inner {
-        max-width: 1000px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    header.masthead .header-content .header-content-inner h1 {
-        font-size: 50px;
-    }
-    header.masthead .header-content .header-content-inner p {
-        font-size: 18px;
-        max-width: 80%;
-        margin-right: auto;
-        margin-left: auto;
-    }
+  header.masthead {
+    height: 100%;
+    min-height: 600px;
+  }
+  header.masthead .header-content {
+    position: absolute;
+    top: 50%;
+    padding: 0 50px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  header.masthead .header-content .header-content-inner {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  header.masthead .header-content .header-content-inner h1 {
+    font-size: 50px;
+  }
+  header.masthead .header-content .header-content-inner p {
+    font-size: 18px;
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 .service-box {
     max-width: 400px;
@@ -986,6 +761,11 @@ header.masthead .header-content .header-content-inner p {
     background-repeat: no-repeat;
 }
 
+.text-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media (min-width: 992px) {
     .service-box {
         margin: 20px auto 0;
@@ -994,10 +774,11 @@ header.masthead .header-content .header-content-inner p {
 .service-box p {
     margin-bottom: 0;
 }
-
-.text-center {
-    margin-left: auto;
-    margin-right: auto;
+.portfolio-box2 {
+    position: relative;
+    display: block;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 .container{
@@ -1012,8 +793,8 @@ header.masthead .header-content .header-content-inner p {
 .contact-email {
     /*margin: 0px auto auto auto;*/
     width: 300px;
+    /*padding-left: 10px;*/
     float: right;
-    /*padding-left: 77px; */
 }
 
 @media (max-width: 462px) { /* Execute code until a max-width of... */
@@ -1032,17 +813,9 @@ header.masthead .header-content .header-content-inner p {
   border-style: solid;
   border-width: 2px;
   border-color: #0365a3;
+  /*float: right;*/
 }
 
-.paypal_form {
-    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-.portfolio-box2 {
-    position: relative;
-    display: block;
-    max-width: 650px;
-    margin: 0 auto;
-}
 .portfolio-box2 .portfolio-box-caption {
     position: absolute;
     bottom: 0;
