@@ -214,6 +214,8 @@
       }
       
       if (captcha_click) {
+          $( "#status_msg" ).addClass( "successMessage" );
+          $( "#status_msg" ).innerHTML = "Captcha check complete!";
           if ($(".status_msg")[0]){
             // Do something if class exists
             $( "#status_msg" ).removeClass();
