@@ -33,7 +33,7 @@
 	function CheckCaptcha($googResp) {
 		$fields_string = '';
 		$fields = array(
-			'secret' => '6LcB0VAUAAAAAMSXO8XjF1Weg-tctJqAIr2qyl1D',
+			'secret' => '6LfVM1EUAAAAAKBaO2CjHP-ayKEa3PT4ghnyYz0C',
 			'response' => $googResp
 		);
 		$curl = @curl_init();
