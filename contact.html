@@ -110,14 +110,13 @@
     var name = '';
     var str = '';
     var n = -1;
+    var captcha_click = false;
     
     function _(id){ return document.getElementById(id); }
     
     var imNotARobot = function() {
     console.info("Captcha box was clicked");
-    $("#status_msg").addClass( "successMessage" );
-    $("#status_msg").innerHTML = "Captcha check complete!";
-    document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+    captcha_click = true;
     _("ss-submit").disabled = false;
     n = 1;
     var name = $("#name").val();
@@ -193,7 +192,7 @@
       console.log(reason);
       switch (true) {
     
-      case (reason.length <= 0 && _("status_msg").innerHTML == "Captcha check complete!"):
+      case (reason.length <= 0 && captcha_click):
         _("status_msg").innerHTML = "";
         j.className += "successMessage";
         _("ss-submit").value = _("msg").value;
@@ -213,6 +212,18 @@
       default:
         return false;
       }
+      
+      if (captcha_click) {
+          if ($(".status_msg")[0]){
+            // Do something if class exists
+            $( "#status_msg" ).removeClass();
+            $( "#status_msg" ).addClass( "successMessage" );
+            $( "#status_msg" ).innerHTML = "Captcha check complete!";
+            document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+          } else {
+            // Do something if class does not exist
+          }
+      }
         /*
         if (reason.length <= 0 && str.indexOf("[success] => 1") > 0) {
           _("ss-submit").value = _("msg").value;
@@ -227,8 +238,8 @@
           return false;
         }
         */
-      
     }
+    
     // validate required fields
     function validateName(name) { // takes name var as input
         var error = "";
