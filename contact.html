@@ -115,7 +115,11 @@
     
     var imNotARobot = function() {
     console.info("Captcha box was clicked");
+    $("#status_msg").addClass( "successMessage" );
+    $("#status_msg").innerHTML = "Captcha check complete!";
+    document.getElementById("status_msg").innerHTML = "Captcha check complete!";
     _("ss-submit").disabled = false;
+    n = 1;
     var name = $("#name").val();
       $.ajax({
         url: 'recaptcha.php',
