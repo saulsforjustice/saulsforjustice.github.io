@@ -22,48 +22,48 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
     
     <!-- Priority scripts -->
-    <!-- JQuery library include -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
-    <!-- Google reCaptcha API script -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    
-    <!-- Ajax compatibility script -->
-    <script type="text/javascript">
-    function ajaxFunction()
+  <!-- JQuery library include -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
+  <!-- Google reCaptcha API script -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  
+  <!-- Ajax compatibility script -->
+  <script type="text/javascript">
+  function ajaxFunction()
+  {
+  var xmlHttp;
+  try
     {
-    var xmlHttp;
+    // Firefox, Opera 8.0+, Safari
+    xmlHttp=new XMLHttpRequest();
+    }
+  catch (e)
+    {
+    // Internet Explorer
     try
       {
-      // Firefox, Opera 8.0+, Safari
-      xmlHttp=new XMLHttpRequest();
+      xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
       }
     catch (e)
       {
-      // Internet Explorer
       try
         {
-        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
       catch (e)
         {
-        try
-          {
-          xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
-          }
-        catch (e)
-          {
-          alert("Your browser does not support AJAX!");
-          return false;
-          }
+        alert("Your browser does not support AJAX!");
+        return false;
         }
       }
-      }
-    </script>
-    <!-- End script -->
-    
-    <!--End Priority scripts -->
+    }
+    }
+  </script>
+  <!-- End script -->
+  
+  <!--End Priority scripts -->
 
     <!-- Custom styles for this template -->
     <link href="css/creative.min.css" rel="stylesheet">
@@ -106,121 +106,128 @@
       
   <!-- New Contact Form Script (updated 4/3/18)-->
     <script type="text/javascript">
-      var submitted=false;
-      var name = '';
-      var str = '';
-      var n = -1;
-      
-      function _(id){ return document.getElementById(id); }
-      
-      var imNotARobot = function() {
-        console.info("Captcha box was clicked");
-        _("ss-submit").disabled = false;
-        var name = $("#name").val();
-        $.ajax({
-            url: 'recaptcha.php',
-            type: "POST",
-            data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-            success: function(data) {
-                str = data;
-                console.log(data);
-                //document.getElementById("status_msg").innerHTML = n;
-                n = str.indexOf("[success] => 1");
-                if (n >= 0) {
-                  if ($(".status_msg")[0]){
-                // Do something if class exists
-                $( "#status_msg" ).removeClass();
-                $("#status_msg").addClass( "successMessage" );
-            } else {
-                // Do something if class does not exist
-            }
-                  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
-                }
-            }
-        })
+    var submitted=false;
+    var name = '';
+    var str = '';
+    var n = -1;
+    
+    function _(id){ return document.getElementById(id); }
+    
+    var imNotARobot = function() {
+    console.info("Captcha box was clicked");
+    $("#status_msg").addClass( "successMessage" );
+    $("#status_msg").innerHTML = "Captcha check complete!";
+    document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+    _("ss-submit").disabled = false;
+    n = 1;
+    var name = $("#name").val();
+      $.ajax({
+        url: 'recaptcha.php',
+        type: "POST",
+        data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+        success: function(data) {
+          str = data;
+          console.log(data);
+          n = str.indexOf("[success] => 1");
+          $("#status_msg").addClass( "successMessage" );
+          $("#status_msg").innerHTML = "Captcha check complete!";
+          document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+        }
+      })
     };
       
       /* print to present page function */
-      (function () {
-        $.webshims.setOptions('form', {
-            lazyCustomMessages: true,
-            iVal: {
-                handleBubble: 'hide',
-                fx: 'slide',
-                sel: '.ws-validate',
-                fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
-            }
-        });
-        $.webshims.polyfill('form');
+    (function () {
+      $.webshims.setOptions('form', {
+        lazyCustomMessages: true,
+        iVal: {
+          handleBubble: 'hide',
+          fx: 'slide',
+          sel: '.ws-validate',
+          fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
+        }
+      });
+    $.webshims.polyfill('form');
     })();
     
     function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
     
-        var reason = "";
-        var i = document.getElementById("status_msg");
-        var j = document.getElementById("successMessage");
-        reason += validateName(contact.name);
-        reason += validateEmail(contact.email);
-        reason += validatePhone(contact.phone);
-        
-        //_("ss-submit").disabled = true;
-        var formdata = new FormData();
-        formdata.append( "name", _("name").value );
-        formdata.append( "email", _("email").value );
-        formdata.append( "msg", _("msg").value );
-        
-        //var ajax = new XMLHttpRequest();
-        //event.preventDefault();
-        name = $("#name").val();
-        $.ajax({
-            url: 'recaptcha.php',
-            type: "POST",
-            data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-            success: function(data) {
-                str = data;
-                console.log(data);
-                n = str.indexOf("[success] => 1");
-                //document.getElementById("status_msg").innerHTML = n;
+      var reason = "";
+      var i = document.getElementById("status_msg");
+      var j = document.getElementById("successMessage");
+      reason += validateName(contact.name);
+      reason += validateEmail(contact.email);
+      reason += validatePhone(contact.phone);
+      
+      //_("ss-submit").disabled = true;
+      var formdata = new FormData();
+      formdata.append( "name", _("name").value );
+      formdata.append( "email", _("email").value );
+      formdata.append( "msg", _("msg").value );
+      
+      //var ajax = new XMLHttpRequest();
+      //event.preventDefault();
+      name = $("#name").val();
+      $.ajax({
+        url: 'recaptcha.php',
+        type: "POST",
+        data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+        success: function(data) {
+          str = data;
+          console.log(data);
+          n = str.indexOf("[success] => 1");
+          if (n >= 0) {
+            if ($(".status_msg")[0]){
+              // Do something if class exists
+              $( "#status_msg" ).removeClass();
+              $( "#status_msg" ).innerHTML = "Captcha check complete!";
+              $( "#status_msg" ).addClass( "successMessage" );
+            } else {
+              // Do something if class does not exist
             }
-        })
-        
-        console.log(reason);
-        switch (true) {
-        
-          case (reason.length <= 0 && str.indexOf("[success] => 1") > 0):
-            _("status_msg").innerHTML = "";
-            j.className += "successMessage";
-            _("ss-submit").value = _("msg").value;
-            submitted = true;
-            _("successMessage").innerHTML = "Thank you, " + name + "! Sharron and the team will be in touch shortly!"
-            return true;
-            break;
-            
-          case (reason.length <= 0 && n <= 0):
-              i.className += "status_msg";
-            _("status_msg").innerHTML = 'Please click the "captcha" box';
-            _("ss-submit").disabled = true;
-            return false;
-            break;
-            
-          default:
-                return false;
+            document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+          }
         }
+      })
+      
+      console.log(reason);
+      switch (true) {
+    
+      case (reason.length <= 0 && _("status_msg").innerHTML == "Captcha check complete!"):
+        _("status_msg").innerHTML = "";
+        j.className += "successMessage";
+        _("ss-submit").value = _("msg").value;
+        submitted = true;
+        _("successMessage").innerHTML = "Thank you, " + name + "! Sharron and the team will be in touch shortly!"
+        _("ss-submit").disabled = true;
+        return true;
+        break;
+        
+      case (reason.length <= 0 && n <= 0):
+        i.className += "status_msg";
+        _("status_msg").innerHTML = 'Please click the "captcha" box';
+        _("ss-submit").disabled = true;
+        return false;
+        break;
+        
+      default:
+        return false;
+      }
         /*
         if (reason.length <= 0 && str.indexOf("[success] => 1") > 0) {
-            _("ss-submit").value = _("msg").value;
+          _("ss-submit").value = _("msg").value;
             submitted = true;
             _("successMessage").innerHTML = "Thank you " + name + "! The Spectrum team will be in touch with you shortly!"
             return true;
         }
         else {
-            if (reason.length <= 0 && n <= 0) {
-                _("status_msg").innerHTML = 'please attempt captcha' + ", status code:" + n;
-            }
-            return false;
+          if (reason.length <= 0 && n <= 0) {
+              _("status_msg").innerHTML = 'please attempt captcha' + ", status code:" + n;
+          }
+          return false;
         }
         */
-        
+      
     }
     // validate required fields
     function validateName(name) { // takes name var as input
@@ -287,7 +294,7 @@
         }
         return error;
     }
-        
+      
     </script>
     <!-- End Script -->
         
@@ -296,28 +303,28 @@
     </iframe>
     <center>
     <div class="content">
-        <div id="form">
-            <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsubmit="submitted=true;" -->
-                <!-- <span>Name</span> -->
-                <input type="text" name="entry.2062577226" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
-                <!--<span>Email</span>-->
-                <input type="email" name="entry.956340906" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
-                <!--<span>Phone</span>-->
-                <input type="tel" name="entry.147794208" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
-            
-                <!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
-                <!--<span>Message</span>-->
-                <textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=2 required></textarea>
-                <br>
-                <br>
-              <button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
-                <br>
-                <div class="g-recaptcha" id="captchabox" data-sitekey="6LcB0VAUAAAAAJwhuKKqS_S3O6ILMMhxP56_nrny" data-callback="imNotARobot">
-                </div>
-                <span id="status_msg" name="msg"></span>
-                <!-- <span id="captcha">Captcha Code:</span> -->
-                
-            </form>
+      <div id="form">
+        <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsubmit="submitted=true;" -->
+          <!-- <span>Name</span> -->
+          <input type="text" name="entry.2062577226" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
+          <!--<span>Email</span>-->
+          <input type="email" name="entry.956340906" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
+          <!--<span>Phone</span>-->
+          <input type="tel" name="entry.147794208" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
+        
+          <!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
+          <!--<span>Message</span>-->
+          <textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=2 required></textarea>
+          <br>
+          <br>
+          <button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
+          <br>
+          <div class="g-recaptcha" id="captchabox" data-sitekey="6LfVM1EUAAAAABE6UYQino6WB7EHeSDA6yNHgBWn" data-callback="imNotARobot">
+          </div>
+          <span id="status_msg" name="msg"></span>
+          <!-- <span id="captcha">Captcha Code:</span> -->
+          
+        </form>
       </div>
     </div>
     <div id="successMessage">
@@ -483,25 +490,28 @@
 
 /* ========= Contact Form ===============*/
 .status_msg {
-    color:red; 
+  color:red;
+  font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 
 .successMessage {
-    color: green;
+  color: green;
+  font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 
 .submit_btn{
-    display:block;
-    border:none;
-    background: #ffc20c;/*#f8ae45;*/
-    color:#FFFFFF;
-    padding:12px 25px;
-    cursor:pointer;
-    text-decoration:none;
-    font-weight:bold;
+  display:block;
+  border:none;
+  background: #ffc20c;/*#f8ae45;*/
+  color:#FFFFFF;
+  padding:12px 25px;
+  cursor:pointer;
+  text-decoration:none;
+  font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  font-weight:bold;
 }
 .submit_btn:hover{
-    background: #bc8f09;/*#d8850e;*/
+  background: #bc8f09;/*#d8850e;*/
 
 }
 #contact-form {
@@ -578,7 +588,7 @@
   background:#222222;
   color:#F1F1F1;
   */
-  font: 12px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
   width: 55%;
   /*border-radius: 20px;*/
 }
@@ -740,87 +750,87 @@ body {
 }
 
 @keyframes op_frame1 {
-    0% {
-        opacity: 0;
-    }
-    
-    14.29% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  
+  14.29% {
+    opacity: 1;
+  }
 
-    28.57%{
-        opacity: 0;
-    }
+  28.57%{
+    opacity: 0;
+  }
 }
 
 @keyframes op_frame2 {
-    14.29%{
-        opacity: 0;
-    }
+  14.29%{
+    opacity: 0;
+  }
 
-    28.57%{
-        opacity: 1;
-    }
+  28.57%{
+    opacity: 1;
+  }
 
-    42.86%{
-        opacity: 0;
-    }
+  42.86%{
+    opacity: 0;
+  }
 }
 
 @keyframes op_frame3 {
-    28.57%{
-        opacity: 0;
-    }
+  28.57%{
+    opacity: 0;
+  }
 
-    42.86%{
-        opacity: 1;
-    }
+  42.86%{
+    opacity: 1;
+  }
 
-    57.14%{
-        opacity: 0;
-    }
+  57.14%{
+    opacity: 0;
+  }
 }
 
 @keyframes op_frame4 {
-    42.86%{
-        opacity: 0;
-    }
-    
-    57.14%{
-        opacity: 1;
-    }
+  42.86%{
+    opacity: 0;
+  }
+  
+  57.14%{
+    opacity: 1;
+  }
 
-    71.43%{
-        opacity: 0;
-    }
+  71.43%{
+    opacity: 0;
+  }
 }
 
 @keyframes op_frame5 {
-    57.14%{
-        opacity: 0;
-    }
+  57.14%{
+    opacity: 0;
+  }
 
-    71.43%{
-        opacity: 1;
-    }
+  71.43%{
+    opacity: 1;
+  }
 
-    85.71%{
-        opacity: 0;
-    }
+  85.71%{
+    opacity: 0;
+  }
 }
 
 @keyframes op_frame6 {
-    71.43%{
-        opacity: 0;
-    }
+  71.43%{
+    opacity: 0;
+  }
 
-    85.71%{
-        opacity: 1;
-    }
+  85.71%{
+    opacity: 1;
+  }
 
-    100%{
-        opacity: 0;
-    }
+  100%{
+    opacity: 0;
+  }
 }
 
 #mainNav {
