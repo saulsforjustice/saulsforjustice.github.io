@@ -148,7 +148,7 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
     
-    <!-- ---Video Player Script (updated 4/5/18 1853) source(mostly): https://developers.google.com/youtube/iframe_api_reference ----- -->
+    <!-- ---Video Player Script (updated 4/5/18 1853) source(mostly): https://developers.google.com/youtube/iframe_api_reference----- -->
     <script>
     var vid_height = '281';
     var vid_width = '500';
@@ -206,6 +206,8 @@
     function onPlayerStateChange(event) {  // API calls this function when the player's state changes
         if (event.data == YT.PlayerState.PLAYING && !done) {
             player.setLoop(loopPlaylists);
+            player.setOption("captions", "fontSize", 2);
+            player.setOption("captions", "reload", true);
             player.getOptions("captions") || player.getOptions("cc")  //detects if captions were ever loaded at one point.
             player.setOption("captions", "displaySettings", {"background": "#fff"});  //Works for html5 ignored by AS3
             player.setOption("cc", "displaySettings", {"background": "#fff"});  //Works for AS3 ignored by html5
