@@ -125,15 +125,15 @@
         
         <form id="form1" action="https://docs.google.com/forms/d/e/1FAIpQLSc1Um8K4KPK9R5V7lrDQrszoGb4AXqDtUahiCX6240tSv6NXw/formResponse" method="post" class="contact_prior" target="hidden_iframe"> <!-- target="hidden_iframe" onsubmit="submitted = true;" in case url redirect needed -->
             <p class="input_wrapper">
-            <input type="text" name="entry.608595779" value="" id ="contact_nom">
+            <input type="text" name="entry.608595779" value="" id ="contact_nom" tabindex=2 required>
             <label for="contact_nom">Employer</label>
             </p>
             <p class="input_wrapper">
-            <input type="text" name="entry.295122875" value="" id ="contact_sujet">
+            <input type="text" name="entry.295122875" value="" id ="contact_sujet" tabindex=2 required>
             <label for="contact_sujet">Occupation</label>
             </p>
             <p class="input_wrapper">
-            <input type="text" name="entry.1410559524" value="" id="entry_295122875" dir="auto" aria-label="Email: Please enter a valid email" title="Please enter a valid email"> <!--  onfocusout="Validate();" -->
+            <input type="email" name="entry.1410559524" value="" id="entry_295122875" dir="auto" aria-label="Email: Please enter a valid email" title="Please enter a valid email" tabindex=2 required> <!--  onfocusout="Validate();" -->
             <label for="entry_295122875">Email</label>
             </p>
             <p class="submit_wrapper">
@@ -344,6 +344,39 @@ table {
     outline: none;
     text-indent: 0;
 }
+
+.input_wrapper input[type="email"] {
+    margin-top: 1em;
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #a6a7d8;
+    border-radius: 4px;
+    box-shadow: 0 0 1px 0 #7778a8;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1em;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+    color: #ffffff;
+    text-indent: 5em;
+}
+
+.input_wrapper input[type="email"]:focus + label {
+    left: 100%;
+}
+
+.input_wrapper input[type="email"]:focus {
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 2px 2px 5px 0 #000000;
+    outline: none;
+    text-indent: 0;
+}
+
 .input_wrapper label {
     position: absolute;
     left: -3px;
@@ -456,6 +489,10 @@ table {
     }
     
     .input_wrapper input[type="text"] {
+        font-size: 15px;
+    }
+    
+    .input_wrapper input[type="email"] {
         font-size: 15px;
     }
 }

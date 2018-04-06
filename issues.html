@@ -63,10 +63,12 @@
           <div class="text-center main-text">
             <h2 class="section-heading text-white">On the Issues</h2>
             <hr class="light">
-            <br>
-            <div class="youtube" id="doMbsw-d3C4" style="width: 500px; height: 281px;">
+            <div class="video-container" id="player">
             </div>
+            <div>
             <br>
+            <button class="btn btn-default btn-xl js-scroll-trigger" onclick="nextVideo()">Next Video</button>
+            </div>
             <br>
             <p class="text-faded">
             &bull; Sharron strongly believes in the power of education and is an advocate for better education of the public.
@@ -75,24 +77,24 @@
             &bull; Having spent years working with landlord and tenant laws, Sharron believes in strong fair housing policy.
             <br>
             <br>
-            &bull; Sharron is deeply passionate about honoring and protecting homeless veterans and has experience working with veterans' services. 
+            &bull; Sharron is deeply passionate about honoring and protecting homeless veterans and has experience working with veterans services. 
             <br>
             <br>
-            &bull; Sharron has a strong history of fighting for persons with disabilities, their constitutional rights, for equitable justice, education, and advocacy
+            &bull; Sharron has a strong history of fighting for persons with disabilities, their constitutional rights, and for equitable information, education, and advocacy
             in housing  cases.
             <br>
             <br>
-            &bull; As an ardent advocate on issues of domestic violence, Sharron is committed to fighting for working mothers and the rights of vulnerable and oppressed groups
-            in housing cases.
+            &bull; As an ardent advocate on issues of domestic violence, Sharron is committed fighting for working mothers and the rights of vulnerable and oppressed groups.
+            in housing  cases.
             <br>
             <br>
             &bull; Sharron believes in improving opportunities and is committed to policies promoting inclusion, service, and good stewardship.
             <br>
             <br>
             &bull; A former girl scout, Sharron prides herself in her work for Girl Scouts of America and for Cornerstone Church in Chandler, AZ. In her spare time, she enjoys family outings with her son and daughter. 
-            
             </p>
-            <a class="btn btn-default btn-xl js-scroll-trigger" href="page_about_me.html">Learn More About Me!</a>
+            <br>
+            <a class="btn btn-default btn-xl js-scroll-trigger" href="experience.html">Learn More About Me!</a>
           </div>
         </div>
       </div>
@@ -146,53 +148,81 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
     
-    <!-- ---Video Player Script----- -->
+    <!-- ---Video Player Script (updated 4/5/18 1853) source(mostly): https://developers.google.com/youtube/iframe_api_reference ----- -->
     <script>
-    'use strict';
-    function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
-    r(function(){
-        if (!document.getElementsByClassName) {
-            // IE8 support
-            var getElementsByClassName = function(node, classname) {
-                var a = [];
-                var re = new RegExp('(^| )'+classname+'( |$)');
-                var els = node.getElementsByTagName("*");
-                for(var i=0,j=els.length; i<j; i++)
-                    if(re.test(els[i].className))a.push(els[i]);
-                return a;
+    var vid_height = '281';
+    var vid_width = '500';
+    var playlist = ['doMbsw-d3C4', '2YT09oUn4Mw', 'FT08mDTdkYA', 'hBxTXxTcvwI'];
+    var loopPlaylists = true;
+    var tag = document.createElement('script');  //loads the IFrame Player API code asynchronously
+    
+    function _(id){ return document.getElementById(id); }
+    
+    if ($(window).width() < 500) {
+        //alert('Less than 500');
+        vid_height = '181';
+        vid_width = '322';
+        $( "#player" ).removeClass("video_container");
+        $( "#player" ).addClass( "video_container_sm" );
+        document.getElementById('player').className = 'video_container_sm';
+    }
+    
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+    var player;
+    
+    function onYouTubeIframeAPIReady() {  // creates an <iframe> (and YouTube player) after the API code downloads
+        player = new YT.Player('player', {
+            height: vid_height,
+            width: vid_width,
+            loadPlaylist:{
+                listType:'playlist',
+                list: playlist,
+                index:parseInt(0),
+                suggestedQuality:'small'
+            },
+            playerVars: {
+                rel: 0,
+                cc_load_policy: 1
+            },
+            //videoId: 'doMbsw-d3C4',
+            events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
             }
-            var videos = getElementsByClassName(document.body,"youtube");
-        } else {
-            var videos = document.getElementsByClassName("youtube");
+        });
+    }
+    
+    function onPlayerReady(event) {  // API will call this function when the video player is ready
+        event.target.loadPlaylist(playlist);
+        //event.target.playVideo();
+    }
+    // The function indicates that when playing a video (state=1),
+    // the player should play for six seconds and then stop.
+    var done = false;
+    
+    function onPlayerStateChange(event) {  // API calls this function when the player's state changes
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            player.setLoop(loopPlaylists);
+            player.getOptions("captions") || player.getOptions("cc")  //detects if captions were ever loaded at one point.
+            player.setOption("captions", "displaySettings", {"background": "#fff"});  //Works for html5 ignored by AS3
+            player.setOption("cc", "displaySettings", {"background": "#fff"});  //Works for AS3 ignored by html5
+            player.loadModule("captions");
+            player.loadModule("cc");
+            //setTimeout(stopVideo, 6000);
+            done = true;
         }
+    }
     
-        var nb_videos = videos.length;
-        for (var i=0; i<nb_videos; i++) {
-            // Based on the YouTube ID, we can easily find the thumbnail image
-            videos[i].style.backgroundImage = 'url(http://i.ytimg.com/vi/' + videos[i].id + '/sddefault.jpg)';
+    function stopVideo() {
+        player.stopVideo();
+    }
     
-            // Overlay the Play icon to make it look like a video player
-            var play = document.createElement("div");
-            play.setAttribute("class","play");
-            videos[i].appendChild(play);
-    
-            videos[i].onclick = function() {
-                // Create an iFrame with autoplay set to true
-                var iframe = document.createElement("iframe");
-                var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&rel=0";
-                if (this.getAttribute("data-params")) iframe_url+='&'+this.getAttribute("data-params");
-                iframe.setAttribute("src",iframe_url);
-                iframe.setAttribute("frameborder",'0');
-    
-                // The height and width of the iFrame should be the same as parent
-                iframe.style.width  = this.style.width;
-                iframe.style.height = this.style.height;
-    
-                // Replace the YouTube thumbnail with YouTube Player
-                this.parentNode.replaceChild(iframe, this);
-            }
-        }
-    });
+    function nextVideo() {
+        player.nextVideo();
+    };  //activated by button click
     </script>
     <!--- End Video Player Script -->
 
@@ -204,47 +234,21 @@
 /*Use inline for testing, external in creative.min.css*/
 
 /*========= Video Style ==========*/
-
-@media(max-width: 499px){
-    .youtube {
-        width: 322px; 
-        height: 181px;
-    }
-    
-    .play {
-        width: 322px; 
-        height: 181px;
-        opacity: .8;
-    }
-}
-.youtube {
-    background-position: center;
-    background-repeat: no-repeat;
+.video-container {
     position: relative;
-    display: inline-block;
-    overflow: hidden;
-    transition: all 200ms ease-out;
-    cursor: pointer;
-    width: 500px; 
+    padding-bottom: 0px; /* 16:9 */
+    padding-top: 10px; /* size of chrome */
     height: 281px;
+    width: 450px;
 }
 
-.youtube .play {
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAERklEQVR4nOWbTWhcVRTHb1IJVoxGtNCNdal2JYJReC6GWuO83PM/59yUS3FRFARdFlwYP1CfiojQWt36sRCUurRIdVFXIn41lAoVdRGrG1M01YpKrWjiYmaSl8ybZJL3cd+YA//NLObd3++eO8x79z5jSq5Gw+8kov0AP8vMR5l1BtBZQM4B8ks75wCdZdYZZj5qLZ4hov2Nht9Z9vhKKSIaB/gI4M4w62KeAO6Mte4lYOq20FxrlqqOibhHmeWbvNC9ZfDX1mLae391aN6limO/gwgvAPJbWeAZuSDingdwXTBw7/0IsyaA/Fkh+KqOkD+YNfHej1QKD+y7iVlOhgLvFqFfNJvNGyuBJ+KDAF8MDd0tgS8y64OlgSdJMsysL4cG7SOHkyQZLhTee7+d2R2rAVy/S+Jd7/32ouBHAP4gNNRGQyTHc/84NhqNywZp5rvjjnnvt21aABFeCQ+RLwAf2hQ8s7sv9OCLk6AHNgQvIrvbfzKCD76g/O6cu7lf/iER/aQGgy448pExZmhdegAPhR9sObFWH1gT3lp7DaA/5bkIgJhZPgsNmz02novj+KqeApj1ubwXWe4kdyeznAgNvTpE/HQmvKqOMeuFogTUVQSRno+iaLRLAJF7uIgL9O4ubgL8aWgB7S44mNX+35YpICUiAvS9sBLkq1WzT+NFffl6AuoiApi6NT37h6sWkBIRZGkQ8YtLgyji6e1mBYTqCEBPG2Naz+0BWQgtoGoRgCzEsd9hAN1X5BfnFZASUfrSAFQNsyZ1FJASUVpHiLinDJG8U2cBZYogkrcNs5waBAGdstbeU9zdqpw0gPwwSAI6VUxHyFlDpOcHUUBBIuYNs14aZAE5RVwyzPr3/0EAEY0TyfGNjBWQvwZ +CTSbehfAH29mrID8bET0+0EUkAd8WYDOmqJ3ecsG30yr9wqRfm6Y+a1BEFDEjHfHvWmY9ck6CygHvBVr8Xhtb4ZE5HZA3y8DvBNA1TjnrmXWf+sioMwZX5V/VHXMGGMMoKdDCxCRvRWBdzKzdHEO+EisilbPyopHYqp6S9UCAsz4iojI7hUDAtyXVQgIDd6KnOoaWNkbI6FaPSuZGyMArsi7MZoloB4zviI/Nhr3X95jltwTRQmoIfgisy5ai+me67OI7fE4nrqjrqfK1t0eby0FPRB6oGVlchL3rgnfrq19RKbVBdhV9IOSwJmfmJi4vi/4ThERitwyCxVAFqydshuCX5awhQ9KtmuIWd8IDZED/nXT77rvVVv6sHRKwjYi91poqP7Dr+Y6JJ1VSZIMA3wkPNy6bX+o8Bcm0sXMdwM8Fxo0A3xORPaWBp6uPXsmbxCRD0NDL0dOANhVCXy6iAjMcjbcrMt3RITKwdMVRdFo+y5yvkL4eWZ+zHt/ZVD4dEVRNGotpst+dZZZH8k86lqn2pIvT/eqrNfn2xuyqYPZ8mv7s8pfn/8Pybm4TIjanscAAAAASUVORK5CYII=") no-repeat center center;
-    background-size: 64px 64px;
-    position: absolute;
-    width: 500px; 
-    height: 281px;
-    opacity: .8;
-    filter: alpha(opacity=80);
-    transition: all 0.2s ease-out;
+.video-container_sm {
+    position: relative;
+    padding-bottom: 0px; /* 16:9 */
+    padding-top: 5px; /* size of chrome */
+    height: 181px;
+    width: 322px;
 }
-
-.youtube .play:hover {
-    opacity: 1;
-    filter: alpha(opacity=100);
-}
-
 /*================================*/
 
 .vote_sauls_head {

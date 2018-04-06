@@ -104,7 +104,7 @@
     <!-- Contact form section -->
     <section id="contact-form">
       
-  <!-- New Contact Form Script (updated 4/3/18)-->
+  <!-- New Contact Form Script (updated 4/5/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form -->
     <script type="text/javascript">
     var submitted=false;
     var name = '';
@@ -622,12 +622,6 @@
   width: 15px;
 }
 
-.fa-phone {
-    font-size:3em; 
-    color:#fff;
-}
-
-.fa-phone:before {content: "\f095";}
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #ffffff;
@@ -642,6 +636,131 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #ffffff;
     opacity: 0.7;
+}
+
+@media (max-width: 400px) { /*execute until 400*/
+  .g-recaptcha {
+      transform:scale(0.77);
+      transform:scale(50vw);
+      transform-origin:50% 50%;
+  }
+  
+  img {
+      max-width: 80%;
+      height: auto;
+  }
+  
+  .inner-header {
+      position: relative;
+      z-index: 1;
+      float: left;
+      width: 80%;
+  } 
+  
+  #contact-form #form {
+      width: 90%; 
+  }
+  
+  #contact-form #form span {
+      width: 90%; 
+  }
+  
+  #contact-form #form input {
+      width: 90%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 90%; 
+  }
+  
+  #contact-form #form button {
+      width: 90%;
+  }
+}
+
+@media (max-width: 300px) { /*execute until 300*/
+  .g-recaptcha {
+      transform:scale(0.50);
+      transform:scale(50vw);
+      transform-origin:50% 50%;
+  }
+  
+  img {
+      max-width: 90%;
+      height: auto;
+  }
+  
+  .inner-header {
+      position: relative;
+      z-index: 1;
+      float: left;
+      width: 90%;
+  }
+  
+  #contact-form #form {
+      width: 90%; 
+  }
+  
+  #contact-form #form span {
+      width: 90%; 
+  }
+  
+  #contact-form #form input {
+      width: 90%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 90%; 
+  }
+  
+  #contact-form #form button {
+      width: 90%;
+  }
+}
+
+@media (max-width: 991px) { /*execute until 991*/
+  
+  #contact_form #form {
+    width: 80%; /*410px;*/
+    /*float:left;*/
+  }
+  
+  #contact_form #form span {
+      display:block;
+    /*float:left;*/
+    width: 80%; /*100px;*/
+    padding-top:5px;
+    font: 14px/16px'Open Sans', Georgia, serif;
+  }
+  #contact_form #form input {
+    /*float:left;*/
+    width: 80%; /*255px;*/
+    border:0px;
+    color: #ffffff; /*#F1F1F1;*/
+    padding:10px 10px 10px 30px;
+    font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+    margin-bottom:10px;
+  }
+  #contact_form #form textarea {
+    /*float:left;*/
+    border:0px;
+    width: 80%; /*255px;*/
+    height:140px;
+    padding:10px 10px 10px 32px;
+    font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+    color: #ffffff; /*#F1F1F1;*/
+    resize: none;
+    margin: 0px 0px 0px 3px;
+  }
+  
+  #contact_form #form button {
+    font: 12px 'Open Sans', Georgia, serif;
+      width: 55%;
+    /*border-radius: 20px;*/
+  }
+  #contact_form #captcha span{
+      width: 50%;
+  }
 }
 
 /* ========= End Contact Form ===========*/
