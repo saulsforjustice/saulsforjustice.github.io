@@ -184,8 +184,9 @@
                 suggestedQuality:'small'
             },
             playerVars: {
+                'autoplay': 0,
                 rel: 0,
-                cc_load_policy: 1
+                'cc_load_policy': 1
             },
             //videoId: 'doMbsw-d3C4',
             events: {
@@ -196,7 +197,8 @@
     }
     
     function onPlayerReady(event) {  // API will call this function when the video player is ready
-        event.target.loadPlaylist(playlist);
+        event.target.cuePlaylist(playlist);
+        //event.target.loadPlaylist(playlist); // for autoplay
         //event.target.playVideo();
     }
     // The function indicates that when playing a video (state=1),
