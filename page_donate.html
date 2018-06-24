@@ -36,9 +36,9 @@
     
     <!-- Embedded scipt for google form-->
     <script type="text/javascript">
-    function Validate() {
-        
-        function check_cases(){
+	function Validate() {
+	    
+	    function check_cases(){
             var isValid = false;
             // Begin actual validation
             // Storing field vals in vars
@@ -63,21 +63,21 @@
             else {
                 return true;
             }
-        }
-        
+	    }
+	    
         document.querySelector("#form1").addEventListener("submit", function(e){ // Listen to submit event with fucntcion e
             if(!check_cases()){
                 e.preventDefault();    //execute preventDefault lib-function to stop form from submitting
                 // alert("Not valid!");
             }
             else {
-                document.getElementById('check_contact').checked=true;
-                this.submit();
-                return true;
-            }   
+        		document.getElementById('check_contact').checked=true;
+    			this.submit();
+    			return true;
+            }	
         });
-    }
-    </script>
+	}
+	</script>
 
 
   </head>
@@ -123,39 +123,39 @@
         TAVP2YYCHEYP2 -->          
             
         <section id="services">
-        <!-- <div class="sectionheader">    <h1>BEFORE YOU DONATE</h1></div> -->
-        <article>
-           
-        <p class="notice">Arizona Law requires that we ask for your employer and occupation. If you have no employer, put NA or self-employed. Please note that your contribution is not tax deductible. Email is asked (optional) in case of errors and for occasional updates.
-        <br>
-        Please contact us for paper receipts or info on use of your contribution.
-        </p>
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) { window.location='page_donate2.html';}">
+	    <!-- <div class="sectionheader">	<h1>BEFORE YOU DONATE</h1></div> -->
+	    <article>
+	       
+    	<p class="notice">Arizona Law requires that we ask for your employer and occupation. If you have no employer, put NA or self-employed. Please note that your contribution is not tax deductible. Email is asked (optional) in case of errors and for occasional updates.
+    	<br>
+    	Please contact us for paper receipts or info on use of your contribution.
+    	</p>
+    	<iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) { window.location='page_donate2.html';}">
         </iframe>
         
-        <form id="form1" action="https://docs.google.com/forms/d/e/1FAIpQLSc1Um8K4KPK9R5V7lrDQrszoGb4AXqDtUahiCX6240tSv6NXw/formResponse" method="post" class="contact_prior" target="hidden_iframe"> <!-- target="hidden_iframe" onsubmit="submitted = true;" in case url redirect needed -->
-            <p class="input_wrapper">
-            <input type="text" name="entry.608595779" value="" id ="contact_nom" tabindex=2 required>
-            <label for="contact_nom">Employer</label>
-            </p>
-            <p class="input_wrapper">
-            <input type="text" name="entry.295122875" value="" id ="contact_sujet" tabindex=2 required>
-            <label for="contact_sujet">Occupation</label>
-            </p>
-            <p class="input_wrapper">
-            <input type="email" name="entry.1410559524" value="" id="entry_295122875" dir="auto" aria-label="Email: Please enter a valid email" title="Please enter a valid email" tabindex=2 required> <!--  onfocusout="Validate();" -->
-            <label for="entry_295122875">Email</label>
-            </p>
-            <p class="submit_wrapper">
-            <input type="submit" name="submit" value="Proceed Here" id="ss-submit" class="contactbutton" onclick="Validate();"> <!-- onmouseover="Validate();" onclick="Validate();" -->
-            <br>
-            <input type="submit" name="submit" value="Use Crowdpac" id="ss-submit" class="contactbutton" onclick="location.href='https://www.crowdpac.com/campaigns/380880/sharron-sauls';">
-            </p>
-        </form>
-        
-        <input type="checkbox" id="check_contact"> <!--WATCH FOR MATCHING ID NAMES (JS nightmare)!!! and input must be located after label -->
-        
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="contactform">
+    	<form id="form1" action="https://docs.google.com/forms/d/e/1FAIpQLSc1Um8K4KPK9R5V7lrDQrszoGb4AXqDtUahiCX6240tSv6NXw/formResponse" method="post" class="contact_prior" target="hidden_iframe"> <!-- target="hidden_iframe" onsubmit="submitted = true;" in case url redirect needed -->
+			<p class="input_wrapper">
+			<input type="text" name="entry.608595779" value="" id ="contact_nom" tabindex=2 required>
+			<label for="contact_nom">Employer</label>
+			</p>
+			<p class="input_wrapper">
+			<input type="text" name="entry.295122875" value="" id ="contact_sujet" tabindex=2 required>
+			<label for="contact_sujet">Occupation</label>
+			</p>
+			<p class="input_wrapper">
+			<input type="email" name="entry.1410559524" value="" id="entry_295122875" dir="auto" aria-label="Email: Please enter a valid email" title="Please enter a valid email" tabindex=2 required> <!--  onfocusout="Validate();" -->
+			<label for="entry_295122875">Email</label>
+			</p>
+			<p class="submit_wrapper">
+			<input type="submit" name="submit" value="Proceed Here" id="ss-submit" class="contactbutton" onclick="Validate();"> <!-- onmouseover="Validate();" onclick="Validate();" -->
+			<br>
+			<input type="submit" name="submit" value="Use Crowdpac" id="ss-submit" class="contactbutton" onclick="location.href='https://www.crowdpac.com/campaigns/380880/sharron-sauls';">
+			</p>
+		</form>
+		
+		<input type="checkbox" id="check_contact"> <!--WATCH FOR MATCHING ID NAMES (JS nightmare)!!! and input must be located after label -->
+		
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="contactform">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="QQ7UJ7N5NNFG4">
             <table class="pay paypal_form header-content-inner">
@@ -167,13 +167,13 @@
                 </tr>
                 <tr>
                 <td>
-                <select name="os0">
-                <option value="Option 1">Option 1 $5.00 USD</option>
-                <option value="Option 2">Option 2 $50.00 USD</option>
-                <option value="Option 3">Option 3 $250.00 USD</option>
-                <option value="Option 4">Option 4 $1,250.00 USD</option>
-                <option value="Option 5">Option 5 $4,250.00 USD</option>
-                <option value="Option 6">Option 6 $6,350.00 USD</option>
+            	<select name="os0">
+            	<option value="Option 1">Option 1 $25.00 USD</option>
+            	<option value="Option 2">Option 2 $50.00 USD</option>
+            	<option value="Option 3">Option 3 $100.00 USD</option>
+            	<option value="Option 4">Option 4 $250.00 USD</option>
+            	<option value="Option 5">Option 5 $500.00 USD</option>
+            	<option value="Option 6">Option 6 $1,000.00 USD</option>
                 </select> 
                 </td>
                 </tr>
@@ -195,8 +195,8 @@
             <input type="image" src="img/portfolio/fullsize/donate_btn.png" width="200" height="100" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
-        
-        </article>
+		
+	    </article>
         </section>
             
         </div>
@@ -273,43 +273,43 @@
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 .contactbutton { /* PROCEED BUTTON */
     font-size: 25px;
-    background: #0365a3;
-    -webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
-    box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
-    text-align: center;
-    display: block;
-    width: 100%;
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 2px;
+	background: #0365a3;
+	-webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+	box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+	text-align: center;
+	display: block;
+	width: 100%;
+	height: 50px;
+	margin-top: 20px;
+	margin-bottom: 2px;
 }
 .contactbutton:hover {
-    background: #072c68;/*#05054C;/*
-    margin-top: 22px;
-    margin-top: 22px;
-    margin-left: 2px;
-    margin-bottom: 0px;
-    font-size: 20px;
-    */
+	background: #072c68;/*#05054C;/*
+	margin-top: 22px;
+	margin-top: 22px;
+	margin-left: 2px;
+	margin-bottom: 0px;
+	font-size: 20px;
+	*/
 }
 
 .contactform {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 15px;
-    overflow: hidden;
-    margin-top: -50px;
-    max-height: 0px;
-    -webkit-transition: all linear 1s;
-    -moz-transition: all linear 1s;
-    -o-transition: all linear 1s;
-    -ms-transition: all linear 1s;
-    transition: all linear 1s;
+	overflow: hidden;
+	margin-top: -50px;
+	max-height: 0px;
+	-webkit-transition: all linear 1s;
+	-moz-transition: all linear 1s;
+	-o-transition: all linear 1s;
+	-ms-transition: all linear 1s;
+	transition: all linear 1s;
 }
 
 .contact_prior {
@@ -318,144 +318,144 @@ table {
 }
 
 .input_wrapper {
-    position: relative;
-    text-shadow: 0 0.06em 0 #000000;
-    margin: 0px;
+	position: relative;
+	text-shadow: 0 0.06em 0 #000000;
+	margin: 0px;
 }
 
 .input_wrapper input[type="text"] {
-    margin-top: 1em;
-    display: block;
-    width: 100%;
-    background: transparent;
-    border: 1px solid #a6a7d8;
-    border-radius: 4px;
-    box-shadow: 0 0 1px 0 #7778a8;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 1em;
-    -webkit-transition: all 250ms ease;
-    -moz-transition: all 250ms ease;
-    -ms-transition: all 250ms ease;
-    -o-transition: all 250ms ease;
-    transition: all 250ms ease;
-    color: #ffffff;
-    text-indent: 5em;
+	margin-top: 1em;
+	display: block;
+	width: 100%;
+	background: transparent;
+	border: 1px solid #a6a7d8;
+	border-radius: 4px;
+	box-shadow: 0 0 1px 0 #7778a8;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 1em;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	-o-transition: all 250ms ease;
+	transition: all 250ms ease;
+	color: #ffffff;
+	text-indent: 5em;
 }
 
 .input_wrapper input[type="text"]:focus + label {
-    left: 100%;
+	left: 100%;
 }
 
 .input_wrapper input[type="text"]:focus {
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: inset 2px 2px 5px 0 #000000;
-    outline: none;
-    text-indent: 0;
+	background: rgba(0, 0, 0, 0.25);
+	box-shadow: inset 2px 2px 5px 0 #000000;
+	outline: none;
+	text-indent: 0;
 }
 
 .input_wrapper input[type="email"] {
-    margin-top: 1em;
-    display: block;
-    width: 100%;
-    background: transparent;
-    border: 1px solid #a6a7d8;
-    border-radius: 4px;
-    box-shadow: 0 0 1px 0 #7778a8;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 1em;
-    -webkit-transition: all 250ms ease;
-    -moz-transition: all 250ms ease;
-    -ms-transition: all 250ms ease;
-    -o-transition: all 250ms ease;
-    transition: all 250ms ease;
-    color: #ffffff;
-    text-indent: 5em;
+	margin-top: 1em;
+	display: block;
+	width: 100%;
+	background: transparent;
+	border: 1px solid #a6a7d8;
+	border-radius: 4px;
+	box-shadow: 0 0 1px 0 #7778a8;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 1em;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	-o-transition: all 250ms ease;
+	transition: all 250ms ease;
+	color: #ffffff;
+	text-indent: 5em;
 }
 
 .input_wrapper input[type="email"]:focus + label {
-    left: 100%;
+	left: 100%;
 }
 
 .input_wrapper input[type="email"]:focus {
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: inset 2px 2px 5px 0 #000000;
-    outline: none;
-    text-indent: 0;
+	background: rgba(0, 0, 0, 0.25);
+	box-shadow: inset 2px 2px 5px 0 #000000;
+	outline: none;
+	text-indent: 0;
 }
 
 .input_wrapper label {
-    position: absolute;
-    left: -3px;
-    top: -3px;
-    height: 100%;
-    background: #0365a3;
-    color: white;
-    font-size: 15px;
-    font-family: Oswald, sans-serif;
-    text-shadow: 0 0.06em 0 #000000;
-    box-sizing: border-box;
-    border-radius: 4px;
-    width: 5em;
-    text-align: center;
-    text-shadow: 0 0.06em 0 #000000;
-    line-height: 3.9em;
-    -webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
-    box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
-    -webkit-transition: all 250ms ease;
-    -moz-transition: all 250ms ease;
-    -ms-transition: all 250ms ease;
-    -o-transition: all 250ms ease;
-    transition: all 250ms ease;
+	position: absolute;
+	left: -3px;
+	top: -3px;
+	height: 100%;
+	background: #0365a3;
+	color: white;
+	font-size: 15px;
+	font-family: Oswald, sans-serif;
+	text-shadow: 0 0.06em 0 #000000;
+	box-sizing: border-box;
+	border-radius: 4px;
+	width: 5em;
+	text-align: center;
+	text-shadow: 0 0.06em 0 #000000;
+	line-height: 3.9em;
+	-webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+	box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	-o-transition: all 250ms ease;
+	transition: all 250ms ease;
 }
 
 .submit_wrapper {
-    text-align: center;
+	text-align: center;
 }
 .submit_wrapper input { /* PROCEED BUTTON */
-    text-align: center;
-    text-shadow: 0 0.06em 0 #000000;
-    display: inline-block;
-    width: 40%;
-    height: 50px;
-    margin-top: 1em;
-    margin-bottom: 6px;
-    cursor: pointer;
-    background: #0365a3;
-    color: white;
-    font-family: Oswald ,sans-serif;
-    font-size: 20px;
-    border: none;
-    border-radius: 40px;
-    -webkit-box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c;
-    box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c;
-    -webkit-appearance: none;
-    -webkit-transition: all 250ms ease;
-    -moz-transition: all 250ms ease;
-    -ms-transition: all 250ms ease;
-    -o-transition: all 250ms ease;
-    transition: all 250ms ease;
+	text-align: center;
+	text-shadow: 0 0.06em 0 #000000;
+	display: inline-block;
+	width: 40%;
+	height: 50px;
+	margin-top: 1em;
+	margin-bottom: 6px;
+	cursor: pointer;
+	background: #0365a3;
+	color: white;
+	font-family: Oswald ,sans-serif;
+	font-size: 20px;
+	border: none;
+	border-radius: 40px;
+	-webkit-box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c;
+	box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c;
+	-webkit-appearance: none;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	-o-transition: all 250ms ease;
+	transition: all 250ms ease;
 }
 .submit_wrapper input:hover {
-    /*
-    -webkit-box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c;
-    box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c;
-    margin-top: 22px;
-    border-radius: 40px;
-    margin-left: 2px;
-    */
+	/*
+	-webkit-box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c;
+	box-shadow: 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c, 1px 1px 0 0 #05064c;
+	margin-top: 22px;
+	border-radius: 40px;
+	margin-left: 2px;
+	*/
 }
 
 #check_contact{
-    position: absolute;
-    left: -9999px; /*-9999px;*/
+	position: absolute;
+	left: -9999px; /*-9999px;*/
 }
 
 #check_contact:checked + .contactform {
-    max-height: 1000px;
+	max-height: 1000px;
 }
 
 #home_heading {
@@ -470,41 +470,41 @@ table {
 }
 
 #services article p {
-    color: #fff;
-    text-shadow: 0 0.06em 0 #424242;
+  	color: #fff;
+  	text-shadow: 0 0.06em 0 #424242;
 }
 
 #services {
-    width: 100%;
-    overflow-x: auto;
+	width: 100%;
+	overflow-x: auto;
     /*overflow-y: auto;*/
     margin-bottom: -15px;
     text-shadow: 0 0.06em 0 #000000;
 }
 
 @media (max-width: 768px) { /*Execute rules contained until max width of...*/
-    #services {
-        width: 100%;
-        overflow-x: auto;
-        /*overflow-y: auto;*/
+	#services {
+    	width: 100%;
+    	overflow-x: auto;
+    	/*overflow-y: auto;*/
         margin-bottom: -15px;
-    }
-    .input_wrapper label {
-        text-shadow: 0 0.06em 0 #000000;
-        line-height: 4.0em;
-        font-size: 0.8em;
-        border-radius: 10px 4px 4px 7px;
-        -webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
-        box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
-    }
-    
-    .input_wrapper input[type="text"] {
-        font-size: 15px;
-    }
-    
-    .input_wrapper input[type="email"] {
-        font-size: 15px;
-    }
+	}
+	.input_wrapper label {
+	    text-shadow: 0 0.06em 0 #000000;
+    	line-height: 4.0em;
+    	font-size: 0.8em;
+    	border-radius: 10px 4px 4px 7px;
+    	-webkit-box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+	    box-shadow: 1px 1px 0 0 #05064c, 2px 2px 0 0 #05064c, 3px 3px 0 0 #05064c;
+	}
+	
+	.input_wrapper input[type="text"] {
+	    font-size: 15px;
+	}
+	
+	.input_wrapper input[type="email"] {
+	    font-size: 15px;
+	}
 }
 
 /* End Contact Form */
@@ -687,119 +687,119 @@ body {
 }
 
 @keyframes op_frame1 {
-    0% {
-        opacity: 0;
-    }
-    
-    14.29% {
-        opacity: 1;
-    }
+	0% {
+		opacity: 0;
+	}
+	
+	14.29% {
+		opacity: 1;
+	}
 
-    28.57%{
-        opacity: 0;
-    }
+	28.57%{
+		opacity: 0;
+	}
 }
 
 @keyframes op_frame2 {
-    14.29%{
-        opacity: 0;
-    }
+	14.29%{
+		opacity: 0;
+	}
 
-    28.57%{
-        opacity: 1;
-    }
+	28.57%{
+		opacity: 1;
+	}
 
-    42.86%{
-        opacity: 0;
-    }
+	42.86%{
+		opacity: 0;
+	}
 }
 
 @keyframes op_frame3 {
-    28.57%{
-        opacity: 0;
-    }
+	28.57%{
+		opacity: 0;
+	}
 
-    42.86%{
-        opacity: 1;
-    }
+	42.86%{
+		opacity: 1;
+	}
 
-    57.14%{
-        opacity: 0;
-    }
+	57.14%{
+		opacity: 0;
+	}
 }
 
 @keyframes op_frame4 {
-    42.86%{
-        opacity: 0;
-    }
-    
-    57.14%{
-        opacity: 1;
-    }
+	42.86%{
+		opacity: 0;
+	}
+	
+	57.14%{
+		opacity: 1;
+	}
 
-    71.43%{
-        opacity: 0;
-    }
+	71.43%{
+		opacity: 0;
+	}
 }
 
 @keyframes op_frame5 {
-    57.14%{
-        opacity: 0;
-    }
+	57.14%{
+		opacity: 0;
+	}
 
-    71.43%{
-        opacity: 1;
-    }
+	71.43%{
+		opacity: 1;
+	}
 
-    85.71%{
-        opacity: 0;
-    }
+	85.71%{
+		opacity: 0;
+	}
 }
 
 @keyframes op_frame6 {
-    71.43%{
-        opacity: 0;
-    }
+	71.43%{
+		opacity: 0;
+	}
 
-    85.71%{
-        opacity: 1;
-    }
+	85.71%{
+		opacity: 1;
+	}
 
-    100%{
-        opacity: 0;
-    }
+	100%{
+		opacity: 0;
+	}
 }
 
 #contact {   
-    width: auto;
-    margin: 2em auto;
-    background: white;
-    position: relative;
+	width: auto;
+	margin: 2em auto;
+	background: white;
+	position: relative;
 
 }
 
 #contact::after {
-    content: "";
-    display: block;
-    height: 30px;
-    width: 90%;
-    left: 5%;
-    bottom: 0;
-    position: absolute;
-    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25); /*envelope shadow effect*/
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
-    border-radius: 100%;
-    z-index: -1;
+	content: "";
+	display: block;
+	height: 30px;
+	width: 90%;
+	left: 5%;
+	bottom: 0;
+	position: absolute;
+	-webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25); /*envelope shadow effect*/
+	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+	border-radius: 100%;
+	z-index: -1;
 }
 
 #contact h1 {
-    background: #0365a3;
-    font-family: Oswald, sans-serif; /*Oswald ,sans-serif;*/
-    font-size: 1.75em;
-    padding: 0.6em 0 0.6em 0.4em;
-    color: white;
-    text-shadow: 0 0.06em 0 #424242;
-    position: relative;
+	background: #0365a3;
+	font-family: Oswald, sans-serif; /*Oswald ,sans-serif;*/
+	font-size: 1.75em;
+	padding: 0.6em 0 0.6em 0.4em;
+	color: white;
+	text-shadow: 0 0.06em 0 #424242;
+	position: relative;
 }
 
 #mainNav {
