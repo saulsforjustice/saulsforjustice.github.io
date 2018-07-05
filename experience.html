@@ -148,10 +148,12 @@
         </div>
 </section>
 
-    <section id="contact">
+    <section id="contact_footer">
       <div class="container">
         <div class="sauls_logo">
         <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
+        <div class="sauls_logo2">
+        </div>
         </div>
         <div class="row">
         <div class="text-center"> <!-- col-lg-8 mx-auto -->
@@ -181,6 +183,10 @@
         </div>
         </center>
       </div>
+      <div class="after_shadow_container">
+     <div class="after_shadow">
+     </div>
+     </div>
     </section>
 
     <!-- Bootstrap core JavaScript -->
@@ -237,6 +243,28 @@ a:hover {
     color: #0f2e60; /*#f05f40;*/
 }
 
+.after_shadow_container {
+    overflow: hidden;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.after_shadow {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 90%;
+    left: 5%;
+    top: -30px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+    z-index: -1;
+    position: absolute;
+}
+
 h1,
 h2,
 h3,
@@ -255,6 +283,12 @@ p {
     line-height: 1.5;
     margin-bottom: 20px;
 }
+
+p.paid_for_text {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
 .bg-primary {
     margin-top: -110px;
     background-color: #0365a3 /*#0f2e60; /*#f05f40*/ !important
@@ -592,16 +626,37 @@ header.masthead .header-content .header-content-inner p {
 }
 
 .sauls_logo { 
-    margin: -50px auto 20px auto; /*t r b l */
+    margin: 40px auto 20px auto; /*t r b l */
     position: relative;
     height: 278px;
-    width: 182px;
+    width: 158px;
     max-height: 100%;
     max-width: 100%;
-    background-image: url(sauls_logo_fin_2-24-18_stacked.png);
+    background-image: url(sauls_logo_fin_only_text_7-4-18.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+.sauls_logo2 { 
+    margin: 50px auto 20px auto; /*t r b l */
+    position: absolute;
+    height: 158px;
+    width: 200px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_no_text_7-4-18.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25)";
+    zoom: 1;
+    */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: drop-shadow(0.5px 1px 0.5px rgba(0,0,0,0.25)); /*x-offset, y-offset, blur*/
 }
 
 @media (min-width: 992px) {
@@ -957,18 +1012,14 @@ header.masthead .header-content .header-content-inner p {
     float: right;
 }
 
-#contact::after {
-	content: "";
-	display: block;
-	height: 30px;
-	width: 90%;
-	left: 5%;
-	bottom: 0;
-	position: absolute;
-	-webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25); /*envelope shadow effect*/
-	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
-	border-radius: 100%;
-	z-index: -1;
+#contact {
+    padding-top: 150px;
+    padding-bottom: 33px;
+}
+
+#contact_footer {
+    padding-top: 0px;
+    padding-bottom: 33px;
 }
 
 @media (max-width: 600px) { /* Execute code until a max-width of... */
@@ -981,21 +1032,11 @@ header.masthead .header-content .header-content-inner p {
         padding-left: 0px;
         margin: 0px auto auto auto;
     }
-    
-    .paid_for {
-        margin-top: 40px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 30px;
-        width: 250px;
-        border-style: solid;
-        border-width: 2px;
-        border-color: #0365a3;
-    }
 }
 
 .paid_for {
     margin-top: 40px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     height: 30px;

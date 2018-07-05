@@ -280,11 +280,15 @@
         </div>
        <center>
         <div class="text-center paid_for">
-          <p>
+          <p class="paid_for_text">
             <a href="page_about_me.html">Paid for by Sauls for Justice</a>
           </p>
         </div>
         </center>
+      </div>
+      <div class="after_shadow_container">
+      <div class="after_shadow">
+      </div>
       </div>
     </section>
 
@@ -370,6 +374,28 @@ a {
 a:focus,
 a:hover {
     color: #0f2e60; /*#f05f40;*/
+}
+
+.after_shadow_container {
+    overflow: hidden;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.after_shadow {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 90%;
+    left: 5%;
+    top: -30px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+    z-index: -1;
+    position: absolute;
 }
 
 h1,
@@ -759,13 +785,13 @@ header.masthead .header-content .header-content-inner p {
 }
 
 .sauls_logo { 
-    margin: -50px auto 20px auto; /*t r b l */
+    margin: 40px auto 20px auto;
     position: relative;
     height: 278px;
-    width: 182px;
+    width: 168px;
     max-height: 100%;
     max-width: 100%;
-    background-image: url(sauls_logo_fin_2-24-18_stacked.png);
+    background-image: url(sauls_logo_fin_7-4-18.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -807,6 +833,11 @@ header.masthead .header-content .header-content-inner p {
     float: right;
 }
 
+#contact {
+    padding-top: 0px;
+    padding-bottom: 33px;
+}
+
 @media (max-width: 462px) { /* Execute code until a max-width of... */
     .contact-email {
         width: 295px;
@@ -815,15 +846,17 @@ header.masthead .header-content .header-content-inner p {
 }
 
 .paid_for {
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 30px;
-  width: 250px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #0365a3;
-  /*float: right;*/
+    margin: 10px auto 30px auto;
+    height: 30px;
+    width: 250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0365a3;
+}
+
+p.paid_for_text {
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .portfolio-box2 .portfolio-box-caption {

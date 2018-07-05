@@ -124,6 +124,8 @@
       <div class="container">
         <div class="sauls_logo">
         <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
+        <div class="sauls_logo2">
+        </div>
         </div>
         <div class="row">
         <div class="text-center"> <!-- col-lg-8 mx-auto -->
@@ -153,6 +155,10 @@
         </div>
         </center>
       </div>
+    <div class="after_shadow_container">
+    <div class="after_shadow">
+    </div>
+    </div>
     </section>
 
     <!-- Bootstrap core JavaScript -->
@@ -209,6 +215,28 @@ a:hover {
     color: #0f2e60; /*#f05f40;*/
 }
 
+.after_shadow_container {
+    overflow: hidden;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.after_shadow {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 90%;
+    left: 5%;
+    top: -30px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+    z-index: -1;
+    position: absolute;
+}
+
 h1,
 h2,
 h3,
@@ -246,6 +274,11 @@ p2 {
     background-size: 360px 250px;
     border-radius: 50%;
     border: 2px solid #FFF;
+}
+
+#contact {
+    padding-top: 0px;
+    padding-bottom: 33px;
 }
 
 @media (min-width: 992px) {
@@ -571,6 +604,7 @@ header.masthead {
     background-size: cover;
 }
 header.masthead .header-content {
+    margin-top: 50px;
     position: relative;
     width: 100%;
     padding: 150px 10px 100px;
@@ -595,7 +629,8 @@ header.masthead .header-content .header-content-inner {
     font-size: 14px;
     font-weight: normal;
     max-width: 90%;
-    margin-bottom: 0px;
+    margin-top: 40px;
+    margin-bottom: 80px;
     margin-right: auto;
     margin-left: auto;
     color: rgba(255, 255, 255, 1);
@@ -657,16 +692,37 @@ header.masthead .header-content .header-content-inner {
 }
 
 .sauls_logo { 
-    margin: -50px auto 20px auto; /*t r b l */
+    margin: 40px auto 20px auto; /*t r b l */
     position: relative;
     height: 278px;
-    width: 182px;
+    width: 158px;
     max-height: 100%;
     max-width: 100%;
-    background-image: url(sauls_logo_fin_2-24-18_stacked.png);
+    background-image: url(sauls_logo_fin_only_text_7-4-18.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+.sauls_logo2 { 
+    margin: 50px auto 20px auto; /*t r b l */
+    position: absolute;
+    height: 158px;
+    width: 200px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_no_text_7-4-18.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25)";
+    zoom: 1;
+    */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: drop-shadow(0.5px 1px 0.5px rgba(0,0,0,0.25)); /*x-offset, y-offset, blur*/
 }
 
 .text-center {
@@ -698,19 +754,20 @@ header.masthead .header-content .header-content-inner {
 }
 
 .paid_for {
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 30px;
-  width: 250px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #0365a3;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0365a3;
 }
 
 p.paid_for_text {
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .portfolio-box2 {
