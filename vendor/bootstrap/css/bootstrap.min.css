@@ -6100,7 +6100,8 @@ a.bg-dark:hover {
     margin-bottom: auto!important
 }
 .ml-auto {
-    margin-left: auto!important
+    margin-left: auto!important;
+    padding-left: 5px;
 }
 .mx-auto {
     margin-right: auto!important;
