@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head oncontextmenu="return false">
+  <head > <!-- <head oncontextmenu="return false"> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -82,8 +82,8 @@
 
   </head>
 
-  <body id="page-top" oncontextmenu="return false">
-
+  <body id="page-top">   <!--<body id="page-top" oncontextmenu="return false"> -->
+ 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
@@ -126,10 +126,16 @@
 	    <!-- <div class="sectionheader">	<h1>BEFORE YOU DONATE</h1></div> -->
 	    <article>
 	       
-    	<p class="notice">Arizona Law requires that we ask for your employer and occupation. If you have no employer, put NA or self-employed. Please note that your contribution is not tax deductible. Email is asked (optional) in case of errors and for occasional updates.
+    	<p class="notice">
+    	<span class="notice-text">
+    	Arizona Law requires that we ask for your employer and occupation. If you have no employer, put NA or self-employed. Please note that your contribution is not tax deductible. Email is asked (optional) in case of errors and for occasional updates.
     	<br>
+    	</span>
+    	<span class="notice-text">
     	Please contact us for paper receipts or info on use of your contribution.
+    	</span>
     	</p>
+    	
     	<iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) { window.location='page_donate2.html';}">
         </iframe>
         
@@ -230,7 +236,7 @@
         </div>
        <center>
         <div class="text-center paid_for">
-          <p>
+          <p class="paid_for_text">
             <a href="page_about_me.html">Paid for by Sauls for Justice</a>
           </p>
         </div>
@@ -459,7 +465,7 @@ table {
 }
 
 #home_heading {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 #home_heading_hr {
@@ -990,15 +996,6 @@ header.masthead .header-content .header-content-inner p {
 }
 
 @media (min-width: 768px) {
-    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
-        font-size: 16px;
-    }
-    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
-        font-size: 22px;
-    }
-}
-
-@media (min-width: 768px) {
     header.masthead {
         height: 100%;
         min-height: 600px;
@@ -1024,6 +1021,31 @@ header.masthead .header-content .header-content-inner p {
         margin-left: auto;
         margin-bottom: -10px;
     }
+    
+    #home_heading {
+        margin-top: 130px;
+    }
+    
+    hr {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+    
+    p {
+        line-height: 1.0;
+    }
+    
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
+        font-size: 16px;
+    }
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+        font-size: 22px;
+    }
+    
+    span.notice-text {
+        font-size: 12px;
+        text-shadow: 0 0.06em 0 #000;
+    }
 }
 
 .no-gutter>[class*=col-] {
@@ -1040,6 +1062,11 @@ header.masthead .header-content .header-content-inner p {
   border-style: solid;
   border-width: 2px;
   border-color: #0365a3;
+}
+
+p.paid_for_text {
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 /* ROW DIV ALIGNMENT

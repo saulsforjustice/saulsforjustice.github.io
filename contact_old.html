@@ -115,81 +115,251 @@
     <section id="contact-form">
       
   <!-- New Contact Form Script (updated 4/5/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
-  <script type="text/javascript">
-    var _0x4afa=['Please\x20fill\x20all\x20inputs\x20to\x20submit','Please\x20enter\x20a\x20valid\x20email\x20to\x20submit','replace','Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit','string','constructor','debu','gger','call','stateObject','getElementById','info','ss-submit','disabled','#name','val','recaptcha.php','POST','name=','getResponse','log','indexOf','03ACgFB','.status_msg','#status_msg','removeClass','addClass','successMessage','Captcha\x20check\x20complete!','apply','\x5c+\x5c+\x20*(?:_0x(?:[a-f0-9]){4,6}|(?:\x5cb|\x5cd)[a-z0-9]{1,4}(?:\x5cb|\x5cd))','test','chain','webshims','form','hide','slide',':not(span,\x20label,\x20em,\x20strong,\x20b,\x20i,\x20mark,\x20p)','status_msg','phone','append','name','value','email','msg','ajax','&g-recaptcha-response=','catcher_id','innerHTML','attr','action','className','Thank\x20you\x20',',\x20someone\x20at\x20Sauls\x20for\x20Justice\x20will\x20respond\x20shortly!','length','Error\x20code:\x20','\x20Please\x20click\x20the\x20\x22captcha\x22\x20box'];(function(_0x4a1f83,_0xe8f16c){var _0x4afb74=function(_0x41b381){while(--_0x41b381){_0x4a1f83['push'](_0x4a1f83['shift']());}};_0x4afb74(++_0xe8f16c);}(_0x4afa,0xb5));var _0x2cba=function(_0x8fa72c,_0x58845e){_0x8fa72c=_0x8fa72c-0x0;var _0x2e0647=_0x4afa[_0x8fa72c];return _0x2e0647;};var submitted=![];var name='';var str='';var n=-0x1;function _(_0x5c68c8){return document[_0x2cba('0x0')](_0x5c68c8);}var imNotARobot=function(){console[_0x2cba('0x1')]('Captcha\x20box\x20was\x20clicked');_(_0x2cba('0x2'))[_0x2cba('0x3')]=![];var _0x245be9=$(_0x2cba('0x4'))[_0x2cba('0x5')]();$['ajax']({'url':_0x2cba('0x6'),'type':_0x2cba('0x7'),'data':_0x2cba('0x8')+_0x245be9+'&g-recaptcha-response='+grecaptcha[_0x2cba('0x9')](),'success':function(_0x5d581b){str=grecaptcha['getResponse']();console[_0x2cba('0xa')](grecaptcha['getResponse']());n=str[_0x2cba('0xb')](_0x2cba('0xc'));if(n>=0x0){if($(_0x2cba('0xd'))[0x0]){$(_0x2cba('0xe'))[_0x2cba('0xf')]();$(_0x2cba('0xe'))[_0x2cba('0x10')](_0x2cba('0x11'));}else{}document[_0x2cba('0x0')]('status_msg')['innerHTML']=_0x2cba('0x12');}}});};(function(){var _0x154e20=function(){var _0x279455=!![];return function(_0x4be0c6,_0x45149c){var _0x4794a7=_0x279455?function(){if(_0x45149c){var _0x35fe9f=_0x45149c[_0x2cba('0x13')](_0x4be0c6,arguments);_0x45149c=null;return _0x35fe9f;}}:function(){};_0x279455=![];return _0x4794a7;};}();(function(){_0x154e20(this,function(){var _0x257b5f=new RegExp('function\x20*\x5c(\x20*\x5c)');var _0x245cd7=new RegExp(_0x2cba('0x14'),'i');var _0x4a7b49=_0x58e4c6('init');if(!_0x257b5f[_0x2cba('0x15')](_0x4a7b49+_0x2cba('0x16'))||!_0x245cd7['test'](_0x4a7b49+'input')){_0x4a7b49('0');}else{_0x58e4c6();}})();}());$[_0x2cba('0x17')]['setOptions'](_0x2cba('0x18'),{'lazyCustomMessages':!![],'iVal':{'handleBubble':_0x2cba('0x19'),'fx':_0x2cba('0x1a'),'sel':'.ws-validate','fieldWrappper':_0x2cba('0x1b')}});$[_0x2cba('0x17')]['polyfill'](_0x2cba('0x18'));}());function validateFormOnSubmit(_0x3a9bed){var _0x25b24b='';var _0x36d254=document['getElementById'](_0x2cba('0x1c'));var _0x477e6a=document[_0x2cba('0x0')](_0x2cba('0x11'));_0x25b24b+=validateName(_0x3a9bed['name']);_0x25b24b+=validateEmail(_0x3a9bed['email']);_0x25b24b+=validatePhone(_0x3a9bed[_0x2cba('0x1d')]);var _0x2199d9=new FormData();_0x2199d9[_0x2cba('0x1e')](_0x2cba('0x1f'),_(_0x2cba('0x1f'))[_0x2cba('0x20')]);_0x2199d9[_0x2cba('0x1e')](_0x2cba('0x21'),_(_0x2cba('0x21'))['value']);_0x2199d9[_0x2cba('0x1e')](_0x2cba('0x22'),_(_0x2cba('0x22'))['value']);name=$('#name')[_0x2cba('0x5')]();$[_0x2cba('0x23')]({'url':'recaptcha.php','type':_0x2cba('0x7'),'data':_0x2cba('0x8')+name+_0x2cba('0x24')+grecaptcha[_0x2cba('0x9')](),'success':function(_0x4bf807){str=grecaptcha[_0x2cba('0x9')]();console[_0x2cba('0xa')](grecaptcha[_0x2cba('0x9')]());n=str['indexOf'](_0x2cba('0xc'));}});console['log'](_0x25b24b);switch(!![]){case _0x25b24b['length']<=0x0&&n>=0x0&&_(_0x2cba('0x25'))[_0x2cba('0x20')]=='':_(_0x2cba('0x1c'))[_0x2cba('0x26')]='';$('#form\x20form')[_0x2cba('0x27')](_0x2cba('0x28'),'https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse');_0x477e6a[_0x2cba('0x29')]+=_0x2cba('0x11');_(_0x2cba('0x2'))[_0x2cba('0x20')]=_('msg')['value'];submitted=!![];_(_0x2cba('0x11'))[_0x2cba('0x26')]=_0x2cba('0x2a')+name+_0x2cba('0x2b');_('ss-submit')[_0x2cba('0x3')]=!![];return!![];break;case _0x25b24b[_0x2cba('0x2c')]<=0x0&&n<0x0:_0x36d254[_0x2cba('0x29')]+=_0x2cba('0x1c');_(_0x2cba('0x1c'))['innerHTML']=_0x2cba('0x2d')+_0x25b24b[_0x2cba('0x2c')]+'\x20'+n+_0x2cba('0x2e');_(_0x2cba('0x2'))['disabled']=!![];return![];break;default:return![];}}function validateName(_0x4ca51c){var _0x22827a='';if(_0x4ca51c[_0x2cba('0x20')]['length']==0x0){alert(_0x2cba('0x2f'));var _0x22827a='1';}else{}return _0x22827a;}function trim(_0x11b0f6){return _0x11b0f6['replace'](/^\s+|\s+$/,'');}function validateEmail(_0x4b3859){var _0x522c14='';var _0xbc0710=trim(_0x4b3859[_0x2cba('0x20')]);var _0x156554=/^[^@]+@[^@.]+\.[^@]*\w\w$/;var _0x4a202e=/[\(\)\<\>\,\;\:\"\[\]]/;if(_0x4b3859[_0x2cba('0x20')]==''){alert(_0x2cba('0x2f'));var _0x522c14='2';}else if(!_0x156554[_0x2cba('0x15')](_0xbc0710)){alert(_0x2cba('0x30'));var _0x522c14='3';}else if(_0x4b3859[_0x2cba('0x20')]['match'](_0x4a202e)){alert(_0x2cba('0x30'));var _0x522c14='4';}else{}return _0x522c14;}function validatePhone(_0x2939a9){var _0x397e3b='';var _0x3469a2=_0x2939a9[_0x2cba('0x20')][_0x2cba('0x31')](/[\(\)\.\-\ ]/g,'');if(_0x2939a9['value']==''){alert(_0x2cba('0x2f'));var _0x397e3b='6';}else if(isNaN(parseInt(_0x3469a2))){alert(_0x2cba('0x32'));var _0x397e3b='5';}else if(_0x3469a2[_0x2cba('0x2c')]<0xa){alert('Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit');var _0x397e3b='6';}else{}return _0x397e3b;}function _0x58e4c6(_0x1c4f06){function _0x219bcc(_0xcee9de){if(typeof _0xcee9de===_0x2cba('0x33')){return function(_0x18b496){}[_0x2cba('0x34')]('while\x20(true)\x20{}')[_0x2cba('0x13')]('counter');}else{if((''+_0xcee9de/_0xcee9de)[_0x2cba('0x2c')]!==0x1||_0xcee9de%0x14===0x0){(function(){return!![];}['constructor'](_0x2cba('0x35')+_0x2cba('0x36'))[_0x2cba('0x37')](_0x2cba('0x28')));}else{(function(){return![];}['constructor']('debu'+_0x2cba('0x36'))[_0x2cba('0x13')](_0x2cba('0x38')));}}_0x219bcc(++_0xcee9de);}try{if(_0x1c4f06){return _0x219bcc;}else{_0x219bcc(0x0);}}catch(_0x5f5d3a){}}
-  </script>
-  <script>
-  var total;
-
-	function getRandom(){return Math.ceil(Math.random()* 20);}
-	function createSum(){
-			var randomNum1 = getRandom(),
-				randomNum2 = getRandom();
-		total =randomNum1 + randomNum2;
-	  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
-	  $("#math_ans").val('');
-	  checkInput();
-	}
-	
-	function checkInput(){
-			var input = $("#math_ans").val(), 
-	    	slideSpeed = 200,
-	      hasInput = !!input, 
-	      valid = hasInput && input == total;
-	    $('#math_message').toggle(!hasInput);
-	    $('button[type=submit]').prop('disabled', !valid);  
-	    $('#math_success').toggle(valid);
-	    $('#math_fail').toggle(hasInput && !valid);
-	}
-	
-	$(document).ready(function(){
-		//create initial sum
-		createSum();
-		// On "reset button" click, generate new random sum
-		$('button[type=math_reset]').click(createSum);
-		// On user input, check value
-		$( "#math_ans" ).keyup(checkInput);
-	});
+    <script type="text/javascript">
+    var submitted=false;
+    var name = '';
+    var str = '';
+    var n = -1;
+    var captcha_click = false;
+    var status = document.getElementById("status_msg");
     
+    function _(id){ return document.getElementById(id); }
+    
+  	var imNotARobot = function() {
+  	  var status = document.getElementById("status_msg");
+  	  if (status.classList.contains('status_msg')) {
+    	    status.classList.remove('status_msg');
+    	    status.classList.add('successMessage');
+      }
+  	  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+  		console.info("Captcha box was clicked");
+  		captcha_click = true;
+  		_("ss-submit").disabled = false;
+  		n = 1;
+  		var name = $("#name").val();
+  		$.ajax({
+  			url: 'recaptcha.php',
+  			type: "POST",
+  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+  			success: function(data) {
+  				str = data;
+  				console.log(data);
+  				n = str.indexOf("[success] => 1");
+  				$("#status_msg").addClass( "successMessage" );
+			    $("#status_msg").innerHTML = "Captcha check complete!";
+  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+  			}
+  		})
+	  };
+      
+      /* print to present page function */
+    (function () {
+  		$.webshims.setOptions('form', {
+  			lazyCustomMessages: true,
+  			iVal: {
+  				handleBubble: 'hide',
+  				fx: 'slide',
+  				sel: '.ws-validate',
+  				fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
+  			}
+  		});
+		$.webshims.polyfill('form');
+  	})();
+  	
+  	function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
+  	
+  		var reason = "";
+  		var i = document.getElementById("status_msg");
+  		var j = document.getElementById("successMessage");
+	    reason += validateName(contact.name);
+	    reason += validateEmail(contact.email);
+	    reason += validatePhone(contact.phone);
+	    
+  		//_("ss-submit").disabled = true;
+  		var formdata = new FormData();
+  		formdata.append( "name", _("name").value );
+  		formdata.append( "email", _("email").value );
+  		formdata.append( "msg", _("msg").value );
+  		
+  		//var ajax = new XMLHttpRequest();
+  		//event.preventDefault();
+  		name = $("#name").val();
+  		$.ajax({
+  			url: 'recaptcha.php',
+  			type: "POST",
+  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+  			success: function(data) {
+  				str = data;
+  				console.log(data);
+  				n = str.indexOf("[success] => 1");
+	  			if (n >= 0) {
+	  				if ($(".status_msg")[0]){
+					    // Do something if class exists
+					    $( "#status_msg" ).removeClass();
+					    $( "#status_msg" ).innerHTML = "Captcha check complete!";
+					    $( "#status_msg" ).addClass( "successMessage" );
+					  } else {
+					    // Do something if class does not exist
+				    }
+  				  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+  			  }
+	      }
+	    })
+  		
+	    console.log(reason);
+	    switch (true) {
+		
+		  case (reason.length <= 0 && captcha_click):
+	  	  _("status_msg").innerHTML = "";
+	  	  j.className += "successMessage";
+	      _("ss-submit").value = _("msg").value;
+        submitted = true;
+        _("successMessage").innerHTML = "Thank you, " + name + "! Sharron and the team will be in touch shortly!"
+        _("ss-submit").disabled = true;
+        return true;
+		    break;
+		    
+		  case (reason.length <= 0 && n <= 0):
+			  i.className += "status_msg";
+	    	_("status_msg").innerHTML = 'Please click the "captcha" box';
+	    	_("ss-submit").disabled = true;
+	    	return false;
+		    break;
+		    
+		  default:
+				return false;
+  		}
+  		
+  		if (captcha_click) {
+  		    if (i.classList.contains('status_msg')){
+				    // Do something if class exists
+				    $( "#status_msg" ).removeClass();
+				    $( "#status_msg" ).addClass( "successMessage" );
+				    $( "#status_msg" ).innerHTML = "Captcha check complete!";
+				    document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+				  } else {
+				    // Do something if class does not exist
+			    }
+  		}
+  	    /*
+  	    if (reason.length <= 0 && str.indexOf("[success] => 1") > 0) {
+  	    	_("ss-submit").value = _("msg").value;
+  	        submitted = true;
+  	        _("successMessage").innerHTML = "Thank you " + name + "! The Spectrum team will be in touch with you shortly!"
+  	        return true;
+  	    }
+  	    else {
+  	    	if (reason.length <= 0 && n <= 0) {
+  	        	_("status_msg").innerHTML = 'please attempt captcha' + ", status code:" + n;
+  		    }
+  	    	return false;
+  	    }
+  	    */
+  	}
+  	
+  	// validate required fields
+  	function validateName(name) { // takes name var as input
+  	    var error = "";
+  	
+  	    if (name.value.length == 0) {
+  	      alert("Please fill all inputs to submit");
+  	        //name.style.background = "Red";
+  	        var error = "1";
+  	    } else {
+  	        //name.style.background = "White";
+  	    }
+  	    return error;
+  	}
+  	
+  	// validate email as required field and format (or handle with html5)
+  	function trim(s) {
+  	    return s.replace(/^\s+|\s+$/, "");
+  	}
+  	
+  	function validateEmail(email) { // takes email var as input
+  	    var error = "";
+  	    var temail = trim(email.value); // value of field with whitespace trimmed off
+  	    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+  	    var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
+  	
+  	    if (email.value == "") {
+  	        alert("Please fill all inputs to submit");
+  	        //email.style.background = "Red";
+  	        var error = "2";
+  	    } else if (!emailFilter.test(temail)) { //test email for illegal characters
+  	        alert("Please enter a valid email to submit");
+  	        //email.style.background = "Red";
+  	        var error = "3";
+  	    } else if (email.value.match(illegalChars)) {
+  	        alert("Please enter a valid email to submit");
+  	        //email.style.background = "Red";
+  	        var error = "4";
+  	    } else {
+  	        //email.style.background = "White";
+  	    }
+  	    return error;
+  	}
+  
+  	// validate phone for required and format (or handle with html5)
+  	function validatePhone(phone) {
+  	    var error = "";
+  	    var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
+  	
+  	    if (phone.value == "") {
+  	        alert("Please fill all inputs to submit");
+  	        //phone.style.background = "Red";
+  	        var error = "6";
+  	    } else if (isNaN(parseInt(stripped))) {
+  	        alert("Please enter a valid 10 digit phone number to submit");
+  	        var error = "5";
+  	        //phone.style.background = "Red";
+  	    } else if (stripped.length < 10) {
+  	        alert("Please enter a valid 10 digit phone number to submit");
+  	        var error = "6";
+  	        //phone.style.background = "Red";
+  	    } else {
+  	        //phone.style.background = "White";
+  	    }
+  	    return error;
+  	}
+	    
     </script>
-    
     <!-- End Script -->
         
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0"> 
-      <!--onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0">-->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+      onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0">
     </iframe>
     <center>
     <div class="content">
     	<div id="form">
-    		<form action="" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
-    			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
-    			<!--<span>Message</span>-->
-  				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
-  				<!-- <span>Name</span> -->
+    		<form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsubmit="submitted=true;" -->
+    			<!-- <span>Name</span> -->
     			<input type="text" name="entry.2062577226" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
     			<!--<span>Email</span>-->
     			<input type="email" name="entry.956340906" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
     			<!--<span>Phone</span>-->
     			<input type="tel" name="entry.147794208" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
-    		    <br>
-    			<textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
-                  
+    		
+    			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
+    			<!--<span>Message</span>-->
+    			<textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=2 required></textarea>
     			<br>
-    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
+    			<br>
+    		  <button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
     			<br>
     			<div class="g-recaptcha" id="captchabox" data-sitekey="6LfVM1EUAAAAABE6UYQino6WB7EHeSDA6yNHgBWn" data-callback="imNotARobot">
     			</div>
     			<span id="status_msg" name="msg"></span>
     			<!-- <span id="captcha">Captcha Code:</span> -->
+    			
     		</form>
       </div>
     </div>
-    <div id="successMessage" style="display: none; color: green;"> 
-    <br>
+    <div id="successMessage">
     </div>
     </center>
     </section>
-    <!-- End contact form -->
+    <!-- End Contact form section -->
         
         
     <center>
@@ -217,16 +387,16 @@
             </p>
           </div>
         </div>
-        <div class="text-center paid_for">
-        <p class="paid_for_text">
-        <a href="page_about_me.html">Paid for by Sauls for Justice</a>
-        </p>
-        </div>
         <center>
                 
         <div class="after_shadow_container">
         <div class="after_shadow">
         </div>
+        </div>
+        <div class="text-center paid_for">
+          <p>
+            <a href="page_about_me.html">Paid for by Sauls for Justice</a>
+          </p>
         </div>
         </center>
       </div>
@@ -244,6 +414,106 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
+    
+    <!-- Old Contact form script >
+    <script type="text/javascript">
+    function captchaCode() {
+      var Numb1, Numb2, Numb3, Numb4, Code;     
+      Numb1 = (Math.ceil(Math.random() * 10)-1).toString();
+      Numb2 = (Math.ceil(Math.random() * 10)-1).toString();
+      Numb3 = (Math.ceil(Math.random() * 10)-1).toString();
+      Numb4 = (Math.ceil(Math.random() * 10)-1).toString();
+      
+      Code = Numb1 + Numb2 + Numb3 + Numb4;
+      $("#captcha span").remove();
+      $("#captcha input").remove();
+      $("#captcha").append("<span id='code'>" + Code + "</span><input type='button' onclick='captchaCode();'>");
+    }
+    
+    $(function() {
+      captchaCode();
+      
+      $('#contactForm').submit_btn(function(){
+        var captchaVal = $("#code").text();
+        var captchaCode = $(".captcha").val();
+        if (captchaVal == captchaCode) {
+          $(".captcha").css({
+            "color" : "#609D29"
+          });
+        }
+        else {
+          $(".captcha").css({
+            "color" : "#CE3B46"
+          });
+        }
+        
+        var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,10})+$/;   
+        var emailText = $(".email").val();
+        if (emailFilter.test(emailText)) {
+          $(".email").css({
+            "color" : "#609D29"
+          });
+        }
+        else {
+          $(".email").css({
+            "color" : "#CE3B46"
+          });
+        }
+        
+        var nameFilter = /^([a-zA-Z \t]{3,15})+$/;
+        var nameText = $(".name").val();
+        if (nameFilter.test(nameText)) {
+          $(".name").css({
+            "color" : "#609D29"
+          });
+        }
+        else {
+          $(".name").css({
+            "color" : "#CE3B46"
+          });
+        }
+        
+        var phoneFilter = /^([a-zA-Z \t]{3,15})+$/;
+        var phoneText = $(".phone").val();
+        if (phoneFilter.test(phoneText)) {
+          $(".phone").css({
+            "color" : "#609D29"
+          });
+        }
+        else {
+          $(".phone").css({
+            "color" : "#CE3B46"
+          });
+        }
+        
+        var messageText = $(".message").val().length;
+        if (messageText > 100) {
+          $(".message").css({
+            "color" : "#609D29"
+          });
+        }
+        else {
+          $(".message").css({
+            "color" : "#CE3B46"
+          });
+        }
+        
+        if ((captchaVal !== captchaCode) || (!emailFilter.test(emailText)) || (!nameFilter.test(nameText)) || (messageText < 100)) {
+          return false;
+        }
+        if ((captchaVal == captchaCode) && (emailFilter.test(emailText)) && (nameFilter.test(nameText)) && (messageText > 100)) {
+          $("#contactForm").css("display", "none");
+          $("#form").append("<h2>Message sent!</h2>");
+          return false;
+        }
+      });       
+    });
+    </script>
+    <!-- End contact form script -->
+  <!--
+  <section id="contact_bottom">
+  </section>
+  -->
   </body>
 
 </html>
@@ -254,16 +524,6 @@
 
 
 /* ========= Contact Form ===============*/
-button:disabled{
-	opacity: 0;
-	cursor: default;
-}
-
-.catcher_class {
-	display: none; 
-	visibility: hidden;
-}
-
 .status_msg {
 	color: red;
 	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
@@ -284,33 +544,31 @@ button:disabled{
 	text-decoration:none;
 	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
 	font-weight:bold;
-	transition: all 0.3s ease-in-out;
 }
 .submit_btn:hover{
 	background: #bc8f09;/*#d8850e;*/
-  transition: all 0.3s ease-in-out;
+
 }
 
 .after_shadow_container {
     overflow: hidden;
     height: 20px;
     width: 100%;
-    position: relative;
+    position: relative; /*Important*/
     z-index: 1;
 }
 
 .after_shadow {
-    content: "";
-    display: block;
-    height: 30px;
-    width: 90%;
-    left: 5%;
-    top: -30px;
-    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
-    border-radius: 100%;
-    z-index: -1;
-    position: absolute;
+	content: "";
+	display: block;
+	height: 30px;
+	width: 90%;
+	left: 5%;
+	bottom: 0;
+	-webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25); /*envelope shadow effect*/
+	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+	border-radius: 100%;
+	z-index: -1;
 }
 
 #contact-form {
@@ -318,7 +576,7 @@ button:disabled{
   padding-top: 60px;
 }
 #contact-form #form {
-  width: 99%; /*410px;*/
+  width: 70%; /*410px;*/
   /*float:left;*/
 }
 #contact-form #form h2 {
@@ -327,13 +585,13 @@ button:disabled{
 #contact-form #form span {
   display:block;
   /*float:left;*/
-  width: 99%; /*100px;*/
+  width: 70%; /*100px;*/
   padding-top:5px;
   font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 #contact-form #form input {
   /*float:left;*/
-  width: 95%; /*255px;*/
+  width: 55%; /*255px;*/
   border:0px;
   color: #ffffff; /*#F1F1F1;*/
   padding:10px 10px 10px 30px;
@@ -343,7 +601,7 @@ button:disabled{
 #contact-form #form textarea {
   /*float:left;*/
   border:0px;
-  width: 95%; /*255px;*/
+  width: 55%; /*255px;*/
   height:140px;
   padding:10px 10px 10px 30px;
   font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
@@ -358,8 +616,8 @@ button:disabled{
 }
 
 #contact-form #form input.phone {
-  background: #828da0 /*#222222*/ url(phone_wht-0,01x.png) no-repeat 8px 8px;
-  background-size: 16px 16px;
+  background: #828da0 /*#222222*/ url(phone_wht-0,01x.png) no-repeat 5px 8px;
+  /*background-size: 0.75em 0.75em;*/
   font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 
@@ -388,7 +646,7 @@ button:disabled{
   color:#F1F1F1;
   */
   font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
-  width: 95%;
+  width: 55%;
   /*border-radius: 20px;*/
 }
 #contact-form #captcha span{
@@ -419,33 +677,12 @@ button:disabled{
     opacity: 0.7;
 }
 
-@media (min-width: 200px) { /*execute after width is > 200*/
-  .g-recaptcha {
-	  transform:scale(0.60);
-	  transform:scale(60vw);
-	  transform-origin:18% 50%;
-  }
-	
-  #contact-form #form {
-      width: 90%;
-      margin-left: 10%;
-  }
-  
-  #contact-form #form span {
-      width: 90%; 
-  }
-  
-  #contact-form #form input {
-      width: 90%; 
-  }
-  
-  #contact-form #form textarea {
-      width: 90%; 
-  }
-  
-  #contact-form #form button {
-      width: 90%;
-  }
+@media (max-width: 400px) { /*execute until 400*/
+	.g-recaptcha {
+	    transform:scale(0.77);
+	    transform:scale(50vw);
+	    transform-origin:50% 50%;
+	}
 	
 	img {
 	    max-width: 80%;
@@ -458,17 +695,37 @@ button:disabled{
 	    float: left;
 	    width: 80%;
 	} 
+	
+	#contact-form #form {
+      width: 90%; 
+  }
+  
+  #contact-form #form span {
+      width: 90%; 
+  }
+  
+  #contact-form #form input {
+      width: 90%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 90%; 
+  }
+  
+  #contact-form #form button {
+      width: 90%;
+  }
 }
 
-@media (min-width: 400px) { /*execute until 768*/
+@media (max-width: 300px) { /*execute until 300*/
 	.g-recaptcha {
-	    transform:scale(0.70);
-	    transform:scale(70vw);
-	    transform-origin:50% 70%;
+	    transform:scale(0.50);
+	    transform:scale(50vw);
+	    transform-origin:50% 50%;
 	}
 	
 	img {
-	    max-width: 80%;
+	    max-width: 90%;
 	    height: auto;
 	}
 	
@@ -476,113 +733,74 @@ button:disabled{
 	    position: relative;
 	    z-index: 1;
 	    float: left;
-	    width: 80%;
+	    width: 90%;
 	}
 	
 	#contact-form #form {
-      width: 80%;
-      margin-left: 0%;
+      width: 90%; 
   }
   
   #contact-form #form span {
-      width: 80%; 
+      width: 90%; 
   }
   
   #contact-form #form input {
-      width: 80%; 
+      width: 90%; 
   }
   
   #contact-form #form textarea {
-      width: 80%; 
+      width: 90%; 
   }
   
   #contact-form #form button {
-      width: 80%;
+      width: 90%;
   }
 }
 
-@media (min-width: 768px) { /*execute until 1100*/
+@media (max-width: 991px) { /*execute until 991*/
   
-	.g-recaptcha {
-	    transform:scale(0.80);
-	    transform:scale(80vw);
-	    transform-origin:50% 70%;
+	#contact_form #form {
+	  width: 80%; /*410px;*/
+	  /*float:left;*/
 	}
 	
-	img {
-	    max-width: 75%;
-	    height: auto;
+	#contact_form #form span {
+  	  display:block;
+	  /*float:left;*/
+	  width: 80%; /*100px;*/
+	  padding-top:5px;
+	  font: 14px/16px'Open Sans', Georgia, serif;
+	}
+	#contact_form #form input {
+	  /*float:left;*/
+	  width: 80%; /*255px;*/
+	  border:0px;
+	  color: #ffffff; /*#F1F1F1;*/
+	  padding:10px 10px 10px 30px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  margin-bottom:10px;
+	}
+	#contact_form #form textarea {
+	  /*float:left;*/
+	  border:0px;
+	  width: 80%; /*255px;*/
+	  height:140px;
+	  padding:10px 10px 10px 32px;
+	  font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif;
+	  color: #ffffff; /*#F1F1F1;*/
+	  resize: none;
+	  margin: 0px 0px 0px 3px;
 	}
 	
-	.inner-header {
-	    position: relative;
-	    z-index: 1;
-	    float: left;
-	    width: 75%;
+	#contact_form #form button {
+	  font: 12px 'Open Sans', Georgia, serif;
+  	  width: 55%;
+	  /*border-radius: 20px;*/
 	}
-	
-	#contact-form #form {
-      width: 75%; 
-  }
-  
-  #contact-form #form span {
-      width: 75%; 
-  }
-  
-  #contact-form #form input {
-      width: 75%; 
-  }
-  
-  #contact-form #form textarea {
-      width: 75%; 
-  }
-  
-  #contact-form #form button {
-      width: 75%;
-  }
+	#contact_form #captcha span{
+	    width: 50%;
+	}
 }
-
-@media (min-width: 1100px) { /*execute until 1100*/
-  
-	.g-recaptcha {
-	    transform:scale(0.80);
-	    transform:scale(80vw);
-	    transform-origin:50% 70%;
-	}
-	
-	img {
-	    max-width: 55%;
-	    height: auto;
-	}
-	
-	.inner-header {
-	    position: relative;
-	    z-index: 1;
-	    float: left;
-	    width: 55%;
-	}
-	
-	#contact-form #form {
-      width: 55%; 
-  }
-  
-  #contact-form #form span {
-      width: 55%; 
-  }
-  
-  #contact-form #form input {
-      width: 55%; 
-  }
-  
-  #contact-form #form textarea {
-      width: 55%; 
-  }
-  
-  #contact-form #form button {
-      width: 55%;
-  }
-}
-
 
 /* ========= End Contact Form ===========*/
 
@@ -643,7 +861,7 @@ p {
     color: rgba(255, 255, 255, .7);
 }
 section {
-    padding: 50px 0;
+    padding: 100px 0;
 }
 .section-heading {
     margin-top: 0;
@@ -705,7 +923,6 @@ body {
 
 #contact {
     padding-top: 0px;
-    padding-bottom: 33px;
 }
 
 @keyframes op_frame1 {
@@ -951,13 +1168,13 @@ header.masthead .header-content .header-content-inner p {
 }
 
 .sauls_logo { 
-    margin: 0px auto 20px auto; /*t r b l */
+    margin: -50px auto 20px auto; /*t r b l */
     position: relative;
-    height: 178px;
-    width: 178px;
+    height: 278px;
+    width: 182px;
     max-height: 100%;
     max-width: 100%;
-    background-image: url('sauls_logo_fin_no_text_7-4-18.png');
+    background-image: url(sauls_logo_fin_2-24-18_stacked.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -988,7 +1205,7 @@ header.masthead .header-content .header-content-inner p {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .contact-phone {
@@ -1011,17 +1228,14 @@ header.masthead .header-content .header-content-inner p {
 }
 
 .paid_for {
-    margin: 10px auto 30px auto;
-    height: 30px;
-    width: 250px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #0365a3;
-}
-
-p.paid_for_text {
-    margin-top: 4px;
-    margin-bottom: 4px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 250px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0365a3;
 }
 
 .paypal_form {
