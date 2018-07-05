@@ -196,6 +196,8 @@
       <div class="footer_container">
         <div class="sauls_logo">
         <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
+        <div class="sauls_logo2">
+        </div>
         </div>
         <div class="footer_row">
         <div class="text-center"> <!-- col-lg-8 mx-auto -->
@@ -951,17 +953,39 @@ header.masthead .header-content .header-content-inner p {
 }
 
 .sauls_logo { 
-    margin: 0px auto 20px auto; /*t r b l */
+    margin: 40px auto 20px auto; /*t r b l */
     position: relative;
-    height: 178px;
-    width: 178px;
+    height: 278px;
+    width: 158px;
     max-height: 100%;
     max-width: 100%;
-    background-image: url('sauls_logo_fin_no_text_7-4-18.png');
+    background-image: url(sauls_logo_fin_only_text_7-4-18.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
+.sauls_logo2 { 
+    margin: 50px auto 20px auto; /*t r b l */
+    position: absolute;
+    height: 158px;
+    width: 200px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_no_text_7-4-18.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25)";
+    zoom: 1;
+    */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: drop-shadow(0.5px 1px 0.5px rgba(0,0,0,0.25)); /*x-offset, y-offset, blur*/
+}
+
 
 @media (min-width: 992px) {
     .service-box {
