@@ -36,7 +36,21 @@
     
     <!-- Embedded scipt for google form-->
     <script type="text/javascript">
+    var validation_val = -1;
+
 	function Validate() {
+	    var btn = document.getElementById("toggleMenu"); /*id for button*/
+        var menu = document.getElementById("menuItems"); /*id for <ul>*/
+	    if (check_cases()) {
+            if(menu.className == ".payment_form visible_options") {
+                menu.className = ".payment_form hidden_options";
+                btn.value = "Proceed Here";
+            }
+            else {
+                menu.className = ".payment_form visible_options";
+                btn.value = "Go back";
+            }
+	    }
 	    
 	    function check_cases(){
             var isValid = false;
@@ -61,6 +75,7 @@
                 return false;
             }
             else {
+                validation_val = 1;
                 return true;
             }
 	    }
@@ -71,6 +86,8 @@
                 // alert("Not valid!");
             }
             else {
+                menu.className = ".payment_form visible_options";
+                btn.value = "Go back";
         		document.getElementById('check_contact').checked=true;
     			this.submit();
     			return true;
@@ -153,7 +170,7 @@
 			<label for="entry_295122875">Email</label>
 			</p>
 			<p class="submit_wrapper">
-			<input type="submit" name="submit" value="Proceed Here" id="ss-submit" class="contactbutton" onclick="Validate();"> <!-- onmouseover="Validate();" onclick="Validate();" -->
+			<input type="submit" name="submit" value="Proceed Here" id="toggleMenu" class="contactbutton" onclick="Validate();"> <!-- onmouseover="Validate();" onclick="Validate();" -->
 			<br>
 			<input type="submit" name="submit" value="Use Crowdpac" id="ss-submit" class="contactbutton" onclick="location.href='https://www.crowdpac.com/campaigns/380880/sharron-sauls';">
 			</p>
@@ -161,10 +178,10 @@
 		
 		<input type="checkbox" id="check_contact"> <!--WATCH FOR MATCHING ID NAMES (JS nightmare)!!! and input must be located after label -->
 		
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="contactform">
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="payment_form hidden_options" id="menuItems">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="QQ7UJ7N5NNFG4">
-            <table class="pay paypal_form header-content-inner">
+            <table class="pay paypal_form header-content-inner" id="menuItems">
                 <tr>
                 <td>
                 <input type="hidden" name="on0" value="Amounts">
@@ -201,7 +218,6 @@
             <input type="image" src="img/portfolio/fullsize/donate_btn.png" width="200" height="100" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
-		
 	    </article>
         </section>
             
@@ -261,13 +277,34 @@
 
 </html>
 
+<script type="text/javascript">
+
+</script>
 
 <style>
 /*Use inline for testing, external in creative.min.css*/
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-/* Contact Form */
+/* Payment Form */
+.hidden_options {
+    max-height: 0px;
+    margin: 0px auto 20px auto;
+    overflow-y: auto;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+    }
+
+.visible_options {
+    max-height: 1000px;
+    margin: 0px auto 200px auto;
+    overflow-y: auto;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+
 .sliding_button {
     margin-top: 10px;
     margin-left: auto;
@@ -305,7 +342,7 @@ table {
 	*/
 }
 
-.contactform {
+.payment_form {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 15px;
 	overflow: hidden;
@@ -459,13 +496,23 @@ table {
 	position: absolute;
 	left: -9999px; /*-9999px;*/
 }
-
-#check_contact:checked + .contactform {
+/*
+#check_contact:checked + #check_contact:before .contactform {
     max-height: 1000px;
     margin: 0px auto 200px auto;
-    /* padding-top: 0px; */
-    /* background-color: white; */
+    /* height: 1000px; */
+    /* padding-top: 0px; 
+    overflow-y: auto;
 }
+
+#check_contact:before + .contactform {
+    max-height: 10px;
+    margin: 0px auto 20px auto;
+    /* height: 1000px; */
+    /* padding-top: 0px; 
+    overflow-y: auto;
+}
+*/
 
 #home_heading {
     margin-top: 0px;
@@ -484,17 +531,18 @@ table {
 }
 
 #services {
-	width: 100%;
-	overflow-x: auto;
-    /*overflow-y: auto;*/
+    width: 100%;
+    /* overflow-x: auto; */
+    overflow-y: auto;
     margin-bottom: -15px;
+    margin-top: 10px;
     text-shadow: 0 0.06em 0 #000000;
 }
 
 @media (max-width: 768px) { /*Execute rules contained until max width of...*/
 	#services {
     	width: 100%;
-    	overflow-x: auto;
+    	/*overflow-x: auto;
     	/*overflow-y: auto;*/
         margin-bottom: -15px;
 	}
@@ -516,7 +564,7 @@ table {
 	}
 }
 
-/* End Contact Form */
+/* End Payment Form */
 
 .vote_sauls_head {
   margin-bottom: 50px;
