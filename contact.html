@@ -114,145 +114,42 @@
     <!-- Contact form section -->
     <section id="contact-form">
       
-    <!-- New Contact Form Script (recaptcha added) (updated 7/7/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
+        <!-- New Contact Form Script (recaptcha added) (updated 7/7/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
     <script type="text/javascript">
-    var submitted=false;
-    var name = '';
-    var str = '';
-    var n = -1;
-    
-    function _(id){ return document.getElementById(id); }
-    
-  	var imNotARobot = function() {
-  		console.info("Captcha box was clicked");
-  		_("ss-submit").disabled = false;
-  		var name = $("#name").val();
-  		$.ajax({
-  			url: 'recaptcha.php',
-  			type: "POST",
-  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-  			success: function(data) {
-	  			str = data;
-	  			console.log(data);
-	  			//document.getElementById("status_msg").innerHTML = n;
-	  			n = str.indexOf("03A");
-	  			if (n >= 0) {
-	  				if ($(".status_msg")[0]){
-					    // Do something if class exists
-					    $( "#status_msg" ).removeClass();
-					    $("#status_msg").addClass( "successMessage" );
-					} else {
-					    // Do something if class does not exist
-				}
-  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
-  				document.getElementById("status_msg").className = ".successMessage";
-				}
-			}
-		})
-  	};
-    
-    /*--- print to present page function--- */
-    (function () {
-		$.webshims.setOptions('form', {
-			lazyCustomMessages: true,
-			iVal: {
-				handleBubble: 'hide',
-				fx: 'slide',
-				sel: '.ws-validate',
-				fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
-			}
-		});
-		$.webshims.polyfill('form');
-	})();
-	/*--- End print to present page function--- */
-	
-	function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
-		var reason = "";
-		var i = document.getElementById("status_msg");
-		var j = document.getElementById("successMessage");
-	    reason += validateName(contact.name);
-	    reason += validateEmail(contact.email);
-	    reason += validatePhone(contact.phone);
-	    
-		//_("ss-submit").disabled = true;
-		var formdata = new FormData();
-		formdata.append( "name", _("name").value );
-		formdata.append( "email", _("email").value );
-		formdata.append( "msg", _("msg").value );
-		
-		//var ajax = new XMLHttpRequest();
-		//event.preventDefault();
-  		name = $("#name").val();
-  		$.ajax({
-  			url: 'recaptcha.php',
-  			type: "POST",
-  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-  			success: function(data) {
-  				str = data;
-  				console.log(data);
-  				n = str.indexOf("03A");
-  				//document.getElementById("status_msg").innerHTML = n;
-  			}
-  		})
-  		
-  	    console.log(reason);
-  	    switch (true) {
-  		
-  		  case (reason.length <= 0 && n > 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
-		  	_("status_msg").innerHTML = "";
-		  	$('#form form').attr('action', 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse');
-		  	j .className += "successMessage";
-		    _("ss-submit").value = _("msg").value;
-	        submitted = true;
-	        _("successMessage").innerHTML = "Thank you, " + name + "! somone at Sauls for Justice will respond shortly!"
-	        _("ss-submit").disabled = true;
-	        return true;
-  		    break;
-  		    
-  		  case (reason.length <= 0 && n <= 0):
-  			i.className += "status_msg";
-  	    	_("status_msg").innerHTML = reason.length + " " + n + ' Please click the "captcha" box';
-  	    	_("ss-submit").disabled = true;
-  	    	return false;
-  		    break;
-  		    
-  		  default:
-  				return false;
-  		}
-	}
-  </script>
-  <script>
-  var total;
-
-	function getRandom(){return Math.ceil(Math.random()* 20);}
-	function createSum(){
-			var randomNum1 = getRandom(),
-				randomNum2 = getRandom();
-		total =randomNum1 + randomNum2;
-	  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
-	  $("#math_ans").val('');
-	  checkInput();
-	}
-	
-	function checkInput(){
-			var input = $("#math_ans").val(), 
-	    	slideSpeed = 200,
-	      hasInput = !!input, 
-	      valid = hasInput && input == total;
-	    $('#math_message').toggle(!hasInput);
-	    $('button[type=submit]').prop('disabled', !valid);  
-	    $('#math_success').toggle(valid);
-	    $('#math_fail').toggle(hasInput && !valid);
-	}
-	
-	$(document).ready(function(){
-		//create initial sum
-		createSum();
-		// On "reset button" click, generate new random sum
-		$('button[type=math_reset]').click(createSum);
-		// On user input, check value
-		$( "#math_ans" ).keyup(checkInput);
-	});
+      var _0x5c81=['Thank\x20you,\x20','!\x20somone\x20at\x20Sauls\x20for\x20Justice\x20will\x20respond\x20shortly!','length','className','\x20Please\x20click\x20the\x20\x22captcha\x22\x20box','getElementById','info','Captcha\x20box\x20was\x20clicked','ss-submit','disabled','#name','val','ajax','recaptcha.php','POST','&g-recaptcha-response=','getResponse','log','indexOf','03A','.status_msg','#status_msg','addClass','successMessage','innerHTML','Captcha\x20check\x20complete!','status_msg','.successMessage','webshims','setOptions','form','hide','slide','.ws-validate',':not(span,\x20label,\x20em,\x20strong,\x20b,\x20i,\x20mark,\x20p)','polyfill','name','phone','append','email','value','msg','catcher_id','#form\x20form','attr'];(function(_0x4607a0,_0x4ff15d){var _0x5a7f11=function(_0x25fb27){while(--_0x25fb27){_0x4607a0['push'](_0x4607a0['shift']());}};_0x5a7f11(++_0x4ff15d);}(_0x5c81,0x19a));var _0x3da5=function(_0x50db4a,_0x1e7467){_0x50db4a=_0x50db4a-0x0;var _0x5b31a8=_0x5c81[_0x50db4a];return _0x5b31a8;};var submitted=![];var name='';var str='';var n=-0x1;function _(_0x259128){return document[_0x3da5('0x0')](_0x259128);}var imNotARobot=function(){console[_0x3da5('0x1')](_0x3da5('0x2'));_(_0x3da5('0x3'))[_0x3da5('0x4')]=![];var _0x12a7d2=$(_0x3da5('0x5'))[_0x3da5('0x6')]();$[_0x3da5('0x7')]({'url':_0x3da5('0x8'),'type':_0x3da5('0x9'),'data':'name='+_0x12a7d2+_0x3da5('0xa')+grecaptcha[_0x3da5('0xb')](),'success':function(_0x1f4917){str=grecaptcha[_0x3da5('0xb')]();console[_0x3da5('0xc')](grecaptcha['getResponse']());n=str[_0x3da5('0xd')](_0x3da5('0xe'));if(n>=0x0){if($(_0x3da5('0xf'))[0x0]){$(_0x3da5('0x10'))['removeClass']();$(_0x3da5('0x10'))[_0x3da5('0x11')](_0x3da5('0x12'));}else{}document[_0x3da5('0x0')]('status_msg')[_0x3da5('0x13')]=_0x3da5('0x14');document['getElementById'](_0x3da5('0x15'))['className']=_0x3da5('0x16');}}});};(function(){$[_0x3da5('0x17')][_0x3da5('0x18')](_0x3da5('0x19'),{'lazyCustomMessages':!![],'iVal':{'handleBubble':_0x3da5('0x1a'),'fx':_0x3da5('0x1b'),'sel':_0x3da5('0x1c'),'fieldWrappper':_0x3da5('0x1d')}});$[_0x3da5('0x17')][_0x3da5('0x1e')](_0x3da5('0x19'));}());function validateFormOnSubmit(_0x3de119){var _0x5a78a0='';var _0x55b477=document['getElementById']('status_msg');var _0x14cbbb=document[_0x3da5('0x0')](_0x3da5('0x12'));_0x5a78a0+=validateName(_0x3de119[_0x3da5('0x1f')]);_0x5a78a0+=validateEmail(_0x3de119['email']);_0x5a78a0+=validatePhone(_0x3de119[_0x3da5('0x20')]);var _0x3dbc1d=new FormData();_0x3dbc1d['append'](_0x3da5('0x1f'),_('name')['value']);_0x3dbc1d[_0x3da5('0x21')]('email',_(_0x3da5('0x22'))[_0x3da5('0x23')]);_0x3dbc1d[_0x3da5('0x21')]('msg',_(_0x3da5('0x24'))[_0x3da5('0x23')]);name=$(_0x3da5('0x5'))['val']();$[_0x3da5('0x7')]({'url':_0x3da5('0x8'),'type':_0x3da5('0x9'),'data':'name='+name+_0x3da5('0xa')+grecaptcha[_0x3da5('0xb')](),'success':function(_0x4673c1){str=grecaptcha[_0x3da5('0xb')]();console[_0x3da5('0xc')](grecaptcha[_0x3da5('0xb')]());n=str[_0x3da5('0xd')]('03A');}});console[_0x3da5('0xc')](_0x5a78a0);switch(!![]){case _0x5a78a0['length']<=0x0&&n>0x0&&_(_0x3da5('0x25'))[_0x3da5('0x23')]=='':_(_0x3da5('0x15'))[_0x3da5('0x13')]='';$(_0x3da5('0x26'))[_0x3da5('0x27')]('action','https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse');_0x14cbbb['className']+=_0x3da5('0x12');_(_0x3da5('0x3'))[_0x3da5('0x23')]=_('msg')[_0x3da5('0x23')];submitted=!![];_(_0x3da5('0x12'))[_0x3da5('0x13')]=_0x3da5('0x28')+name+_0x3da5('0x29');_(_0x3da5('0x3'))[_0x3da5('0x4')]=!![];return!![];break;case _0x5a78a0[_0x3da5('0x2a')]<=0x0&&n<=0x0:_0x55b477[_0x3da5('0x2b')]+='status_msg';_(_0x3da5('0x15'))['innerHTML']=_0x5a78a0[_0x3da5('0x2a')]+'\x20'+n+_0x3da5('0x2c');_(_0x3da5('0x3'))[_0x3da5('0x4')]=!![];return![];break;default:return![];}}
+    </script>
+    <script>
+    var total;
+  
+  	function getRandom(){return Math.ceil(Math.random()* 20);}
+  	function createSum(){
+  			var randomNum1 = getRandom(),
+  				randomNum2 = getRandom();
+  		total =randomNum1 + randomNum2;
+  	  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
+  	  $("#math_ans").val('');
+  	  checkInput();
+  	}
+  	
+  	function checkInput(){
+  			var input = $("#math_ans").val(), 
+  	    	slideSpeed = 200,
+  	      hasInput = !!input, 
+  	      valid = hasInput && input == total;
+  	    $('#math_message').toggle(!hasInput);
+  	    $('button[type=submit]').prop('disabled', !valid);  
+  	    $('#math_success').toggle(valid);
+  	    $('#math_fail').toggle(hasInput && !valid);
+  	}
+  	
+  	$(document).ready(function(){
+  		//create initial sum
+  		createSum();
+  		// On "reset button" click, generate new random sum
+  		$('button[type=math_reset]').click(createSum);
+  		// On user input, check value
+  		$( "#math_ans" ).keyup(checkInput);
+  	});
     
     </script>
     
