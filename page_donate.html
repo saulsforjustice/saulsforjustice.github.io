@@ -37,19 +37,40 @@
     <!-- Embedded scipt for google form-->
     <script type="text/javascript">
     var validation_val = -1;
-
-	function Validate() {
-	    var btn = document.getElementById("toggleMenu"); /*id for button*/
-        var menu = document.getElementById("menuItems"); /*id for <ul>*/
-	    if (check_cases()) {
-            if(menu.className == ".payment_form visible_options") {
+    var menuHandler;
+    var btn = document.getElementById("toggleMenu"); /*id for button*/
+    var menu = document.getElementById("menuItems"); /*id for <ul>*/
+    
+    var menuToggle = function menuToggle() {
+        btn = document.getElementById("toggleMenu"); /*id for button*/
+        menu = document.getElementById("menuItems"); /*id for <ul>*/
+        menuHandler = function menuHandler() {
+            if(validation_val < 0) {
                 menu.className = ".payment_form hidden_options";
                 btn.value = "Proceed Here";
             }
             else {
-                menu.className = ".payment_form visible_options";
-                btn.value = "Go back";
+                if (validation_val > 0) {
+                    menu.className = ".payment_form hidden_options";
+                    btn.value = "Go back";
+                }
             }
+        }
+        btn.addEventListener("click", menuHandler, false);
+    }
+    try {
+        window.addEventListener("load", menuToggle, false);
+    } 
+    catch(e) {
+        window.onload = menuToggle;
+    }
+
+	function Validate() {
+	    btn = document.getElementById("toggleMenu"); /*id for button*/
+        menu = document.getElementById("menuItems"); /*id for <ul>*/
+	    if (validation_val > 0) {
+            menu.className = ".payment_form hidden_options";
+            /*btn.value = "Proceed Here";*/
 	    }
 	    
 	    function check_cases(){
@@ -87,8 +108,10 @@
             }
             else {
                 menu.className = ".payment_form visible_options";
-                btn.value = "Go back";
+                /*btn.value = "Go back";*/
         		document.getElementById('check_contact').checked=true;
+        		btn.addEventListener("click", menuHandler, false);
+        		validation_val = 1;
     			this.submit();
     			return true;
             }	
