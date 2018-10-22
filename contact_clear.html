@@ -115,76 +115,77 @@
     <section id="contact-form">
       
     <!-- New Contact Form Script (recaptcha added) (updated 7/7/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
+    <!--Do not post recaptcha data to console on gitlab/hub servers, post g-recaptcha response only -->
     <script type="text/javascript">
-    var submitted=false;
-    var name = '';
-    var str = '';
-    var n = -1;
-    
-    function _(id){ return document.getElementById(id); }
-    
-  	var imNotARobot = function() {
-  		console.info("Captcha box was clicked");
-  		_("ss-submit").disabled = false;
-  		var name = $("#name").val();
-  		$.ajax({
-  			url: 'recaptcha.php',
-  			type: "POST",
-  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-  			success: function(data) {
-	  			str = grecaptcha.getResponse();
-	  			console.log(grecaptcha.getResponse());
-	  			//document.getElementById("status_msg").innerHTML = n;
-	  			n = str.indexOf("03A");
-	  			if (n >= 0) {
-	  				if ($(".status_msg")[0]){
-					    // Do something if class exists
-					    $( "#status_msg" ).removeClass();
-					    $("#status_msg").addClass( "successMessage" );
-					} else {
-					    // Do something if class does not exist
-				}
-  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
-  				document.getElementById("status_msg").className = ".successMessage";
-				}
-			}
-		})
-  	};
-    
-    /*--- print to present page function--- */
-    (function () {
-		$.webshims.setOptions('form', {
-			lazyCustomMessages: true,
-			iVal: {
-				handleBubble: 'hide',
-				fx: 'slide',
-				sel: '.ws-validate',
-				fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
-			}
-		});
-		$.webshims.polyfill('form');
-	})();
-	/*--- End print to present page function--- */
-	
-	function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
-		var reason = "";
-		var i = document.getElementById("status_msg");
-		var j = document.getElementById("successMessage");
-	    reason += validateName(contact.name);
-	    reason += validateEmail(contact.email);
-	    reason += validatePhone(contact.phone);
+	    var submitted=false;
+	    var name = '';
+	    var str = '';
+	    var n = -1;
 	    
-		//_("ss-submit").disabled = true;
-		var formdata = new FormData();
-		formdata.append( "name", _("name").value );
-		formdata.append( "email", _("email").value );
-		formdata.append( "msg", _("msg").value );
+	    function _(id){ return document.getElementById(id); }
+	    
+    	var imNotARobot = function() {
+	  		console.info("Captcha box was clicked");
+	  		_("ss-submit").disabled = false;
+	  		var name = $("#name").val();
+	  		$.ajax({
+	  			url: 'recaptcha_sjp.php',
+	  			type: "POST",
+	  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+	  			success: function(data) {
+		  			str = grecaptcha.getResponse();
+		  			console.log(grecaptcha.getResponse());
+		  			//document.getElementById("status_msg").innerHTML = n;
+		  			n = str.indexOf("03A");
+		  			if (n >= 0) {
+		  				if ($(".status_msg")[0]){
+						    // Do something if class exists
+						    $( "#status_msg" ).removeClass();
+						    $("#status_msg").addClass( "successMessage" );
+						} else {
+						    // Do something if class does not exist
+					}
+	  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+	  				document.getElementById("status_msg").className = ".successMessage";
+					}
+				}
+			})
+    	};
+	    
+	    /*--- print to present page function--- */
+	    (function () {
+			$.webshims.setOptions('form', {
+				lazyCustomMessages: true,
+				iVal: {
+					handleBubble: 'hide',
+					fx: 'slide',
+					sel: '.ws-validate',
+					fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
+				}
+			});
+			$.webshims.polyfill('form');
+		})();
+		/*--- End print to present page function--- */
 		
-		//var ajax = new XMLHttpRequest();
-		//event.preventDefault();
+		function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
+			var reason = "";
+			var i = document.getElementById("status_msg");
+			var j = document.getElementById("successMessage");
+		    reason += validateName(contact.name);
+		    reason += validateEmail(contact.email);
+		    reason += validatePhone(contact.phone);
+		    
+			//_("ss-submit").disabled = true;
+			var formdata = new FormData();
+			formdata.append( "name", _("name").value );
+			formdata.append( "email", _("email").value );
+			formdata.append( "msg", _("msg").value );
+			
+			//var ajax = new XMLHttpRequest();
+			//event.preventDefault();
   		name = $("#name").val();
   		$.ajax({
-  			url: 'recaptcha.php',
+  			url: 'recaptcha_sjp.php',
   			type: "POST",
   			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
   			success: function(data) {
@@ -195,65 +196,133 @@
   			}
   		})
   		
-  	    console.log(reason);
-  	    switch (true) {
-  		
-  		  case (reason.length <= 0 && n > 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
-		  	_("status_msg").innerHTML = "";
-		  	$('#form form').attr('action', 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse');
-		  	j .className += "successMessage";
-		    _("ss-submit").value = _("msg").value;
-	        submitted = true;
-	        _("successMessage").innerHTML = "Thank you, " + name + "! somone at Sauls for Justice will respond shortly!"
-	        _("ss-submit").disabled = true;
-	        return true;
-  		    break;
-  		    
-  		  case (reason.length <= 0 && n <= 0):
-  			i.className += "status_msg";
-  	    	_("status_msg").innerHTML = reason.length + " " + n + ' Please click the "captcha" box';
-  	    	_("ss-submit").disabled = true;
-  	    	return false;
-  		    break;
-  		    
-  		  default:
-  				return false;
+	    console.log(reason);
+	    switch (true) {
+		
+		  case (reason.length <= 0 && n >= 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
+	  	_("status_msg").innerHTML = "";
+	  	$('#contactForm').attr('action', 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse');
+	  	j .className += "successMessage";
+	    _("ss-submit").value = _("msg").value;
+        submitted = true;
+        _("successMessage").innerHTML = "Thank you, " + name.substr(0,name.indexOf(' ')) + "! You'll hear from Sharron shortly!"
+        _("ss-submit").disabled = true;
+        return true;
+		    break;
+		    
+		  case (reason.length <= 0 && n < 0):
+			i.className += "status_msg";
+	    	_("status_msg").innerHTML = reason.length + " " + n + ' Please click the "captcha" box';
+	    	_("ss-submit").disabled = true;
+	    	return false;
+		    break;
+		    
+		  default:
+				return false;
   		}
-	}
-  </script>
-  <script>
-  var total;
+		}
+		
+		// validate required fields
+		function validateName(name) { // takes name var as input
+		    var error = "";
+		
+		    if (name.value.length == 0) {
+		      alert("Please fill all inputs to submit");
+		        //name.style.background = "Red";
+		        var error = "1";
+		    } else {
+		        //name.style.background = "White";
+		    }
+		    return error;
+		}
+		
+		// validate email as required field and format (or handle with html5)
+		function trim(s) {
+		    return s.replace(/^\s+|\s+$/, "");
+		}
+		
+		function validateEmail(email) { // takes email var as input
+		    var error = "";
+		    var temail = trim(email.value); // value of field with whitespace trimmed off
+		    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+		    var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
+		
+		    if (email.value == "") {
+		        alert("Please fill all inputs to submit");
+		        //email.style.background = "Red";
+		        var error = "2";
+		    } else if (!emailFilter.test(temail)) { //test email for illegal characters
+		        alert("Please enter a valid email to submit");
+		        //email.style.background = "Red";
+		        var error = "3";
+		    } else if (email.value.match(illegalChars)) {
+		        alert("Please enter a valid email to submit");
+		        //email.style.background = "Red";
+		        var error = "4";
+		    } else {
+		        //email.style.background = "White";
+		    }
+		    return error;
+		}
 
-	function getRandom(){return Math.ceil(Math.random()* 20);}
-	function createSum(){
-			var randomNum1 = getRandom(),
-				randomNum2 = getRandom();
-		total =randomNum1 + randomNum2;
-	  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
-	  $("#math_ans").val('');
-	  checkInput();
-	}
-	
-	function checkInput(){
-			var input = $("#math_ans").val(), 
-	    	slideSpeed = 200,
-	      hasInput = !!input, 
-	      valid = hasInput && input == total;
-	    $('#math_message').toggle(!hasInput);
-	    $('button[type=submit]').prop('disabled', !valid);  
-	    $('#math_success').toggle(valid);
-	    $('#math_fail').toggle(hasInput && !valid);
-	}
-	
-	$(document).ready(function(){
-		//create initial sum
-		createSum();
-		// On "reset button" click, generate new random sum
-		$('button[type=math_reset]').click(createSum);
-		// On user input, check value
-		$( "#math_ans" ).keyup(checkInput);
-	});
-    
+		// validate phone for required and format (or handle with html5)
+
+		function validatePhone(phone) {
+		    var error = "";
+		    var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
+		
+		    if (phone.value == "") {
+		        alert("Please fill all inputs to submit");
+		        //phone.style.background = "Red";
+		        var error = "6";
+		    } else if (isNaN(parseInt(stripped))) {
+		        alert("Please enter a valid 10 digit phone number to submit");
+		        var error = "5";
+		        //phone.style.background = "Red";
+		    } else if (stripped.length < 10) {
+		        alert("Please enter a valid 10 digit phone number to submit");
+		        var error = "6";
+		        //phone.style.background = "Red";
+		    } else {
+		        //phone.style.background = "White";
+		    }
+		    return error;
+		}
+
+	    </script>
+	    <script>
+	    var total;
+
+		function getRandom(){return Math.ceil(Math.random()* 20);}
+		function createSum(){
+				var randomNum1 = getRandom(),
+					randomNum2 = getRandom();
+			total =randomNum1 + randomNum2;
+		  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
+		  $("#math_ans").val('');
+		  checkInput();
+		}
+		
+		function checkInput(){
+				var input = $("#math_ans").val(), 
+		    	slideSpeed = 200,
+		      hasInput = !!input, 
+		      valid = hasInput && input == total;
+		    $('#math_message').toggle(!hasInput);
+		    $('button[type=submit]').prop('disabled', !valid);  
+		    $('#math_success').toggle(valid);
+		    $('#math_fail').toggle(hasInput && !valid);
+		}
+		
+		$(document).ready(function(){
+			//create initial sum
+			createSum();
+			// On "reset button" click, generate new random sum
+			$('button[type=math_reset]').click(createSum);
+			// On user input, check value
+			$( "#math_ans" ).keyup(checkInput);
+		});
+  
     </script>
     
     <!-- End Script -->
@@ -263,6 +332,9 @@
     </iframe>
     <center>
     <div class="content">
+      <span style="font: bold normal 32px Arial, Helvetica, sans-serif; line-height: 10px;"> Contact Me</span>
+      <br>
+      <br>
     	<div id="form">
     		<form action="" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
     			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
@@ -276,9 +348,10 @@
     			<input type="tel" name="entry.147794208" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
     		    <br>
     			<textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
-          <span style="font: bold normal 10px/80% Arial, Helvetica, sans-serif; line-height: 10px;">Please wait for captcha complete message before submitting (may take a few seconds)</span>        
     			<br>
     			<br>
+          <span style="font: bold normal 12px Arial, Helvetica, sans-serif; line-height: 10px;"> To submit, click the captcha below (may take a few seconds)</span>        
+          <br>
     			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
     			<br>
     			<div class="g-recaptcha" id="captchabox" data-sitekey="6LfVM1EUAAAAABE6UYQino6WB7EHeSDA6yNHgBWn" data-callback="imNotARobot">
