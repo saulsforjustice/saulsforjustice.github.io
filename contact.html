@@ -196,7 +196,7 @@
 			//event.preventDefault();
   		name = $("#name").val();
   		$.ajax({
-  			url: 'recaptcha_sjp.php',
+  			url: 'recaptcha.php',
   			type: "POST",
   			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
   			success: function(data) {
