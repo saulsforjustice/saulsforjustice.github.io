@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head oncontextmenu="return false">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Sauls for Justice of the Peace</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href= 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href= 'https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  
+  <!-- CUstom page icon -->
+  <link rel="icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#4a4a52">
+  <meta name="msapplication-TileColor" content="#b9c3cf">
+  <meta name="theme-color" content="#ffffff">
+    
+  <!-- Priority scripts -->
+	<!-- JQuery library include -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+	<!-- Google reCaptcha API script -->
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	
+	<!-- Ajax compatibility script -->
+	<script type="text/javascript">
+	function ajaxFunction()
+	{
+	var xmlHttp;
+	try
+	  {
+	  // Firefox, Opera 8.0+, Safari
+	  xmlHttp=new XMLHttpRequest();
+	  }
+	catch (e)
+	  {
+	  // Internet Explorer
+	  try
+	    {
+	    xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+	    }
+	  catch (e)
+	    {
+	    try
+	      {
+	      xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+	      }
+	    catch (e)
+	      {
+	      alert("Your browser does not support AJAX!");
+	      return false;
+	      }
+	    }
+	  }
+	  }
+	</script>
+	<!-- End script -->
+	
+	<!--End Priority scripts -->
+
+  <!-- Custom styles for this template -->
+  <link href="css/creative.min.css" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127803086-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-127803086-1');
+  </script>
+
+  </head>
+
+  <body id="page-top" oncontextmenu="return false">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="page_donate.html">Donate</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="page_about_me.html">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="issues.html">On The Issues</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="experience.html">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <header class="masthead">
+    </header>
+    
+    <section id="contact">
+    <!-- Contact form section -->
+    <section id="contact-form">
+      
+    <!-- New Contact Form Script (recaptcha added) (updated 7/7/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
+    <!--Do not post recaptcha data to console on gitlab/hub servers, post g-recaptcha response only -->
+    <script>
+    var submitted=false;
+        var name = '';
+        var str = '';
+        var n = -1;
+        var captcha_click = false;
+        var status = document.getElementById("status_msg");
+        
+        function _(id){ return document.getElementById(id); }
+        
+      	var imNotARobot = function() {
+      	  var status = document.getElementById("status_msg");
+      	  if (status.classList.contains('status_msg')) {
+        	    status.classList.remove('status_msg');
+        	    status.classList.add('successMessage');
+          }
+      	  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+      		console.info("Captcha box was clicked");
+      		captcha_click = true;
+      		_("ss-submit").disabled = false;
+      		n = 1;
+      		var name = $("#name").val();
+      		$.ajax({
+      			url: 'recaptcha.php',
+      			type: "POST",
+      			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+      			success: function(data) {
+      				str = data;
+      				console.log(data);
+      				n = str.indexOf("[success] => 1");
+      				$("#status_msg").addClass( "successMessage" );
+    			    $("#status_msg").innerHTML = "Captcha check complete!";
+      				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+      			}
+      		})
+    	  };
+          
+          /* print to present page function */
+        (function () {
+      		$.webshims.setOptions('form', {
+      			lazyCustomMessages: true,
+      			iVal: {
+      				handleBubble: 'hide',
+      				fx: 'slide',
+      				sel: '.ws-validate',
+      				fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
+      			}
+      		});
+    		$.webshims.polyfill('form');
+      	})();
+      	
+      	function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
+      	
+      		var reason = "";
+      		var i = document.getElementById("status_msg");
+      		var j = document.getElementById("successMessage");
+    	    reason += validateName(contact.name);
+    	    reason += validateEmail(contact.email);
+    	    reason += validatePhone(contact.phone);
+    	    
+      		//_("ss-submit").disabled = true;
+      		var formdata = new FormData();
+      		formdata.append( "name", _("name").value );
+      		formdata.append( "email", _("email").value );
+      		formdata.append( "msg", _("msg").value );
+      		
+      		//var ajax = new XMLHttpRequest();
+      		//event.preventDefault();
+      		name = $("#name").val();
+      		$.ajax({
+      			url: 'recaptcha.php',
+      			type: "POST",
+      			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+      			success: function(data) {
+      				str = data;
+      				console.log(data);
+      				n = str.indexOf("[success] => 1");
+    	  			if (n >= 0) {
+    	  				if ($(".status_msg")[0]){
+    					    // Do something if class exists
+    					    $( "#status_msg" ).removeClass();
+    					    $( "#status_msg" ).innerHTML = "Captcha check complete!";
+    					    $( "#status_msg" ).addClass( "successMessage" );
+    					  } else {
+    					    // Do something if class does not exist
+    				    }
+      				  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+      			  }
+    	      }
+    	    })
+      		
+    	    console.log(reason);
+    	    switch (true) {
+    		
+    		  case (reason.length <= 0 && captcha_click):
+    	  	  _("status_msg").innerHTML = "";
+    	  	  j.className += "successMessage";
+    	      _("ss-submit").value = _("msg").value;
+            submitted = true;
+            _("successMessage").innerHTML = "Thank you, " + name.substr(0,name.indexOf(' ')) + "! You'll hear from Sharron shortly!"
+            _("ss-submit").disabled = true;
+            return true;
+    		    break;
+    		    
+    		  case (reason.length <= 0 && n <= 0):
+    			  i.className += "status_msg";
+    	    	_("status_msg").innerHTML = 'Please click the "captcha" box';
+    	    	_("ss-submit").disabled = true;
+    	    	return false;
+    		    break;
+    		    
+    		  default:
+    				return false;
+      		}
+      		
+      		if (captcha_click) {
+      		    if (i.classList.contains('status_msg')){
+    				    // Do something if class exists
+    				    $( "#status_msg" ).removeClass();
+    				    $( "#status_msg" ).addClass( "successMessage" );
+    				    $( "#status_msg" ).innerHTML = "Captcha check complete!";
+    				    document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+    				  } else {
+    				    // Do something if class does not exist
+    			    }
+      		}
+      	}
+      	
+      	// validate required fields
+      	function validateName(name) { // takes name var as input
+      	    var error = "";
+      	
+      	    if (name.value.length == 0) {
+      	      alert("Please fill all inputs to submit");
+      	        //name.style.background = "Red";
+      	        var error = "1";
+      	    } else {
+      	        //name.style.background = "White";
+      	    }
+      	    return error;
+      	}
+      	
+      	// validate email as required field and format (or handle with html5)
+      	function trim(s) {
+      	    return s.replace(/^\s+|\s+$/, "");
+      	}
+      	
+      	function validateEmail(email) { // takes email var as input
+      	    var error = "";
+      	    var temail = trim(email.value); // value of field with whitespace trimmed off
+      	    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+      	    var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
+      	
+      	    if (email.value == "") {
+      	        alert("Please fill all inputs to submit");
+      	        //email.style.background = "Red";
+      	        var error = "2";
+      	    } else if (!emailFilter.test(temail)) { //test email for illegal characters
+      	        alert("Please enter a valid email to submit");
+      	        //email.style.background = "Red";
+      	        var error = "3";
+      	    } else if (email.value.match(illegalChars)) {
+      	        alert("Please enter a valid email to submit");
+      	        //email.style.background = "Red";
+      	        var error = "4";
+      	    } else {
+      	        //email.style.background = "White";
+      	    }
+      	    return error;
+      	}
+      
+      	// validate phone for required and format (or handle with html5)
+      	function validatePhone(phone) {
+      	    var error = "";
+      	    var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
+      	
+      	    if (phone.value == "") {
+      	        alert("Please fill all inputs to submit");
+      	        //phone.style.background = "Red";
+      	        var error = "6";
+      	    } else if (isNaN(parseInt(stripped))) {
+      	        alert("Please enter a valid 10 digit phone number to submit");
+      	        var error = "5";
+      	        //phone.style.background = "Red";
+      	    } else if (stripped.length < 10) {
+      	        alert("Please enter a valid 10 digit phone number to submit");
+      	        var error = "6";
+      	        //phone.style.background = "Red";
+      	    } else {
+      	        //phone.style.background = "White";
+      	    }
+      	    return error;
+      	}
+    </script>
+    <script>
+    var total;
+
+		function getRandom(){return Math.ceil(Math.random()* 20);}
+		function createSum(){
+				var randomNum1 = getRandom(),
+					randomNum2 = getRandom();
+			total =randomNum1 + randomNum2;
+		  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
+		  $("#math_ans").val('');
+		  checkInput();
+		}
+		
+		function checkInput(){
+				var input = $("#math_ans").val(), 
+		    	slideSpeed = 200,
+		      hasInput = !!input, 
+		      valid = hasInput && input == total;
+		    $('#math_message').toggle(!hasInput);
+		    $('button[type=submit]').prop('disabled', !valid);  
+		    $('#math_success').toggle(valid);
+		    $('#math_fail').toggle(hasInput && !valid);
+		}
+		
+		$(document).ready(function(){
+			//create initial sum
+			createSum();
+			// On "reset button" click, generate new random sum
+			$('button[type=math_reset]').click(createSum);
+			// On user input, check value
+			$( "#math_ans" ).keyup(checkInput);
+		});
+  
+    </script>
+    
+    <!-- End Script -->
+        
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0"> 
+      <!--onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0">-->
+    </iframe>
+    <center>
+    <div class="content">
+      <span style="font: bold normal 32px Arial, Helvetica, sans-serif; line-height: 10px;"> Contact Me</span>
+      <br>
+      <br>
+    	<div id="form">
+    		<form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
+    			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
+    			<!--<span>Message</span>-->
+  				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
+  				<!-- <span>Name</span> -->
+    			<input type="text" name="entry.2062577226" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
+    			<!--<span>Email</span>-->
+    			<input type="email" name="entry.956340906" id="email" class="email" placeholder="Enter your email" tabindex=2 required/>
+    			<!--<span>Phone</span>-->
+    			<input type="tel" name="entry.147794208" id="phone" class="phone fas fa-phone" placeholder="Enter your phone number" tabindex=2 required/>
+    		    <br>
+    			<textarea class="message" name="entry.557992548" id="msg" placeholder="Enter your message" tabindex=4 required></textarea>
+    			<br>
+    			<br>
+          <span style="font: bold normal 12px Arial, Helvetica, sans-serif; line-height: 10px;"> To submit, click the captcha below (may take a few seconds)</span>        
+          <br>
+    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
+    			<br>
+    			<div class="g-recaptcha" id="captchabox" data-sitekey="6LfVM1EUAAAAABE6UYQino6WB7EHeSDA6yNHgBWn" data-callback="imNotARobot">
+    			</div>
+    			<span id="status_msg" name="msg"></span>
+    			<!-- <span id="captcha">Captcha Code:</span> -->
+    		</form>
+      </div>
+    </div>
+    <div id="successMessage" style="display: none; color: green;"> 
+    <br>
+    </div>
+    </center>
+    </section>
+    <!-- End contact form -->
+        
+        
+    <center>
+      <div class="footer_container">
+        <div class="sauls_logo">
+        <!-- <img src="/sauls_logo2_fin_short_text.png" style="max-height: 100%; max-width: 100%;"> -->
+        <div class="sauls_logo2">
+        </div>
+        </div>
+        <div class="footer_row">
+        <div class="text-center"> <!-- col-lg-8 mx-auto -->
+        <h2 class="section-heading">Let's Improve Kyrene Together!</h2>
+        <br>
+        <!-- <hr class="primary"> -->
+        <p>Ready to roll up your sleeves? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+        </div>
+        </div>
+        <div class="footer_row">
+          <div class="text-center contact-phone"> <!-- col-lg-4 ml-auto -->
+            <i class="fa fa-phone fa-3x sr-contact"></i>
+            <p>(480) 442-8519</p>
+          </div>
+          <div class="text-center contact-email"> <!-- col-lg-4 mr-auto -->
+            <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+            <p>
+              <a href="mailto:committee@saulsforjustice.com">committee at saulsforjustice.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="text-center paid_for">
+        <p class="paid_for_text">
+        <a href="page_about_me.html">Paid for by Sauls for Justice</a>
+        </p>
+        </div>
+        <center>
+                
+        <div class="after_shadow_container">
+        <div class="after_shadow">
+        </div>
+        </div>
+        </center>
+      </div>
+     </center>
+    </section>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+  </body>
+
+</html>
+
+
+<style>
+/*Use inline for testing, external in creative.min.css*/
+
+
+/* ========= Contact Form ===============*/
+button:disabled{
+	opacity: 0;
+	cursor: default;
+}
+
+.catcher_class {
+	display: none; 
+	visibility: hidden;
+}
+
+.status_msg {
+	color: red;
+	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+.successMessage {
+	color: green;
+	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+.submit_btn{
+	display:block;
+	border:none;
+	background: rgba(25, 81, 170); /*#ffc20c;#f8ae45;*/
+	color:#FFFFFF;
+	padding:12px 25px;
+	cursor:pointer;
+	text-decoration:none;
+	font: 10px, 'Open Sans', Verdana, Helvetica, sans-serif;
+	font-weight:bold;
+	transition: all 0.3s ease-in-out;
+}
+.submit_btn:hover{
+	background: rgba(15, 46, 96); /*#bc8f09;#d8850e;*/
+  transition: all 0.3s ease-in-out;
+}
+
+.after_shadow_container {
+    overflow: hidden;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.after_shadow {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 90%;
+    left: 5%;
+    top: -30px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+    z-index: -1;
+    position: absolute;
+}
+
+#contact-form {
+  overflow: auto;
+  padding-top: 60px;
+}
+#contact-form #form {
+  width: 99%; /*410px;*/
+  margin-left:  auto;
+  
+}
+#contact-form #form h2 {
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form span {
+  display:block;
+  /*float:left;*/
+  width: 99%; /*100px;*/
+  padding-top:5px;
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form input {
+  /*float:left;*/
+  width: 95%; /*255px;*/
+  border:0px;
+  color: #ffffff; /*#F1F1F1;*/
+  padding:10px 10px 10px 30px;
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  margin-bottom:10px;
+}
+#contact-form #form textarea {
+  /*float:left;*/
+  border:0px;
+  width: 95%; /*255px;*/
+  height:140px;
+  padding:10px 10px 10px 30px;
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  color: #ffffff; /*#F1F1F1;*/
+  resize: none;
+  margin: auto 0px 0px 3px;
+}
+
+#contact-form #form input.name {
+  background: #828da0 /*#222222*/ url(name_icon_wht.png) no-repeat 10px 8px;  /*http://img7.uploadhouse.com/fileuploads/17737/177370145f09fe433945815665aa214f80dbc6af.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+#contact-form #form input.phone {
+  background: #828da0 /*#222222*/ url(phone_wht-0,01x.png) no-repeat 8px 8px;
+  background-size: 16px 16px;
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+  margin-left: 3px;
+}
+
+#contact-form #form input.email {
+  background: #828da0 /*#222222*/ url(mail_icon_wht.png) no-repeat 10px 9px;  /*http://img6.uploadhouse.com/fileuploads/17737/177370138cc63992182149e9befabff3eafa6d23.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form input.captcha {
+  background: #828da0 /*#222222*/ url(refresh_icon_wht.png) no-repeat 10px 9px;  /*http://img3.uploadhouse.com/fileuploads/17737/17737011310213e71805ecf2292144cbbecf42ad.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form textarea.message {
+  background: #828da0 /*#222222*/ url(message_icon_wht.png) no-repeat 10px 8px; /*http://img3.uploadhouse.com/fileuploads/17737/1773701229ed8c2f465a8274623ca8976adaf196.png*/
+  font: 11px 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+#contact-form #form button {
+
+  /*
+  cursor: pointer;
+  width:85px;
+  height:30px;
+  /*float:right;
+  padding:0px 0px 5px 0px;
+  margin:10px 16px 0px 0px;
+  background:#222222;
+  color:#F1F1F1;
+  */
+  font: 11px, 'Open Sans', Verdana, Helvetica, sans-serif;
+  width: 95%;
+  /*border-radius: 20px;*/
+}
+#contact-form #captcha span{
+    width: 44px;
+}
+#contact-form #captcha input{
+  background: url(refresh_icon.png) no-repeat scroll 0 0 transparent;
+  margin: 5px 0 0;
+  padding: 0;
+  border: medium none;
+  cursor: pointer;
+  width: 15px;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff;
+    opacity: 0.7; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+@media (min-width: 200px) { /*execute after width is > 200*/
+  .g-recaptcha {
+	  transform:scale(0.70);
+	  transform:scale(70vw);
+	  transform-origin:18% 50%;
+  }
+	
+  #contact-form #form {
+      width: 90%;
+      margin-left: 0px;
+  }
+  
+  #contact-form #form span {
+      width: 90%; 
+  }
+  
+  #contact-form #form input {
+      width: 90%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 90%; 
+  }
+  
+  #contact-form #form button {
+      width: 90%;
+  }
+	
+	img {
+	    max-width: 80%;
+	    height: auto;
+	}
+	
+	.inner-header {
+	    position: relative;
+	    z-index: 1;
+	    float: left;
+	    width: 80%;
+	} 
+}
+
+@media (min-width: 400px) { /*execute until 768*/
+	.g-recaptcha {
+	    transform:scale(0.70);
+	    transform:scale(70vw);
+	    transform-origin:50% 70%;
+	}
+	
+	img {
+	    max-width: 80%;
+	    height: auto;
+	}
+	
+	.inner-header {
+	    position: relative;
+	    z-index: 1;
+	    float: left;
+	    width: 80%;
+	}
+	
+	#contact-form #form {
+      width: 80%;
+      margin-left: 0%;
+  }
+  
+  #contact-form #form span {
+      width: 80%; 
+  }
+  
+  #contact-form #form input {
+      width: 80%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 80%; 
+  }
+  
+  #contact-form #form button {
+      width: 80%;
+  }
+}
+
+@media (min-width: 768px) { /*execute until 1100*/
+  
+	.g-recaptcha {
+	    transform:scale(0.80);
+	    transform:scale(80vw);
+	    transform-origin:50% 70%;
+	}
+	
+	img {
+	    max-width: 75%;
+	    height: auto;
+	}
+	
+	.inner-header {
+	    position: relative;
+	    z-index: 1;
+	    float: left;
+	    width: 75%;
+	}
+	
+	#contact-form #form {
+      width: 75%; 
+  }
+  
+  #contact-form #form span {
+      width: 75%; 
+  }
+  
+  #contact-form #form input {
+      width: 75%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 75%; 
+  }
+  
+  #contact-form #form button {
+      width: 75%;
+  }
+}
+
+@media (min-width: 1100px) { /*execute until 1100*/
+  
+	.g-recaptcha {
+	    transform:scale(0.80);
+	    transform:scale(80vw);
+	    transform-origin:50% 70%;
+	}
+	
+	img {
+	    max-width: 55%;
+	    height: auto;
+	}
+	
+	.inner-header {
+	    position: relative;
+	    z-index: 1;
+	    float: left;
+	    width: 55%;
+	}
+	
+	#contact-form #form {
+      width: 55%; 
+  }
+  
+  #contact-form #form span {
+      width: 55%; 
+  }
+  
+  #contact-form #form input {
+      width: 55%; 
+  }
+  
+  #contact-form #form textarea {
+      width: 55%; 
+  }
+  
+  #contact-form #form button {
+      width: 55%;
+  }
+}
+
+
+/* ========= End Contact Form ===========*/
+
+.vote_sauls_head {
+  margin-bottom: 50px;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif
+}
+hr {
+    max-width: 200px;
+    border-width: 3px;
+    border-color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+hr.light {
+    border-color: #fff;
+}
+
+a {
+    color: #0f2e60; /*#f05f40;*/
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s
+}
+
+a:focus,
+a:hover {
+    color: #0f2e60; /*#f05f40;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.bg-primary {
+    background-color: #0365a3 /*#0f2e60; /*#f05f40*/ !important
+}
+.bg-dark {
+    color: #fff;
+    background-color: #222!important;
+}
+.text-faded {
+    color: rgba(255, 255, 255, .7);
+}
+section {
+    padding: 50px 0;
+}
+.section-heading {
+    margin-top: 0;
+}
+::-moz-selection {
+    color: #fff;
+    background: #222;
+    text-shadow: none;
+}
+::selection {
+    color: #fff;
+    background: #222;
+    text-shadow: none;
+}
+
+.img-fluid {
+  width: 600px;
+  height: 360px;
+  display: block;
+}
+
+img::selection {
+    color: #fff;
+    background: 0 0;
+}
+img::-moz-selection {
+    color: #fff;
+    background: 0 0;
+}
+body {
+    -webkit-tap-highlight-color: #222;
+}
+
+.caption1 {
+  animation: op_frame1 30s ease-in-out 0s infinite;
+  -webkit-animation-name: op_frame1;
+  animation-name: op_frame1;
+}
+
+.caption2 {
+  animation: op_frame2 30s ease-in-out 0s infinite;
+}
+
+.caption3 {
+  animation: op_frame3 30s ease-in-out 0s infinite;
+}
+
+.caption4 {
+  animation: op_frame4 30s ease-in-out 0s infinite;
+}
+
+.caption5 {
+  animation: op_frame5 30s ease-in-out 0s infinite;
+}
+
+.caption6 {
+  animation: op_frame6 30s ease-in-out 0s infinite;
+}
+
+#contact {
+    padding-top: 0px;
+    padding-bottom: 33px;
+}
+
+@keyframes op_frame1 {
+	0% {
+		opacity: 0;
+	}
+	
+	14.29% {
+		opacity: 1;
+	}
+
+	28.57%{
+		opacity: 0;
+	}
+}
+
+@keyframes op_frame2 {
+	14.29%{
+		opacity: 0;
+	}
+
+	28.57%{
+		opacity: 1;
+	}
+
+	42.86%{
+		opacity: 0;
+	}
+}
+
+@keyframes op_frame3 {
+	28.57%{
+		opacity: 0;
+	}
+
+	42.86%{
+		opacity: 1;
+	}
+
+	57.14%{
+		opacity: 0;
+	}
+}
+
+@keyframes op_frame4 {
+	42.86%{
+		opacity: 0;
+	}
+	
+	57.14%{
+		opacity: 1;
+	}
+
+	71.43%{
+		opacity: 0;
+	}
+}
+
+@keyframes op_frame5 {
+	57.14%{
+		opacity: 0;
+	}
+
+	71.43%{
+		opacity: 1;
+	}
+
+	85.71%{
+		opacity: 0;
+	}
+}
+
+@keyframes op_frame6 {
+	71.43%{
+		opacity: 0;
+	}
+
+	85.71%{
+		opacity: 1;
+	}
+
+	100%{
+		opacity: 0;
+	}
+}
+
+#mainNav {
+    border-color: rgba(34, 34, 34, .05);
+    background-color: #fff;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+#mainNav .navbar-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+#mainNav .navbar-brand:focus,
+#mainNav .navbar-brand:hover {
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+#mainNav .navbar-toggle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222;
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222;
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link.active,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active {
+    color: #0365a3 /*#0f2e60; /*#f05f40*/ !important;
+    background-color: transparent;
+}
+#mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover,
+#mainNav .navbar-nav>li.nav-item>a.nav-link:focus.active:hover {
+    background-color: transparent;
+}
+@media (min-width: 992px) {
+    #mainNav {
+        border-color: rgba(255, 255, 255, .3);
+        background-color: transparent;
+    }
+    #mainNav .navbar-brand {
+        color: #1f4077; /*color: rgba(66, 134, 244, 1);*/
+    }
+    #mainNav .navbar-brand:focus,
+    #mainNav .navbar-brand:hover {
+        color: #0365a3; /*color: rgba(66, 134, 244, 1);*/
+    }
+    #mainNav .navbar-nav>li.nav-item>a.nav-link,
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
+        color: #1f4077; /*color: rgba(66, 134, 244, 1);*/
+    }
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
+    #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
+        color: #0365a3; /*color: rgba(66, 134, 244, 1);*/
+    }
+    #mainNav.navbar-shrink {
+        border-color: rgba(34, 34, 34, .05);
+        background-color: #fff;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+        font-size: 16px;
+        color: #0365a3; /*#0f2e60; /*#f05f40*/
+    }
+    #mainNav.navbar-shrink .navbar-brand:focus,
+    #mainNav.navbar-shrink .navbar-brand:hover {
+        color: #0365a3; /*#0f2e60; /*#f05f40*/
+    }
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link,
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus {
+        color: #222;
+    }
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus:hover,
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:hover {
+        color: #0365a3; /*#0f2e60; /*#f05f40*/
+    }
+}
+header.masthead {
+    /*
+    position: relative;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    /*background-color: #000000;*/
+    /*
+    background-image: url(img/portfolio/thumbnails/ahwatuk_sunset_3000x1686.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    */
+}
+header.masthead .header-content {
+    position: absolute;
+    /*width: 100%;*/
+    padding: 15px 15px 100px;
+    text-align: center;
+}
+header.masthead .header-content .header-content-inner h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+header.masthead .header-content .header-content-inner hr {
+    margin: 30px auto;
+}
+header.masthead .header-content .header-content-inner p {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 50px;
+    color: rgba(255, 255, 255, .7);
+}
+@media (min-width: 768px) {
+    header.masthead {
+        height: 10%;
+        /*min-height: 200px;*/
+    }
+    header.masthead .header-content {
+        position: absolute;
+        top: 50%;
+        padding: 0px 50px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    header.masthead .header-content .header-content-inner {
+        max-width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    header.masthead .header-content .header-content-inner h1 {
+        font-size: 50px;
+    }
+    header.masthead .header-content .header-content-inner p {
+        font-size: 18px;
+        max-width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+.service-box {
+    max-width: 400px;
+    margin: 50px auto 0;
+}
+
+.sauls_logo { 
+    margin: 40px auto 20px auto; /*t r b l */
+    position: relative;
+    height: 278px;
+    width: 158px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_only_text_7-4-18.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.sauls_logo2 { 
+    margin: 50px auto 20px auto; /*t r b l */
+    position: absolute;
+    height: 158px;
+    width: 200px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url(sauls_logo_fin_no_text_7-4-18.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=0.5,MakeShadow=true,ShadowOpacity=0.25)";
+    zoom: 1;
+    */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0.5, OffY=1, Color='#000')";
+    filter: drop-shadow(0.5px 1px 0.5px rgba(0,0,0,0.25)); /*x-offset, y-offset, blur*/
+}
+
+
+@media (min-width: 992px) {
+    .service-box {
+        margin: 20px auto 0;
+    }
+}
+.service-box p {
+    margin-bottom: 0;
+}
+
+.text-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer_container{
+    width: 100%;
+}
+
+.footer_row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.contact-phone {
+    float: left;
+    width: 150px;
+}
+
+.contact-email {
+    /* margin: 0px auto auto auto; */
+    width: 360px;
+    float: right;
+    padding-left: 90px;
+    /* padding-left: 77px; */
+}
+
+@media (max-width: 531px) { /* Execute code until a max-width of... */
+    .contact-email {
+        width: 295px;
+        padding-left: 0px;
+    }
+}
+
+.paid_for {
+    margin: 10px auto 30px auto;
+    height: 30px;
+    width: 250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #0365a3;
+}
+
+p.paid_for_text {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.paypal_form {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.portfolio-box2 {
+    position: relative;
+    display: block;
+    max-width: 650px;
+    margin: 0 auto;
+}
+.portfolio-box2 .portfolio-box-caption {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    background: rgba(93, 128, 186, 0.9); /*rgba(240, 95, 64, .9);*/
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category,
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    padding: 0 15px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    font-size: 18px;
+}
+.portfolio-box2:hover .portfolio-box-caption {
+    opacity: 1;
+}
+
+
+
+.portfolio-box2:focus {
+    outline: 0;
+}
+@media (min-width: 768px) {
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-category {
+        font-size: 16px;
+    }
+    .portfolio-box2 .portfolio-box-caption .portfolio-box-caption-content .project-name {
+        font-size: 22px;
+    }
+}
+.call-to-action {
+    padding: 50px 0;
+}
+.call-to-action h2 {
+    margin: 0 auto 20px;
+}
+.text-primary {
+    color: #0365a3 /*#0f2e60; /*#f05f40*/!important
+}
+.no-gutter>[class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+.btn-default {
+    color: #222;
+    border-color: #fff;
+    background-color: #fff;
+}
+.btn-default.focus,
+.btn-default:focus {
+    color: #222;
+    border-color: #bfbfbf;
+    background-color: #e6e6e6;
+}
+.btn-default:hover {
+    color: #222;
+    border-color: #e0e0e0;
+    background-color: #e6e6e6;
+}
+.btn-default.active,
+.btn-default:active,
+.open>.btn-default.dropdown-toggle {
+    color: #222;
+    border-color: #e0e0e0;
+    background-color: #e6e6e6;
+}
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:active:hover,
+.open>.btn-default.dropdown-toggle.focus,
+.open>.btn-default.dropdown-toggle:focus,
+.open>.btn-default.dropdown-toggle:hover {
+    color: #222;
+    border-color: #bfbfbf;
+    background-color: #d4d4d4;
+}
+.btn-default.active,
+.btn-default:active,
+.open>.btn-default.dropdown-toggle {
+    background-image: none;
+}
+.btn-default.disabled.focus,
+.btn-default.disabled:focus,
+.btn-default.disabled:hover,
+.btn-default[disabled].focus,
+.btn-default[disabled]:focus,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default.focus,
+fieldset[disabled] .btn-default:focus,
+fieldset[disabled] .btn-default:hover {
+    border-color: #fff;
+    background-color: #fff;
+}
+.btn-default .badge {
+    color: #fff;
+    background-color: #222;
+}
+.btn-primary {
+    color: #fff;
+    border-color: #0365a3; /*#0f2e60; /*#f05f40*/
+    background-color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+.btn-primary.focus,
+.btn-primary:focus {
+    color: #fff;
+    border-color: #0f2e60; /*#a4270d*/
+    background-color: #0f2e60; /*#eb3812*/
+}
+.btn-primary:hover {
+    color: #fff;
+    border-color: #0f2e60; /*#e13612;*/
+    background-color: #0f2e60; /*#eb3812*/
+}
+.btn-primary.active,
+.btn-primary:active,
+.open>.btn-primary.dropdown-toggle {
+    color: #fff;
+    border-color: #0f2e60; /*#e13612*/
+    background-color: #11336b; /*#eb3812*/
+}
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.btn-primary.dropdown-toggle.focus,
+.open>.btn-primary.dropdown-toggle:focus,
+.open>.btn-primary.dropdown-toggle:hover {
+    color: #fff;
+    border-color: #0f2e60; /*#a4270d;*/
+    background-color: #11336b;/*#c93110*/
+}
+.btn-primary.active,
+.btn-primary:active,
+.open>.btn-primary.dropdown-toggle {
+    background-image: none;
+}
+  .btn-primary.disabled.focus,
+  .btn-primary.disabled:focus,
+  .btn-primary.disabled:hover,
+  .btn-primary[disabled].focus,
+  .btn-primary[disabled]:focus,
+  .btn-primary[disabled]:hover,
+  fieldset[disabled] .btn-primary.focus,
+  fieldset[disabled] .btn-primary:focus,
+  fieldset[disabled] .btn-primary:hover {
+  border-color: #0365a3; /*#0f2e60; /*#f05f40*/
+  background-color: #0365a3; /*#0f2e60; /*#f05f40*/
+}
+.btn-primary .badge {
+    color: #0365a3; /*#0f2e60; /*#f05f40*/
+    background-color: #fff;
+}
+.btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 300px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.btn-xl {
+    padding: 15px 30px;
+}
+</style>
