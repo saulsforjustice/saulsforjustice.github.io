@@ -128,7 +128,177 @@
     <!-- New Contact Form Script (recaptcha added) (updated 7/7/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
     <!--Do not post recaptcha data to console on gitlab/hub servers, post g-recaptcha response only -->
     <script type="text/javascript">
-      var _0x115e=['status_msg','Captcha\x20check\x20complete!','.successMessage','webshims','setOptions','form','hide','.ws-validate',':not(span,\x20label,\x20em,\x20strong,\x20b,\x20i,\x20mark,\x20p)','polyfill','name','phone','append','value','email','msg','val','length','catcher_id','innerHTML','attr','https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse','Thank\x20you,\x20','substr','!\x20You\x27ll\x20hear\x20from\x20Sharron\x20shortly!','className','Please\x20fill\x20all\x20inputs\x20to\x20submit','replace','test','Please\x20enter\x20a\x20valid\x20email\x20to\x20submit','match','Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit','getElementById','info','Captcha\x20box\x20was\x20clicked','ss-submit','disabled','#name','ajax','recaptcha_sjp.php','POST','name=','getResponse','log','indexOf','03A','.status_msg','#status_msg','removeClass','addClass','successMessage'];(function(_0x584749,_0x125eb5){var _0x1fb443=function(_0x1bf308){while(--_0x1bf308){_0x584749['push'](_0x584749['shift']());}};_0x1fb443(++_0x125eb5);}(_0x115e,0xb9));var _0x4480=function(_0x49b344,_0x2525ad){_0x49b344=_0x49b344-0x0;var _0x4eeae2=_0x115e[_0x49b344];return _0x4eeae2;};var submitted=![];var name='';var str='';var n=-0x1;function _(_0x3c3fe5){return document[_0x4480('0x0')](_0x3c3fe5);}var imNotARobot=function(){console[_0x4480('0x1')](_0x4480('0x2'));_(_0x4480('0x3'))[_0x4480('0x4')]=![];var _0x374ea4=$(_0x4480('0x5'))['val']();$[_0x4480('0x6')]({'url':_0x4480('0x7'),'type':_0x4480('0x8'),'data':_0x4480('0x9')+_0x374ea4+'&g-recaptcha-response='+grecaptcha[_0x4480('0xa')](),'success':function(_0x1b590a){str=grecaptcha[_0x4480('0xa')]();console[_0x4480('0xb')](grecaptcha['getResponse']());n=str[_0x4480('0xc')](_0x4480('0xd'));if(n>=0x0){if($(_0x4480('0xe'))[0x0]){$(_0x4480('0xf'))[_0x4480('0x10')]();$(_0x4480('0xf'))[_0x4480('0x11')](_0x4480('0x12'));}else{}document[_0x4480('0x0')](_0x4480('0x13'))['innerHTML']=_0x4480('0x14');document[_0x4480('0x0')](_0x4480('0x13'))['className']=_0x4480('0x15');}}});};(function(){$[_0x4480('0x16')][_0x4480('0x17')](_0x4480('0x18'),{'lazyCustomMessages':!![],'iVal':{'handleBubble':_0x4480('0x19'),'fx':'slide','sel':_0x4480('0x1a'),'fieldWrappper':_0x4480('0x1b')}});$[_0x4480('0x16')][_0x4480('0x1c')](_0x4480('0x18'));}());function validateFormOnSubmit(_0x2ea563){var _0x1201c0='';var _0x53c907=document[_0x4480('0x0')](_0x4480('0x13'));var _0x5402d1=document[_0x4480('0x0')](_0x4480('0x12'));_0x1201c0+=validateName(_0x2ea563[_0x4480('0x1d')]);_0x1201c0+=validateEmail(_0x2ea563['email']);_0x1201c0+=validatePhone(_0x2ea563[_0x4480('0x1e')]);var _0x1cb0b1=new FormData();_0x1cb0b1[_0x4480('0x1f')](_0x4480('0x1d'),_(_0x4480('0x1d'))[_0x4480('0x20')]);_0x1cb0b1[_0x4480('0x1f')](_0x4480('0x21'),_(_0x4480('0x21'))[_0x4480('0x20')]);_0x1cb0b1['append'](_0x4480('0x22'),_(_0x4480('0x22'))[_0x4480('0x20')]);name=$(_0x4480('0x5'))[_0x4480('0x23')]();$['ajax']({'url':'recaptcha_sjp.php','type':_0x4480('0x8'),'data':_0x4480('0x9')+name+'&g-recaptcha-response='+grecaptcha[_0x4480('0xa')](),'success':function(_0xeecf9c){str=grecaptcha[_0x4480('0xa')]();console[_0x4480('0xb')](grecaptcha[_0x4480('0xa')]());n=str[_0x4480('0xc')](_0x4480('0xd'));}});console['log'](_0x1201c0);switch(!![]){case _0x1201c0[_0x4480('0x24')]<=0x0&&n>=0x0&&_(_0x4480('0x25'))[_0x4480('0x20')]=='':_('status_msg')[_0x4480('0x26')]='';$('#contactForm')[_0x4480('0x27')]('action',_0x4480('0x28'));_0x5402d1['className']+=_0x4480('0x12');_(_0x4480('0x3'))[_0x4480('0x20')]=_(_0x4480('0x22'))['value'];submitted=!![];_('successMessage')[_0x4480('0x26')]=_0x4480('0x29')+name[_0x4480('0x2a')](0x0,name['indexOf']('\x20'))+_0x4480('0x2b');_(_0x4480('0x3'))[_0x4480('0x4')]=!![];return!![];break;case _0x1201c0['length']<=0x0&&n<0x0:_0x53c907[_0x4480('0x2c')]+='status_msg';_(_0x4480('0x13'))[_0x4480('0x26')]=_0x1201c0[_0x4480('0x24')]+'\x20'+n+'\x20Please\x20click\x20the\x20\x22captcha\x22\x20box';_(_0x4480('0x3'))[_0x4480('0x4')]=!![];return![];break;default:return![];}}function validateName(_0x56c1d5){var _0x4eaf6c='';if(_0x56c1d5[_0x4480('0x20')][_0x4480('0x24')]==0x0){alert(_0x4480('0x2d'));var _0x4eaf6c='1';}else{}return _0x4eaf6c;}function trim(_0x3eb22c){return _0x3eb22c[_0x4480('0x2e')](/^\s+|\s+$/,'');}function validateEmail(_0xb7de9){var _0x5cf15d='';var _0xc6f8c3=trim(_0xb7de9['value']);var _0x2fe06a=/^[^@]+@[^@.]+\.[^@]*\w\w$/;var _0x57e0a4=/[\(\)\<\>\,\;\:\"\[\]]/;if(_0xb7de9[_0x4480('0x20')]==''){alert('Please\x20fill\x20all\x20inputs\x20to\x20submit');var _0x5cf15d='2';}else if(!_0x2fe06a[_0x4480('0x2f')](_0xc6f8c3)){alert(_0x4480('0x30'));var _0x5cf15d='3';}else if(_0xb7de9[_0x4480('0x20')][_0x4480('0x31')](_0x57e0a4)){alert(_0x4480('0x30'));var _0x5cf15d='4';}else{}return _0x5cf15d;}function validatePhone(_0x560cd3){var _0x35e660='';var _0x449fa1=_0x560cd3[_0x4480('0x20')][_0x4480('0x2e')](/[\(\)\.\-\ ]/g,'');if(_0x560cd3[_0x4480('0x20')]==''){alert(_0x4480('0x2d'));var _0x35e660='6';}else if(isNaN(parseInt(_0x449fa1))){alert(_0x4480('0x32'));var _0x35e660='5';}else if(_0x449fa1[_0x4480('0x24')]<0xa){alert('Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit');var _0x35e660='6';}else{}return _0x35e660;}
+    var submitted=false;
+    var name = '';
+    var str = '';
+    var n = -1;
+    
+    function _(id){ return document.getElementById(id); }
+    
+  	var imNotARobot = function() {
+  		console.info("Captcha box was clicked");
+  		_("ss-submit").disabled = false;
+  		var name = $("#name").val();
+  		$.ajax({
+  			url: 'recaptcha.php',
+  			type: "POST",
+  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+  			success: function(data) {
+	  			str = grecaptcha.getResponse();
+	  			console.log(grecaptcha.getResponse());
+	  			//document.getElementById("status_msg").innerHTML = n;
+	  			n = str.indexOf("03A");
+	  			if (n >= 0) {
+	  				if ($(".status_msg")[0]){
+					    // Do something if class exists
+					    $( "#status_msg" ).removeClass();
+					    $("#status_msg").addClass( "successMessage" );
+					  } else {
+					    // Do something if class does not exist
+				    }
+	  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+	  				document.getElementById("status_msg").className = ".successMessage";
+					}
+			  }
+		  })
+  	};
+  
+    /*--- print to present page function--- */
+    (function () {
+		$.webshims.setOptions('form', {
+			lazyCustomMessages: true,
+			iVal: {
+				handleBubble: 'hide',
+				fx: 'slide',
+				sel: '.ws-validate',
+				fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
+			}
+		});
+		$.webshims.polyfill('form');
+	  })();
+	  /*--- End print to present page function--- */
+		
+		function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
+			var reason = "";
+			var i = document.getElementById("status_msg");
+			var j = document.getElementById("successMessage");
+		    reason += validateName(contact.name);
+		    reason += validateEmail(contact.email);
+		    reason += validatePhone(contact.phone);
+		    
+			//_("ss-submit").disabled = true;
+			var formdata = new FormData();
+			formdata.append( "name", _("name").value );
+			formdata.append( "email", _("email").value );
+			formdata.append( "msg", _("msg").value );
+			
+			//var ajax = new XMLHttpRequest();
+			//event.preventDefault();
+  		name = $("#name").val();
+  		$.ajax({
+  			url: 'recaptcha_sjp.php',
+  			type: "POST",
+  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+  			success: function(data) {
+  				str = grecaptcha.getResponse();
+  				console.log(grecaptcha.getResponse());
+  				n = str.indexOf("03A");
+  				//document.getElementById("status_msg").innerHTML = n;
+  			}
+  		})
+  		
+	    console.log(reason);
+	    switch (true) {
+		
+		  case (reason.length <= 0 && n >= 0 && _("catcher_id").value == ""): // && str.indexOf("[success] => 1") > 0
+	  	_("status_msg").innerHTML = "";
+	  	$('#contactForm').attr('action', 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse');
+	  	j .className += "successMessage";
+	    _("ss-submit").value = _("msg").value;
+        submitted = true;
+        _("successMessage").innerHTML = "Thank you, " + name.substr(0,name.indexOf(' ')) + "! You'll hear from Sharron shortly!"
+        _("ss-submit").disabled = true;
+        return true;
+		    break;
+		    
+		  case (reason.length <= 0 && n < 0):
+			i.className += "status_msg";
+	    	_("status_msg").innerHTML = reason.length + " " + n + ' Please click the "captcha" box';
+	    	_("ss-submit").disabled = true;
+	    	return false;
+		    break;
+		    
+		  default:
+				return false;
+  		}
+		}
+		
+		// validate required fields
+		function validateName(name) { // takes name var as input
+		    var error = "";
+		
+		    if (name.value.length == 0) {
+		      alert("Please fill all inputs to submit");
+		        //name.style.background = "Red";
+		        var error = "1";
+		    } else {
+		        //name.style.background = "White";
+		    }
+		    return error;
+		}
+		
+		// validate email as required field and format (or handle with html5)
+		function trim(s) {
+		    return s.replace(/^\s+|\s+$/, "");
+		}
+		
+		function validateEmail(email) { // takes email var as input
+		    var error = "";
+		    var temail = trim(email.value); // value of field with whitespace trimmed off
+		    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+		    var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
+		
+		    if (email.value == "") {
+		        alert("Please fill all inputs to submit");
+		        //email.style.background = "Red";
+		        var error = "2";
+		    } else if (!emailFilter.test(temail)) { //test email for illegal characters
+		        alert("Please enter a valid email to submit");
+		        //email.style.background = "Red";
+		        var error = "3";
+		    } else if (email.value.match(illegalChars)) {
+		        alert("Please enter a valid email to submit");
+		        //email.style.background = "Red";
+		        var error = "4";
+		    } else {
+		        //email.style.background = "White";
+		    }
+		    return error;
+		}
+
+		// validate phone for required and format (or handle with html5)
+
+		function validatePhone(phone) {
+		    var error = "";
+		    var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
+		
+		    if (phone.value == "") {
+		        alert("Please fill all inputs to submit");
+		        //phone.style.background = "Red";
+		        var error = "6";
+		    } else if (isNaN(parseInt(stripped))) {
+		        alert("Please enter a valid 10 digit phone number to submit");
+		        var error = "5";
+		        //phone.style.background = "Red";
+		    } else if (stripped.length < 10) {
+		        alert("Please enter a valid 10 digit phone number to submit");
+		        var error = "6";
+		        //phone.style.background = "Red";
+		    } else {
+		        //phone.style.background = "White";
+		    }
+		    return error;
+		}
     </script>
     <script>
     var total;
