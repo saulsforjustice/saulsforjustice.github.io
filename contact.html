@@ -127,6 +127,215 @@
       
     <!-- New Contact Form Script (recaptcha added) (updated 7/7/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
     <!--Do not post recaptcha data to console on gitlab/hub servers, post g-recaptcha response only -->
+    <script>
+    var submitted=false;
+    var name = '';
+    var str = '';
+    var n = -1;
+    var captcha_click = false;
+    var status = document.getElementById("status_msg");
+    
+    function _(id){ return document.getElementById(id); }
+    
+  	var imNotARobot = function() {
+  	  var status = document.getElementById("status_msg");
+  	  if (status.classList.contains('status_msg')) {
+    	    status.classList.remove('status_msg');
+    	    status.classList.add('successMessage');
+      }
+  	  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+  		console.info("Captcha box was clicked");
+  		captcha_click = true;
+  		_("ss-submit").disabled = false;
+  		n = 1;
+  		var name = $("#name").val();
+  		$.ajax({
+  			url: 'recaptcha.php',
+  			type: "POST",
+  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+  			success: function(data) {
+  				str = data;
+  				console.log(data);
+  				n = str.indexOf("[success] => 1");
+  				$("#status_msg").addClass( "successMessage" );
+			    $("#status_msg").innerHTML = "Captcha check complete!";
+  				document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+  			}
+  		})
+	  };
+      
+      /* print to present page function */
+    (function () {
+  		$.webshims.setOptions('form', {
+  			lazyCustomMessages: true,
+  			iVal: {
+  				handleBubble: 'hide',
+  				fx: 'slide',
+  				sel: '.ws-validate',
+  				fieldWrappper: ':not(span, label, em, strong, b, i, mark, p)'
+  			}
+  		});
+		$.webshims.polyfill('form');
+  	})();
+      	
+  	function validateFormOnSubmit(contact) { // takes contact var as input  onsubmit="return validateFormOnSubmit(this)"
+  	
+  		var reason = "";
+  		var i = document.getElementById("status_msg");
+  		var j = document.getElementById("successMessage");
+	    reason += validateName(contact.name);
+	    reason += validateEmail(contact.email);
+	    reason += validatePhone(contact.phone);
+	    
+  		//_("ss-submit").disabled = true;
+  		var formdata = new FormData();
+  		formdata.append( "name", _("name").value );
+  		formdata.append( "email", _("email").value );
+  		formdata.append( "msg", _("msg").value );
+  		
+  		//var ajax = new XMLHttpRequest();
+  		//event.preventDefault();
+  		name = $("#name").val();
+  		$.ajax({
+  			url: 'recaptcha.php',
+  			type: "POST",
+  			data: "name=" + name + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+  			success: function(data) {
+  				str = data;
+  				console.log(data);
+  				n = str.indexOf("[success] => 1");
+	  			if (n >= 0) {
+	  				if ($(".status_msg")[0]){
+					    // Do something if class exists
+					    $( "#status_msg" ).removeClass();
+					    $( "#status_msg" ).innerHTML = "Captcha check complete!";
+					    $( "#status_msg" ).addClass( "successMessage" );
+					  } else {
+					    // Do something if class does not exist
+				    }
+  				  document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+  			  }
+	      }
+	    })
+  		
+    console.log(reason);
+    switch (true) {
+	
+	  case (reason.length <= 0 && captcha_click):
+  	  _("status_msg").innerHTML = "";
+  	  j.className += "successMessage";
+      _("ss-submit").value = _("msg").value;
+      submitted = true;
+      _("successMessage").innerHTML = "Thank you, " + name + "! You'll hear from Sharron shortly!"
+      _("ss-submit").disabled = true;
+      return true;
+	    break;
+	    
+	  case (reason.length <= 0 && n <= 0):
+		  i.className += "status_msg";
+    	_("status_msg").innerHTML = 'Please click the "captcha" box';
+    	_("ss-submit").disabled = true;
+    	return false;
+	    break;
+	    
+	  default:
+			return false;
+		}
+		
+		if (captcha_click) {
+		    if (i.classList.contains('status_msg')){
+			    // Do something if class exists
+			    $( "#status_msg" ).removeClass();
+			    $( "#status_msg" ).addClass( "successMessage" );
+			    $( "#status_msg" ).innerHTML = "Captcha check complete!";
+			    document.getElementById("status_msg").innerHTML = "Captcha check complete!";
+			  } else {
+			    // Do something if class does not exist
+		    }
+		}
+	    /*
+	    if (reason.length <= 0 && str.indexOf("[success] => 1") > 0) {
+	    	_("ss-submit").value = _("msg").value;
+	        submitted = true;
+	        _("successMessage").innerHTML = "Thank you " + name + "! The Spectrum team will be in touch with you shortly!"
+	        return true;
+	    }
+	    else {
+	    	if (reason.length <= 0 && n <= 0) {
+	        	_("status_msg").innerHTML = 'please attempt captcha' + ", status code:" + n;
+		    }
+	    	return false;
+	    }
+	    */
+	  }
+  	
+  	// validate required fields
+  	function validateName(name) { // takes name var as input
+  	    var error = "";
+  	
+  	    if (name.value.length == 0) {
+  	      alert("Please fill all inputs to submit");
+  	        //name.style.background = "Red";
+  	        var error = "1";
+  	    } else {
+  	        //name.style.background = "White";
+  	    }
+  	    return error;
+  	}
+  	
+  	// validate email as required field and format (or handle with html5)
+  	function trim(s) {
+  	    return s.replace(/^\s+|\s+$/, "");
+  	}
+  	
+  	function validateEmail(email) { // takes email var as input
+  	    var error = "";
+  	    var temail = trim(email.value); // value of field with whitespace trimmed off
+  	    var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
+  	    var illegalChars = /[\(\)\<\>\,\;\:\"\[\]]/; 
+  	
+  	    if (email.value == "") {
+  	        alert("Please fill all inputs to submit");
+  	        //email.style.background = "Red";
+  	        var error = "2";
+  	    } else if (!emailFilter.test(temail)) { //test email for illegal characters
+  	        alert("Please enter a valid email to submit");
+  	        //email.style.background = "Red";
+  	        var error = "3";
+  	    } else if (email.value.match(illegalChars)) {
+  	        alert("Please enter a valid email to submit");
+  	        //email.style.background = "Red";
+  	        var error = "4";
+  	    } else {
+  	        //email.style.background = "White";
+  	    }
+  	    return error;
+  	}
+  
+  	// validate phone for required and format (or handle with html5)
+  	function validatePhone(phone) {
+  	    var error = "";
+  	    var stripped = phone.value.replace(/[\(\)\.\-\ ]/g, "");
+  	
+  	    if (phone.value == "") {
+  	        alert("Please fill all inputs to submit");
+  	        //phone.style.background = "Red";
+  	        var error = "6";
+  	    } else if (isNaN(parseInt(stripped))) {
+  	        alert("Please enter a valid 10 digit phone number to submit");
+  	        var error = "5";
+  	        //phone.style.background = "Red";
+  	    } else if (stripped.length < 10) {
+  	        alert("Please enter a valid 10 digit phone number to submit");
+  	        var error = "6";
+  	        //phone.style.background = "Red";
+  	    } else {
+  	        //phone.style.background = "White";
+  	    }
+  	    return error;
+  	}
+    </script>
+    
     <script type="text/javascript">
     var submitted=false;
     var name = '';
