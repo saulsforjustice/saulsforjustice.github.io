@@ -128,46 +128,11 @@
     <!-- Contact form section -->
     <section id="contact-form">
       
-    <!-- New Contact Form Script (recaptcha added) (updated 7/7/18) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
+    <!-- New Contact Form Script (recaptcha added) (updated 1/13/19) adapted from: Mario Vidov https://codepen.io/mel/pen/kHCvr?page=1&q=contact+form-->
     <!--Do not post recaptcha data to console on gitlab/hub servers, post g-recaptcha response only -->
     <script>
-      var _0x1266=['getResponse','log','indexOf','[success]\x20=>\x201','#status_msg','webshims','setOptions','form','hide','slide','.ws-validate',':not(span,\x20label,\x20em,\x20strong,\x20b,\x20i,\x20mark,\x20p)','polyfill','email','phone','append','name','value','msg','recaptcha.php','POST','removeClass','addClass','length','className','substr','!\x20You\x27ll\x20hear\x20from\x20Sharron\x20shortly!','disabled','Please\x20click\x20the\x20\x22captcha\x22\x20box','Please\x20fill\x20all\x20inputs\x20to\x20submit','replace','Please\x20enter\x20a\x20valid\x20email\x20to\x20submit','match','Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit','getElementById','status_msg','classList','contains','remove','add','successMessage','innerHTML','Captcha\x20check\x20complete!','info','Captcha\x20box\x20was\x20clicked','ss-submit','#name','val','ajax','name=','&g-recaptcha-response='];(function(_0x26a622,_0x93babd){var _0x4f09fe=function(_0x20f523){while(--_0x20f523){_0x26a622['push'](_0x26a622['shift']());}};_0x4f09fe(++_0x93babd);}(_0x1266,0x154));var _0x4abc=function(_0x2ce1a5,_0x4234dd){_0x2ce1a5=_0x2ce1a5-0x0;var _0x471cb0=_0x1266[_0x2ce1a5];return _0x471cb0;};var submitted=![];var name='';var str='';var n=-0x1;var captcha_click=![];var status=document[_0x4abc('0x0')](_0x4abc('0x1'));function _(_0x3d56f8){return document[_0x4abc('0x0')](_0x3d56f8);}var imNotARobot=function(){var _0x40697d=document[_0x4abc('0x0')]('status_msg');if(_0x40697d[_0x4abc('0x2')][_0x4abc('0x3')](_0x4abc('0x1'))){_0x40697d[_0x4abc('0x2')][_0x4abc('0x4')](_0x4abc('0x1'));_0x40697d[_0x4abc('0x2')][_0x4abc('0x5')](_0x4abc('0x6'));}document[_0x4abc('0x0')]('status_msg')[_0x4abc('0x7')]=_0x4abc('0x8');console[_0x4abc('0x9')](_0x4abc('0xa'));captcha_click=!![];_(_0x4abc('0xb'))['disabled']=![];n=0x1;var _0x595f9a=$(_0x4abc('0xc'))[_0x4abc('0xd')]();$[_0x4abc('0xe')]({'url':'recaptcha.php','type':'POST','data':_0x4abc('0xf')+_0x595f9a+_0x4abc('0x10')+grecaptcha[_0x4abc('0x11')](),'success':function(_0x313199){str=_0x313199;console[_0x4abc('0x12')](_0x313199);n=str[_0x4abc('0x13')](_0x4abc('0x14'));$(_0x4abc('0x15'))['addClass'](_0x4abc('0x6'));$(_0x4abc('0x15'))[_0x4abc('0x7')]=_0x4abc('0x8');document[_0x4abc('0x0')](_0x4abc('0x1'))[_0x4abc('0x7')]=_0x4abc('0x8');}});};(function(){$[_0x4abc('0x16')][_0x4abc('0x17')](_0x4abc('0x18'),{'lazyCustomMessages':!![],'iVal':{'handleBubble':_0x4abc('0x19'),'fx':_0x4abc('0x1a'),'sel':_0x4abc('0x1b'),'fieldWrappper':_0x4abc('0x1c')}});$[_0x4abc('0x16')][_0x4abc('0x1d')](_0x4abc('0x18'));}());function validateFormOnSubmit(_0x6b0b33){var _0x54ee55='';var _0x2d78bc=document[_0x4abc('0x0')]('status_msg');var _0x4d61d2=document[_0x4abc('0x0')](_0x4abc('0x6'));_0x54ee55+=validateName(_0x6b0b33['name']);_0x54ee55+=validateEmail(_0x6b0b33[_0x4abc('0x1e')]);_0x54ee55+=validatePhone(_0x6b0b33[_0x4abc('0x1f')]);var _0x6b9042=new FormData();_0x6b9042[_0x4abc('0x20')](_0x4abc('0x21'),_(_0x4abc('0x21'))[_0x4abc('0x22')]);_0x6b9042['append'](_0x4abc('0x1e'),_(_0x4abc('0x1e'))[_0x4abc('0x22')]);_0x6b9042[_0x4abc('0x20')]('msg',_(_0x4abc('0x23'))[_0x4abc('0x22')]);name=$(_0x4abc('0xc'))['val']();$[_0x4abc('0xe')]({'url':_0x4abc('0x24'),'type':_0x4abc('0x25'),'data':_0x4abc('0xf')+name+_0x4abc('0x10')+grecaptcha[_0x4abc('0x11')](),'success':function(_0x559d63){str=_0x559d63;console[_0x4abc('0x12')](_0x559d63);n=str[_0x4abc('0x13')](_0x4abc('0x14'));if(n>=0x0){if($('.status_msg')[0x0]){$('#status_msg')[_0x4abc('0x26')]();$(_0x4abc('0x15'))['innerHTML']=_0x4abc('0x8');$('#status_msg')[_0x4abc('0x27')]('successMessage');}else{}document[_0x4abc('0x0')](_0x4abc('0x1'))[_0x4abc('0x7')]='Captcha\x20check\x20complete!';}}});console[_0x4abc('0x12')](_0x54ee55);switch(!![]){case _0x54ee55[_0x4abc('0x28')]<=0x0&&captcha_click:_(_0x4abc('0x1'))[_0x4abc('0x7')]='';_0x4d61d2[_0x4abc('0x29')]+=_0x4abc('0x6');_('ss-submit')[_0x4abc('0x22')]=_(_0x4abc('0x23'))[_0x4abc('0x22')];submitted=!![];_(_0x4abc('0x6'))[_0x4abc('0x7')]='Thank\x20you,\x20'+name[_0x4abc('0x2a')](0x0,name[_0x4abc('0x13')]('\x20'))+_0x4abc('0x2b');_(_0x4abc('0xb'))[_0x4abc('0x2c')]=!![];return!![];break;case _0x54ee55[_0x4abc('0x28')]<=0x0&&n<=0x0:_0x2d78bc[_0x4abc('0x29')]+=_0x4abc('0x1');_(_0x4abc('0x1'))[_0x4abc('0x7')]=_0x4abc('0x2d');_('ss-submit')[_0x4abc('0x2c')]=!![];return![];break;default:return![];}if(captcha_click){if(_0x2d78bc[_0x4abc('0x2')][_0x4abc('0x3')](_0x4abc('0x1'))){$(_0x4abc('0x15'))[_0x4abc('0x26')]();$('#status_msg')[_0x4abc('0x27')](_0x4abc('0x6'));$(_0x4abc('0x15'))[_0x4abc('0x7')]=_0x4abc('0x8');document[_0x4abc('0x0')](_0x4abc('0x1'))[_0x4abc('0x7')]=_0x4abc('0x8');}else{}}}function validateName(_0x84ec3d){var _0xec9611='';if(_0x84ec3d['value'][_0x4abc('0x28')]==0x0){alert(_0x4abc('0x2e'));var _0xec9611='1';}else{}return _0xec9611;}function trim(_0x4deede){return _0x4deede[_0x4abc('0x2f')](/^\s+|\s+$/,'');}function validateEmail(_0x4f8f49){var _0x33c551='';var _0x5993b7=trim(_0x4f8f49[_0x4abc('0x22')]);var _0x377425=/^[^@]+@[^@.]+\.[^@]*\w\w$/;var _0x1011f5=/[\(\)\<\>\,\;\:\"\[\]]/;if(_0x4f8f49['value']==''){alert(_0x4abc('0x2e'));var _0x33c551='2';}else if(!_0x377425['test'](_0x5993b7)){alert(_0x4abc('0x30'));var _0x33c551='3';}else if(_0x4f8f49[_0x4abc('0x22')][_0x4abc('0x31')](_0x1011f5)){alert(_0x4abc('0x30'));var _0x33c551='4';}else{}return _0x33c551;}function validatePhone(_0x4057de){var _0x33b0b3='';var _0xc18a70=_0x4057de['value'][_0x4abc('0x2f')](/[\(\)\.\-\ ]/g,'');if(_0x4057de[_0x4abc('0x22')]==''){alert(_0x4abc('0x2e'));var _0x33b0b3='6';}else if(isNaN(parseInt(_0xc18a70))){alert(_0x4abc('0x32'));var _0x33b0b3='5';}else if(_0xc18a70['length']<0xa){alert(_0x4abc('0x32'));var _0x33b0b3='6';}else{}return _0x33b0b3;}
+      var _0x171e=['phone','append','name','value','val','POST','&g-recaptcha-response=','.status_msg','length','#contactForm','attr','https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse','className','msg','substr','\x20Please\x20click\x20the\x20\x22captcha\x22\x20box','Please\x20fill\x20all\x20inputs\x20to\x20submit','replace','test','match','Please\x20enter\x20a\x20valid\x20email\x20to\x20submit','Please\x20enter\x20a\x20valid\x2010\x20digit\x20phone\x20number\x20to\x20submit','getElementById','status_msg','classList','contains','remove','add','successMessage','innerHTML','Captcha\x20check\x20complete!','info','Captcha\x20box\x20was\x20clicked','ss-submit','disabled','#ss-submit','removeClass','btn_hidden','#name','ajax','recaptcha.php','name=','getResponse','log','indexOf','03A','#status_msg','addClass','webshims','form','slide',':not(span,\x20label,\x20em,\x20strong,\x20b,\x20i,\x20mark,\x20p)','polyfill','email'];(function(_0x7db62,_0x2d285e){var _0x42b040=function(_0x191904){while(--_0x191904){_0x7db62['push'](_0x7db62['shift']());}};_0x42b040(++_0x2d285e);}(_0x171e,0x124));var _0x4128=function(_0x4afa60,_0x42b64c){_0x4afa60=_0x4afa60-0x0;var _0x4b6b58=_0x171e[_0x4afa60];return _0x4b6b58;};var submitted=![];var name='';var str='';var n=-0x1;var captcha_click=![];var status=document[_0x4128('0x0')](_0x4128('0x1'));function _(_0x1496aa){return document[_0x4128('0x0')](_0x1496aa);}var imNotARobot=function(){var _0x3f8cb0=document['getElementById'](_0x4128('0x1'));if(_0x3f8cb0[_0x4128('0x2')][_0x4128('0x3')]('status_msg')){_0x3f8cb0['classList'][_0x4128('0x4')](_0x4128('0x1'));_0x3f8cb0['classList'][_0x4128('0x5')](_0x4128('0x6'));}document[_0x4128('0x0')](_0x4128('0x1'))[_0x4128('0x7')]=_0x4128('0x8');console[_0x4128('0x9')](_0x4128('0xa'));captcha_click=!![];_(_0x4128('0xb'))[_0x4128('0xc')]=![];$(_0x4128('0xd'))[_0x4128('0xe')](_0x4128('0xf'));n=0x1;var _0x474213=$(_0x4128('0x10'))['val']();$[_0x4128('0x11')]({'url':_0x4128('0x12'),'type':'POST','data':_0x4128('0x13')+_0x474213+'&g-recaptcha-response='+grecaptcha[_0x4128('0x14')](),'success':function(_0x1b77c9){str=grecaptcha['getResponse']();console[_0x4128('0x15')](grecaptcha['getResponse']());n=str[_0x4128('0x16')](_0x4128('0x17'));$(_0x4128('0x18'))[_0x4128('0x19')]('successMessage');$(_0x4128('0x18'))['innerHTML']=_0x4128('0x8');document['getElementById'](_0x4128('0x1'))[_0x4128('0x7')]='Captcha\x20check\x20complete!';}});};(function(){$[_0x4128('0x1a')]['setOptions'](_0x4128('0x1b'),{'lazyCustomMessages':!![],'iVal':{'handleBubble':'hide','fx':_0x4128('0x1c'),'sel':'.ws-validate','fieldWrappper':_0x4128('0x1d')}});$[_0x4128('0x1a')][_0x4128('0x1e')](_0x4128('0x1b'));}());function validateFormOnSubmit(_0x5ea0d3){var _0x4044b5='';var _0x53d8a9=document[_0x4128('0x0')](_0x4128('0x1'));var _0x59b5c9=document[_0x4128('0x0')](_0x4128('0x6'));_0x4044b5+=validateName(_0x5ea0d3['name']);_0x4044b5+=validateEmail(_0x5ea0d3[_0x4128('0x1f')]);_0x4044b5+=validatePhone(_0x5ea0d3[_0x4128('0x20')]);var _0x5340fc=new FormData();_0x5340fc[_0x4128('0x21')](_0x4128('0x22'),_('name')['value']);_0x5340fc[_0x4128('0x21')]('email',_(_0x4128('0x1f'))[_0x4128('0x23')]);_0x5340fc[_0x4128('0x21')]('msg',_('msg')['value']);name=$('#name')[_0x4128('0x24')]();$[_0x4128('0x11')]({'url':_0x4128('0x12'),'type':_0x4128('0x25'),'data':_0x4128('0x13')+name+_0x4128('0x26')+grecaptcha[_0x4128('0x14')](),'success':function(_0x311e77){str=grecaptcha[_0x4128('0x14')]();console[_0x4128('0x15')](grecaptcha[_0x4128('0x14')]());n=str[_0x4128('0x16')](_0x4128('0x17'));if(n>=0x0){if($(_0x4128('0x27'))[0x0]){$('#status_msg')[_0x4128('0xe')]();$(_0x4128('0x18'))[_0x4128('0x7')]=_0x4128('0x8');$(_0x4128('0x18'))[_0x4128('0x19')](_0x4128('0x6'));}else{}document[_0x4128('0x0')](_0x4128('0x1'))[_0x4128('0x7')]=_0x4128('0x8');}}});console[_0x4128('0x15')](_0x4044b5);switch(!![]){case _0x4044b5[_0x4128('0x28')]<=0x0&&n>=0x0&&_('catcher_id')[_0x4128('0x23')]=='':_(_0x4128('0x1'))['innerHTML']='';$(_0x4128('0x29'))[_0x4128('0x2a')]('action',_0x4128('0x2b'));_0x59b5c9[_0x4128('0x2c')]+=_0x4128('0x6');_(_0x4128('0xb'))[_0x4128('0x23')]=_(_0x4128('0x2d'))[_0x4128('0x23')];submitted=!![];_(_0x4128('0x6'))[_0x4128('0x7')]='Thank\x20you,\x20'+name[_0x4128('0x2e')](0x0,name[_0x4128('0x16')]('\x20'))+'!\x20You\x27ll\x20hear\x20from\x20Sharron\x20shortly!';_('ss-submit')[_0x4128('0xc')]=!![];return!![];break;case _0x4044b5[_0x4128('0x28')]<=0x0&&n<0x0:_0x53d8a9[_0x4128('0x2c')]+=_0x4128('0x1');_('status_msg')[_0x4128('0x7')]=_0x4044b5[_0x4128('0x28')]+'\x20'+n+_0x4128('0x2f');_(_0x4128('0xb'))['disabled']=!![];return![];break;default:return![];}}function validateName(_0x3e8b46){var _0xef39f6='';if(_0x3e8b46['value'][_0x4128('0x28')]==0x0){alert(_0x4128('0x30'));var _0xef39f6='1';}else{}return _0xef39f6;}function trim(_0x5d6aa5){return _0x5d6aa5[_0x4128('0x31')](/^\s+|\s+$/,'');}function validateEmail(_0x1568ac){var _0x2f5882='';var _0x194445=trim(_0x1568ac['value']);var _0x44491b=/^[^@]+@[^@.]+\.[^@]*\w\w$/;var _0x188aee=/[\(\)\<\>\,\;\:\"\[\]]/;if(_0x1568ac[_0x4128('0x23')]==''){alert(_0x4128('0x30'));var _0x2f5882='2';}else if(!_0x44491b[_0x4128('0x32')](_0x194445)){alert('Please\x20enter\x20a\x20valid\x20email\x20to\x20submit');var _0x2f5882='3';}else if(_0x1568ac['value'][_0x4128('0x33')](_0x188aee)){alert(_0x4128('0x34'));var _0x2f5882='4';}else{}return _0x2f5882;}function validatePhone(_0x5a1bbf){var _0x3818d8='';var _0x1c1fc4=_0x5a1bbf[_0x4128('0x23')]['replace'](/[\(\)\.\-\ ]/g,'');if(_0x5a1bbf[_0x4128('0x23')]==''){alert(_0x4128('0x30'));var _0x3818d8='6';}else if(isNaN(parseInt(_0x1c1fc4))){alert(_0x4128('0x35'));var _0x3818d8='5';}else if(_0x1c1fc4['length']<0xa){alert(_0x4128('0x35'));var _0x3818d8='6';}else{}return _0x3818d8;}
     </script>
-    <script>
-    var total;
-
-		function getRandom(){return Math.ceil(Math.random()* 20);}
-		function createSum(){
-				var randomNum1 = getRandom(),
-					randomNum2 = getRandom();
-			total =randomNum1 + randomNum2;
-		  $( "#math_question" ).text( randomNum1 + " + " + randomNum2 + " = ?" );  
-		  $("#math_ans").val('');
-		  checkInput();
-		}
-		
-		function checkInput(){
-				var input = $("#math_ans").val(), 
-		    	slideSpeed = 200,
-		      hasInput = !!input, 
-		      valid = hasInput && input == total;
-		    $('#math_message').toggle(!hasInput);
-		    $('button[type=submit]').prop('disabled', !valid);  
-		    $('#math_success').toggle(valid);
-		    $('#math_fail').toggle(hasInput && !valid);
-		}
-		
-		$(document).ready(function(){
-			//create initial sum
-			createSum();
-			// On "reset button" click, generate new random sum
-			$('button[type=math_reset]').click(createSum);
-			// On user input, check value
-			$( "#math_ans" ).keyup(checkInput);
-		});
-  
-    </script>
-    
     <!-- End Script -->
         
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){document.getElementById('successMessage').style.display='block';}" frameborder="0"> 
@@ -181,11 +146,9 @@
       <br>
       <br>
     	<div id="form">
-    		<form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSd12t9bEUcMlKdwVXyvDIVu1b5cKkPKGCd5hSaTtBeiaZBudg/formResponse" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
+    		<form action="" id="contactForm" method="POST" target="hidden_iframe" onsubmit="return validateFormOnSubmit(this); event.preventDefault();"> <!--onsumbit="return validateFormOnSubmit(this);"    onsubmit="submitted=true;" -->
     			<!--<input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 required/> -->
     			<!--<span>Message</span>-->
-  				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
-  				<!-- <span>Name</span> -->
   				<input type="text" name="catcher" id="catcher_id" class="catcher_class" value="" />
   				<!-- <span>Name</span> -->
     			<input type="text" name="entry.2062577226" id="name" class="name" placeholder="Enter your name" tabindex=1 required/>
@@ -199,7 +162,7 @@
     			<br>
           <span style="font: bold normal 12px Arial, Helvetica, sans-serif; line-height: 10px;"> To submit, click the captcha below (may take a few seconds)</span>        
           <br>
-    			<button type="submit" name="submit" id="ss-submit" class="submit_btn" tabindex=5>Submit</button>
+    			<button type="submit" name="submit" id="ss-submit" class="submit_btn btn_hidden" tabindex=5>Submit</button>
     			<br>
     			<div class="g-recaptcha" id="captchabox" data-sitekey="6LfVM1EUAAAAABE6UYQino6WB7EHeSDA6yNHgBWn" data-callback="imNotARobot">
     			</div>
@@ -285,6 +248,13 @@ button:disabled{
 	cursor: default;
 }
 
+.btn_hidden {
+  visibility: hidden;
+}
+
+#ss-submit:disabled {
+  visibility: hidden;
+}
 .catcher_class {
 	display: none; 
 	visibility: hidden;
