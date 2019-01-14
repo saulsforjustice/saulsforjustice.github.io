@@ -1,0 +1,334 @@
+-----------
+MS DOS rename files in current dir (remove prefix)
+
+set "fname="
+Next is the command to actually do the renaming. It won't work properly if fname is already defined.
+for %a in (prefix*.txt) do @(set "fname=%a" & call ren "%fname%" "%fname:*prefix=%")
+-----------
+
+ls -halt (list files by modified date in descending order)
+--------
+(find files in temp by date and print/delete)
+find RAWSPEC* -maxdepth 1 -mtime -1 -type f -name "MALDI*" -print 
+find RAWSPEC* -maxdepth 1 -mtime -1 -type f -name "MALDI*" -delete 
+
+find RAWSPEC* -maxdepth 1 -mtime -1 -type f -name "*A^1.txt" -print
+find RAWSPEC* -maxdepth 1 -mtime -1 -type f -name "*A^1.txt" -print 
+
+find path_A -name '*AAA*' -exec mv -t path_B {} + (to move found files to new dir)
+
+-mmin n
+ File's data was last modified n minutes ago.
+-mtime n
+ File's data was last modified n*24 hours ago.  See the
+ comments for -atime to understand how rounding affects the
+ interpretation of file modification times.
+-------
+
+======== Cloud9 Git Setup =============
+
+cd into proper directory then: 
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git
+
+git remote get-url --all
+
+=== For Github ===
+git init  (rm -rf .git)
+echo "# demo3" >> README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/saulsforjustice/saulsforjustice.github.io
+git push -u origin master 
+(if failure:
+git rest, git reset HEAD~
+git pull 
+or
+git pull origin master 
+or
+git pull origin master --allow-unrelated-histories
+git merge origin origin/master
+or
+git branch --set-upstream-to=origin/master master
+git pull)
+saulsforjustice, S..9 (for sjp)
+day09, G..1 (for aznow)
+dav2092098, same (for scsn)
+===================
+
+=== For GitLab ===
+\\
+Force pull:
+git fetch --all
+Then, you have two options:
+
+git reset --hard origin/master
+
+OR If you are on some other branch:
+
+git reset --hard origin/<branch_name>
+
+Explanation:
+git fetch downloads the latest from remote without trying to merge or rebase anything.
+Then the git reset resets the master branch to what you just fetched. The --hard option changes all the files in your working tree to match the files in origin/master
+//
+
+\\
+must add .gitlab-ci.yml using following:
+git add .gitlab-ci.yml
+git commit -m "Add .gitlab-ci.yml"
+git push origin master
+//
+
+Git local setup:
+git config --local user.name "dayo9"
+git config --local user.email "dayodele@asu.edu"
+
+Create a new repository:
+git clone https://gitlab.com/dayo9/scsn.git
+cd scsn
+touch README.md
+git add README.md
+git commit -m "add README"
+(in event of error: git reset HEAD~)
+git push -u origin master
+
+Existing folder:
+cd existing_folder
+git init
+git remote add origin https://gitlab.com/dayo9/scsn.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+(git add -u to stage only modified and deleted files)
+(git commit -a to commit only the modified and deleted files)
+(if "error: The following untracked working tree files would be overwritten by merge" try git rm --cached (save files first))
+(git clean -dfx --dry-run  will delete all untracked files so use cautiously)
+
+git commit -m "Initial commit"
+git push -u origin master
+
+Existing Git repository: <---------- Multiple Git pushes---------- <
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin https://gitlab.com/dayo9/scsn.git
+git push -u origin --all
+git push -u origin --tags
+
+
+pages file will be available as follows:
+https://aznow.gitlab.io/pac/aznowpac.html
+
+Setup Github on top of Gitlab:
+git remote rename origin gitlab
+git remote add origin https://github.com/dav2092098/scsn.git
+git remote rename origin github
+git push -u github master 
+
+go into .git dir > open config file and modify [remote "gitlab"] 
+to [remote "origin"] and modify "remote = github" to "remote = origin" 
+so default is gitlab
+
+(user: dav2092098)
+==================
+
+https://github.com/day09/demo3/blob/master/MALDI_NN_draft8.ipynb
+http://nbviewer.jupyter.org/github/day09/demo3/blob/master/MALDI_NN_draft8.ipynb
+
+on centOS
+sudo yum -y install epel-release
+sudo yum -y install filezilla
+
+on Ubuntu:
+sudo apt-get install wget
+
+python:
+for python 2.7 :
+$ wget http://repo.continuum.io/archive/Anaconda2-4.3.0-Linux-x86_64.sh
+for python3.X:
+$ wget http://repo.continuum.io/archive/Anaconda3-4.3.0-Linux-x86_64.sh
+
+for python 2.7:
+bash Anaconda2-4.3.0-Linux-x86_64.sh
+for Python 3.X:
+bash Anaconda3-4.3.0-Linux-x86_64.sh
+
+Miniconda
+$ wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
+$ bash Miniconda-latest-Linux-x86_64.sh
+
+If it is desirable for us to launch the newly installed Python version when typing python in the shell, then we need to add an export line to the ~/.bashrc file of all the users that have a need for this behavior (for instance, the user our web server runs as). ->
+$ export PATH=/usr/local/miniconda/bin:$PATH
+
+After editing the .bashrc file, run the following to make the changes take effect immediately.
+$ source ~/.bashrc
+
+install pip:
+$ conda install pip
+
+$ pip3 install --upgrade pip
+
+$ pip install jupyter
+$ conda install -c conda-forge jupyter_contrib_nbextensions
+$ pip install jupyterlab_widgets
+$ conda install -c conda-forge ipywidgets
+
+$ pip install bs4
+$ pip install selenium
+$ pip install pandas
+$ pip install openpyxl
+$ pip install xlwt
+$ pip install xlrd
+$ pip install matplotlib
+$ pip install plotly
+$ 
+
+download actual chrome browser for chromedriver to work:
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt-get install -f
+sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
+
+OR
+Add Key:
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+
+Set repo:
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+install package:
+sudo apt-get update 
+sudo apt-get install google-chrome-stable
+
+sudo apt-get install p7zip-full
+
+sudo apt-get install chromium-chromedriver
+
+LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
+
+or
+wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux32.zip
+
+Symlink chromedriver into /usr/local/bin/ so it's in your PATH and available system-wide:
+unzip chromedriver_linux64.zip && sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
+or
+unzip chromedriver_linux32.zip && sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
+
+OR
+
+wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
+
+wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux32.tar.gz
+
+tar -xvzf geckodriver*
+chmod +x geckodriver
+export PATH=$PATH:/path-to-extracted-file/geckodriver
+
+need a virtual browser for linux:
+sudo pip install virtualenv
+
+creates dir for virtual env:
+mkdir mytests && cd $_
+
+run virtual env:
+virtualenv -p /usr/bin/python2.7 venv
+
+source venv/bin/activate
+
+install selenium in new venv
+$ pip install selenium
+
+install plotly (for plotting & displaying)
+$ conda install -c https://conda.anaconda.org/plotly plotly
+$ conda install python=3.6 OR
+$ conda create -n py36_env python=3.6 anaconda
+$ (source) activate py36_env  (must be in dir or super for some reason, ctrl+d to exit super)
+$ source deactivate (to deactivate)
+$ python --version (to check version)
+$ conda env list (to check envs)
+
+To remove miniconda:
+conda install miniconda-clean
+anaconda-clean --yes
+
+(Backup directory: /home/ubuntu/.anaconda_backup/2017-11-15T004446)
+
+test it:
+python
+from selenium import webdriver
+d = webdriver.Chrome() or 
+d = webdriver.Firefox()
+d.get("http://www.google.com/")
+d.title
+
+result should be: u'Google'
+
+Start the notebook server from the command line:
+jupyter notebook or jupyter-notebook
+
+must change c9 default ports to view notebook:
+jupyter notebook --ip=0.0.0.0 --port=8081 --no-browser  or  
+jupyter-notebook --ip=0.0.0.0 --port=8081 --no-browser --allow-root
+$ ctrl + c (quit)
+
+http://cpic-day9.c9users.io:8081/?token=b8331e9b28c98ff68ffa28616c28dfa9bd4005d4dd71710e
+
+set password:
+find / -name "filename"  find / -name "*.pdf"
+cd ~/.jupyter
+/home/ubuntu/.local/share/jupyter
+/home/ubuntu/miniconda2/share/jupyter
+/home/ubuntu/miniconda2/bin/jupyter
+
+find /home/username/ -name "*.err"
+find /home -name "jupyter_notebook_config.py"
+
+jupyter notebook --generate-config
+jupyter notebook password or jupyter-notebook password
+-> Enter password:  ****
+-> Verify password: ****
+-> [NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json
+
+change nbextensions_path = [] to path of nbextensions 
+password = ' '
+Session.key = b' '
+NotebookApp.token = '<generate>'
+NotebookApp.login_handler_class = 'notebook.auth.login.LoginHandler'
+----------------------
+vim:
+search for word:
+/\<word\>
+\< means beginning of a word, and \> means the end of a word,
+sudo apt-get install vim-gnome (to install vim w clipboard)
+insert: i, save & quit: :wq
+select all & copy in vim   :%y+
+copy and paste in bash     cp -i /home/levan/kdenlive/original.mpg /destination/sda3/SkyDrive/
+
+cp -i /home/ubuntu/.jupyter/jupyter_notebook_config.py /home/ubuntu/workspace/mytests/
+
+get file path in bash    readlink -f file.txt
+
+1. Insert mode (Where you can just type like normal text editor. Press i for insert mode)
+
+2. Command mode (Where you give commands to the editor to get things done . Press ESC for command mode)
+
+Most of them below are in command mode
+
+x - to delete the unwanted character
+u - to undo the last the command and U to undo the whole line
+CTRL-R to redo
+A - to append text at the end
+:wq - to save and exit
+:q! - to trash all changes
+dw - move the cursor to the beginning of the word to delete that word
+2w - to move the cursor two words forward.
+3e - to move the cursor to the end of the third word forward.
+0 (zero) to move to the start of the line.
+d2w - which deletes 2 words .. number can be changed for deleting the number of consecutive words like d3w
+dd to delete the line and 2dd to delete to line .number can be changed for deleting the number of consecutive words
+The format for a change command is: operator [number] motion
+-operator - is what to do, such as d for delete
+- [number] - is an optional count to repeat the motion
+- motion - moves over the text to operate on, such as w (word),
+$ (to the end of line), etc.
